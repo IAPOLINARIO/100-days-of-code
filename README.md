@@ -13,4 +13,4 @@ All the challenges presented here goes from easy to hard levels. Most of the cha
 * Try to come up with a solution, even if it's not the best
 * Try to always write tests for your code
 
-- Have fun
+## Have fun
