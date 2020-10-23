@@ -4,9 +4,7 @@ To train for an upcoming marathon, Johnny goes on one long-distance run each Sat
 
 Create a function that takes in an array of miles run every Saturday and returns Johnny's total number of progress days.
 
-````
-
-#### Examples
+### Examples
 
 ```text
 progressDays([3, 4, 1, 2]) ➞ 2
@@ -17,7 +15,7 @@ progressDays([10, 11, 12, 9, 10]) ➞ 3
 progressDays([6, 5, 4, 3, 2, 9]) ➞ 1
 
 progressDays([9, 9])  ➞ 0
-````
+```
 
 ---
 
