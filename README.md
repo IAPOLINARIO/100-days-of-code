@@ -10,7 +10,7 @@ Most of the challenges can be solved in three hours or less.
 - Choose a language you wan't to learn or improve
 - Share your progress daily in your social medias
 - Don't copy code from the internet
-- Try to come up with a solution, even if it's not the best
-- Try to always write tests for your code
+- Try to come up with a clean and elegant solution
+- Always write tests (and make them pass)
 
 ## Have fun
