@@ -42,7 +42,7 @@ LandscapeType([9, 7, 3, 1, 2, 4]) ➞ "valley"
 
 LandscapeType([9, 8, 9]) ➞ "valley"
 
-LandscapeType([9, 8, 9, 8]) ➞ "neither"```
+LandscapeType([9, 8, 9, 8]) ➞ "neither"
 ```
 
 ---
