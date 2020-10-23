@@ -35,7 +35,7 @@ Based on the rules above, write a function that takes in an array and returns ei
 
 ### Examples
 
-````text
+```text
 LandscapeType([3, 4, 5, 4, 3]) ➞ "mountain"
 
 LandscapeType([9, 7, 3, 1, 2, 4]) ➞ "valley"
@@ -51,4 +51,3 @@ LandscapeType([9, 8, 9, 8]) ➞ "neither"
 
 - A peak is not exactly the same as the **max** of an array. The **max** is a unique number, but an array may have multiple peaks. However, if there exists only one peak in an array, then it is true that the peak = max.
 - See comments for a hint.
-````
