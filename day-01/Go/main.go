@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+	"strings"
 )
 
 func main() {
@@ -14,7 +15,7 @@ func main() {
 
 	input, _ := reader.ReadString('\n')
 
-	age, err := strconv.ParseInt(input, 10, 64)
+	age, err := strconv.ParseInt(strings.TrimRight(input, "\r\n"), 10, 64)
 
 	if err != nil {
 		fmt.Println("Something went wrong")
