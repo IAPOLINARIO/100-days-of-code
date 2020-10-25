@@ -8,7 +8,7 @@ Most of the challenges can be solved in three hours or less.
 
 ## 🚩 Rules
 
-- The main rule is: Code at least an hour every day (don't skip the weekends/holidays)
+- The main rule is: Code at least an hour every day (don't skip weekends/holidays)
 - Choose a language you wan't to learn or improve
 - Share your progress daily in your social medias
 - Don't copy code from the internet
