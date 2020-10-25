@@ -8,6 +8,10 @@ import (
 	"strings"
 )
 
+const (
+	daysInYear = 365
+)
+
 func main() {
 	reader := bufio.NewReader(os.Stdin)
 
@@ -15,12 +19,25 @@ func main() {
 
 	input, _ := reader.ReadString('\n')
 
-	age, err := strconv.ParseInt(strings.TrimRight(input, "\r\n"), 10, 64)
+	ageResult, err := CalculateAge(input)
 
 	if err != nil {
-		fmt.Println("Something went wrong")
+		fmt.Printf("Sorry, but something went wrong: %v", err)
 	} else {
-		fmt.Printf("You are %d years old \n", age)
+		fmt.Printf("You are %d days old \n", ageResult)
 	}
 
+}
+
+func CalculateAge(input string) (int64, error) {
+
+	trimmedInput := strings.TrimRight(input, "\r\n")
+	parsedAge, err := strconv.ParseInt(trimmedInput, 10, 64)
+	if err != nil {
+		return parsedAge, err
+	}
+
+	ageinDays := parsedAge * daysInYear
+
+	return ageinDays, err
 }
