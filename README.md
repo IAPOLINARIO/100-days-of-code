@@ -4,7 +4,9 @@ The idea of the project is to commit yourself at least one hour a day to code in
 All the challenges present here are medium/hard level. You can (and you should) participate even if you don't have much experience with coding, it will only take a bit longer.
 Most of the challenges can be solved in three hours or less.
 
-### Rules
+---
+
+## 🚩 Rules
 
 - The main rule is: Code at least an hour every day (don't skip the weekends/holidays)
 - Choose a language you wan't to learn or improve
@@ -13,4 +15,8 @@ Most of the challenges can be solved in three hours or less.
 - Try to come up with a clean and elegant solution
 - Always write tests (and make them pass)
 
-## Have fun
+---
+
+#### Original Idea
+
+Check out the [#100DaysOfCode Project](https://https://www.100daysofcode.com/). Changing your habits you are changing your life. Remember that the best time to start is always NOW.
