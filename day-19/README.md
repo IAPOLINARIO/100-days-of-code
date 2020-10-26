@@ -13,7 +13,7 @@ you need to dockerized a microservice (Django/Wordpress/Nginx) and use Postgres/
 
 ### Constraints
 
-- You need to use a CI/CD tool in the stack
+- You have to use a at least one tool for CI/CD tool
 - The whole stack need to be containerized
-- You need to use Docker Compose
-- Kubernetes is a plus
+- You have to use Docker Compose to spin-up the stack
+- Kubernetes is a plus (Docker Swarm can also be used)
