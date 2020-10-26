@@ -1,4 +1,4 @@
-## CI/CD Pipeline
+## Docker - CI/CD Pipeline
 
 In software engineering, CI/CD or CICD generally refers to the combined practices of continuous integration and continuous delivery (aka continuous deployment).
 
