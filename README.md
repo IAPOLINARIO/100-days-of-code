@@ -19,4 +19,4 @@ Most of the challenges can be solved in three hours or less.
 
 #### Original Idea
 
-Check out the [#100DaysOfCode Project](https://https://www.100daysofcode.com/). Changing your habits you are changing your life. Remember that the best time to start is always NOW.
+Check out the [#100DaysOfCode Project](https://www.100daysofcode.com/). Changing your habits you are changing your life. Remember that the best time to start is always NOW.
