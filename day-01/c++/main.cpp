@@ -13,7 +13,7 @@ int calcAge(int years) {
 /**
  * Finding Nemo TEST
  */
-TEST_CASE("Finding Nemo TEST") {    
+TEST_CASE("calcAge TEST") {    
     CHECK(calcAge(0) == 0);
     CHECK(calcAge(20) == 7300);
     CHECK(calcAge(65) == 23725);    
