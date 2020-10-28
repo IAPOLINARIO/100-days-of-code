@@ -1,26 +1,20 @@
-#include <iostream>
+/**
+ * DAY-01 C++ version
+ * 
+ * Just run 'make' to compile and run all the tests
+ */
+#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN 
+#include "doctest.h" //https://github.com/onqtam/doctest
 
-const int NUMBER_OF_ARGS = 2;
-const int DAYS_OF_YEAR = 365;
+int calcAge(int years) {
+    return years * 365;
+}
 
-int main(int argc, char *argv[])
-{
-    //check number of args
-    if (argc != NUMBER_OF_ARGS) {
-        std::cerr << "Please enter age in years\n";
-        return -1;
-    }
-
-    //check if the input is an integer
-    char *end;
-    int years = strtol(argv[1], &end, 10);
-    if (*end) {
-        std::cerr << "Invalid arguments\n";
-        return -1;
-    }
-
-    //output age in days
-    std::cout << "Age in days -> " << years * DAYS_OF_YEAR << std::endl;
-
-    return 0;
+/**
+ * Finding Nemo TEST
+ */
+TEST_CASE("Finding Nemo TEST") {    
+    CHECK(calcAge(0) == 0);
+    CHECK(calcAge(20) == 7300);
+    CHECK(calcAge(65) == 23725);    
 }
