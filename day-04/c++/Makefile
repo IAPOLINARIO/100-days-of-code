@@ -8,7 +8,7 @@ main: main.o
 	@mkdir -p ./$(BIN_DIR)		
 	
 	@echo
-	@echo Compling...
+	@echo Compiling...
 	@$(CC) $(CCFLAGS) -o $(BIN_DIR)/main main.o	
 	
 	@echo
