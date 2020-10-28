@@ -5,11 +5,13 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"strings"
 )
 
-type bbqSkewers struct {
-	skewer string
-}
+const (
+	vegan    = "o"
+	nonvegan = "x"
+)
 
 func main() {
 
@@ -17,36 +19,40 @@ func main() {
 
 	fmt.Printf("Enter the bbq configuration: \n")
 
-	input, err := reader.ReadString('\n')
+	input, _ := reader.ReadString('\n')
+
+	result, err := parseJson(input)
 
 	if err != nil {
-		fmt.Printf("Sorry, but something went wrong: %v", err)
-	} else {
-		parseJson(input)
+		fmt.Print(err)
 	}
 
+	fmt.Print(result)
 }
 
-func parseJson(input string) {
+func parseJson(input string) (result string, error error) {
+	vegetarianSkewers := 0
+	NonvegetarianSkewers := 0
 
-	staticInput := `bbqSkewers([
-  					"--oooo-ooo--",
-  					"--xx--x--xx--",
-  					"--o---o--oo--",
-  					"--xx--x--ox--",
-  					"--xx--x--ox--"
-					])`
+	var SkewerArr []string
+	err := json.Unmarshal([]byte(input), &SkewerArr)
 
-	var skewers []bbqSkewers
-	json.Unmarshal([]byte(staticInput), &skewers)
+	if err != nil {
+		return result, fmt.Errorf("Something went wrong parsing the input !")
+	}
 
-	fmt.Printf("Skewers: %+v", staticInput)
+	for _, s := range SkewerArr {
+		if strings.Contains(s, nonvegan) {
+			NonvegetarianSkewers += 1
+		} else {
+			if strings.Contains(s, vegan) {
+				vegetarianSkewers += 1
+			}
+		}
+
+	}
+
+	result = fmt.Sprintf("[%v,%v]", vegetarianSkewers, NonvegetarianSkewers)
+
+	return result, nil
 }
-
-// bbqSkewers([
-// 	"--oooo-ooo--",
-// 	"--xx--x--xx--",
-// 	"--o---o--oo--",
-// 	"--xx--x--ox--",
-// 	"--xx--x--ox--"
-//   ])
