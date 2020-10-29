@@ -1,19 +1,17 @@
-## Docker - CI/CD Pipeline
+## URL Shortener
 
-In software engineering, CI/CD or CICD generally refers to the combined practices of continuous integration and continuous delivery (aka continuous deployment).
-
-In this challenge, you need to set up a CICD pipeline using Jenkins (or any other tool you like). The idea is to create a pipeline to build all the code you have developed so far in this challenge. To make things even more interesting,
-you need to dockerized a microservice (Django/Wordpress/Nginx) and use Postgres/SQL as a database. You're free to add more services to the stack as well.
+URL shortening is used to create shorter aliases for long URLs. We call these shortened aliases “short links.” Users are redirected to the original URL when they hit these short links. Short links save a lot of space when displayed, printed, messaged, or tweeted. Additionally, users are less likely to mistype shorter URLs. URL shortening is used to optimize links across devices, track individual links to analyze audience, measure ad campaigns’ performance, or hide affiliated original URLs.
 
 <p align="left">
-  <img src="../assets/docker.png" alt="Docker Stack">
+  <img src="../assets/url_shortener.png" alt="Rain water trap">
 </p>
 
 ---
 
 ### Constraints
 
-- You have to use a at least one tool for CI/CD tool
-- The whole stack need to be containerized
-- You have to use Docker Compose to spin-up the stack
-- Kubernetes is a plus (Docker Swarm can also be used)
+- Given a URL, our service should generate a shorter and unique alias of it. This is called a short link. This link should be short enough to be easily copied and pasted into applications.
+- Users should optionally be able to pick a custom short link for their URL.
+- URL format must be validated
+- URL < 200 characters
+- Shortened links should not be guessable (not predictable).
