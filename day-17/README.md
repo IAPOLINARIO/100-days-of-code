@@ -1,34 +1,51 @@
-## Pajuba translator
+## Prison Break
 
-Pajubá (Portuguese pronunciation: [paʒuˈba]) is the name of the Brazilian cryptolect constituted of the insertion of numerous words and expressions coming from West African languages into the Portuguese language. It is spoken by practitioners of Afro-Brazilian religions, such as Candomblé and Umbanda, and by the Brazilian LGBT community. Its source languages include Umbundu, Kimbundo, Kikongo, Egbá, Ewe, Fon and Yoruba.
+A prison can be represented as an array of cells. Each cell contains exactly one prisoner. A `1` represents an unlocked cell and a `0` represents a locked cell.
 
-Given a phrase `p` in portuguese, convert it to the Pajuba Dialect using the dictonary file present in this challenge.
+```
+[1, 1, 0, 0, 0, 1, 0]
+```
+
+Starting inside the leftmost cell, you are tasked with seeing how many prisoners you can set free, with a catch. You are the prisoner in the first cell. If the first cell is locked, you cannot free anyone. Each time you free a prisoner, the locked cells become unlocked, and the unlocked cells become locked again.
+
+So, if we use the example above:
+
+```
+[1, 1, 0, 0, 0, 1, 0]
+// You free the prisoner in the 1st cell.
+
+[0, 0, 1, 1, 1, 0, 1]
+// You free the prisoner in the 3rd cell (2nd one locked).
+
+[1, 1, 0, 0, 0, 1, 0]
+// You free the prisoner in the 6th cell (3rd, 4th, and 5th locked).
+
+[0, 0, 1, 1, 1, 0, 1]
+// You free the prisoner in the 7th cell - and you are done!
+```
+
+Here, we have set free `4` prisoners in total.
+
+Create a function that, given this unique prison arrangement, returns the number of freed prisoners.
 
 ### Examples
 
 **Example 1**
 
 ```text
-Input: Nhaí, amapô! Não faça a loka e pague meu acué, deixe de equê se não eu puxo teu picumã!
-Output: E aí, mulher! Não se faça de desentendida, pague meu dinheiro, deixe de truque, senão eu puxo seu cabelo
-```
+freedPrisoners([1, 1, 0, 0, 0, 1, 0]) ➞ 4
 
-**Example 2**
+freedPrisoners([1, 1, 1]) ➞ 1
 
-```text
-Input: Veja só a pose da bicha!
-Output: Acuenda o carão da mona!
-```
+freedPrisoners([0, 0, 0]) ➞ 0
 
-**Example 3**
-
-```text
-Input: Não aguento essa situação
-Output: Não tô podendo
+freedPrisoners([0, 1, 1, 1]) ➞ 0
 ```
 
 ---
 
-### Constraints
+### Notes
 
-- `p < 100 words`
+- You are the prisoner in the first cell. You must be freed to free anyone else.
+- You must free a prisoner in order for the locks to switch. So in the second example where the input is `[1, 1, 1]` after you release the first prisoner, the locks change to `[0, 0, 0]`. Since all cells are locked, you can release no more prisoners.
+- You always start with the leftmost element in the array (the first prison cell). If all the prison cells to your right are all zeroes, you cannot free any more prisoners.
