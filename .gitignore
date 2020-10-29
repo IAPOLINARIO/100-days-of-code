@@ -5,6 +5,7 @@
 *.so
 *.dylib
 *.o
+.vscode
 
 #Binaries folder
 bin/
