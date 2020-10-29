@@ -3,7 +3,7 @@
 ## Requirements
 
 Design an API endpoint that provides autocomplete suggestions for large cities.
-The suggestions should be restricted to cities in the USA, and Canada with a population above 5000 people.
+The suggestions should be restricted to cities in the USA, Brazil and Canada with a population above 5000 people.
 
 - the endpoint is exposed at `/suggestions`
 - the partial (or complete) search term is passed as a query string parameter `q`
