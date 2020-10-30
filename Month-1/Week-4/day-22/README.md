@@ -5,7 +5,7 @@ This is an increase of 29.5% over the previous period (August 2017 to July 2018)
 Taking him as an example, create an algorithm that given a deforested area (in km2) it returns the correspondent amount of football fields.
 
 <p align="left">
-  <img src="../assets/amazon_deforestation.jpg" alt="Amazon Forest Burning">
+  <img src="../../../assets/amazon_deforestation.jpg" alt="Amazon Forest Burning">
 </p>
 
 ## Examples

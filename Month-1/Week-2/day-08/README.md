@@ -5,7 +5,7 @@ Given a string containing digits from 2-9 inclusive, return all possible letter 
 A mapping of digit to letters (just like on the telephone buttons) is given below. Note that 1 does not map to any letters.
 
 <p align="left">
-  <img src="../assets/Telephone-keypad2.png" alt="telefone keypad">
+  <img src="../../../assets/Telephone-keypad2.png" alt="telefone keypad">
 </p>
 
 ### Examples

@@ -7,7 +7,7 @@ Given `n` non-negative integers representing an elevation map where the width of
 **Example 1:**
 
 <p align="left">
-  <img src="../assets/rainwatertrap.png" alt="Rain water trap">
+  <img src="../../../assets/rainwatertrap.png" alt="Rain water trap">
 </p>
 
 ```text

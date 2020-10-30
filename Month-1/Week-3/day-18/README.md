@@ -11,7 +11,7 @@ How many possible unique paths are there?
 **Example 1**
 
 <p align="left">
-  <img src="../assets/robot_maze.png" alt="Robot Maze">
+  <img src="../../../assets/robot_maze.png" alt="Robot Maze">
 </p>
 
 ```text
