@@ -15,7 +15,7 @@ DrawMaze(5,7)
 **Output**
 
 <p align="left">
-  <img src="../assets/maze.png" alt="Robot Maze">
+  <img src="../assets/maze.png" alt="Maze">
 </p>
 
 **Example 2**
