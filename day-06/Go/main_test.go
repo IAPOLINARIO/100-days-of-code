@@ -80,3 +80,14 @@ func Test_997_Prime(t *testing.T) {
 		t.Errorf("Your evaluation was incorrect, got: %v, want: %v", result, expectedResult)
 	}
 }
+
+func Test_999999999_Prime(t *testing.T) {
+	testInput := 999999999
+	expectedResult := 1000000007
+
+	result, _ := NextPrime(testInput)
+
+	if result != expectedResult {
+		t.Errorf("Your evaluation was incorrect, got: %v, want: %v", result, expectedResult)
+	}
+}
