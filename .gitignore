@@ -18,3 +18,14 @@ bin/
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+
+
+# Typescript ignores
+**/ts/*-debug.log
+**/ts/*-error.log
+**/ts/.nyc_output
+**/ts/dist
+**/ts/lib
+**/ts/package-lock.json
+**/ts/tmp
+**/ts/node_modules
