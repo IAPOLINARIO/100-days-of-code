@@ -4,14 +4,14 @@
  * Just run 'make' to compile and run all the tests
  */
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN 
-#include "../../dependencies/c++/doctest.h" //https://github.com/onqtam/doctest
+#include "../../../../dependencies/c++/doctest.h" //https://github.com/onqtam/doctest
 
 int calcAge(int years) {
     return years * 365;
 }
 
 /**
- * Finding Nemo TEST
+ * TEST
  */
 TEST_CASE("calcAge TEST") {    
     CHECK(calcAge(0) == 0);
