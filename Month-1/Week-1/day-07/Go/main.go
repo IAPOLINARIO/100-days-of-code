@@ -34,23 +34,26 @@ func MergeArrays(input_1 string, input_2 string) (result string, err error) {
 	_ = json.Unmarshal([]byte(input_1), &arr_1)
 	_ = json.Unmarshal([]byte(input_2), &arr_2)
 
-	for i := 0; i < len(arr_1); i++ {
-		for x := 0; x < len(arr_2); x++ {
-			if arr_1[i] == 0 {
-				arr_3 = append(arr_3, arr_2[x])
-				i += 1
-			} else if arr_1[i] < arr_2[x] {
-				arr_3 = append(arr_3, arr_1[i])
-				i += 1
-				x -= 1
-			} else if arr_1[i] > arr_2[x] {
-				arr_3 = append(arr_3, arr_2[x])
-			} else if arr_1[i] == arr_2[x] {
-				arr_3 = append(arr_3, arr_2[x])
-				arr_3 = append(arr_3, arr_1[i])
-				i += 1
-			}
+	sourceIndex := 0
+	destIndex := 0
 
+	for sourceIndex < len(arr_1) {
+		if destIndex < len(arr_2) && (arr_1[sourceIndex] == 0 || arr_1[sourceIndex] > arr_2[destIndex]) {
+			arr_3 = append(arr_3, arr_2[destIndex])
+			destIndex += 1
+			sourceIndex += 1
+		} else if destIndex >= len(arr_2) || arr_1[sourceIndex] < arr_2[destIndex] {
+			if arr_1[sourceIndex] > 0 {
+				arr_3 = append(arr_3, arr_1[sourceIndex])
+			}
+			sourceIndex += 1
+		} else if arr_1[sourceIndex] == arr_2[destIndex] {
+			arr_3 = append(arr_3, arr_1[sourceIndex])
+			arr_3 = append(arr_3, arr_2[destIndex])
+			sourceIndex += 1
+			destIndex += 1
+		} else {
+			sourceIndex += 1
 		}
 	}
 

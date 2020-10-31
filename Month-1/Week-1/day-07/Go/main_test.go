@@ -17,7 +17,7 @@ func TestMergeArray_1(t *testing.T) {
 }
 
 func TestMergeArray_2(t *testing.T) {
-	array_1 := "[1,2,3,4,5,0,0]"
+	array_1 := "[1,2,3,4,5,0,0,0]"
 	array_2 := "[2,5,6]"
 	expectedResult := "[1,2,2,3,4,5,5,6]"
 
