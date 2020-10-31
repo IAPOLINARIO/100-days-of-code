@@ -14,8 +14,7 @@
  * @param num2 integers
  * @return ordered list
  */
-std::list<int> merge(std::list<int> nums1, std::list<int> nums2) {
-    //optional - just to guarantee, sort the list of numbers (it should be already sorted)
+std::list<int> merge(std::list<int> nums1, std::list<int> nums2) {    
     nums1.sort();
     nums2.sort();
     nums1.merge(nums2);
