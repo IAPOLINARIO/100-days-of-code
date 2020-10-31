@@ -10,8 +10,9 @@
 /**
  * Merge two lists of numbers.
  *
- * @param number 
- * @return next prime number
+ * @param num1 integers
+ * @param num2 integers
+ * @return ordered list
  */
 std::list<int> merge(std::list<int> nums1, std::list<int> nums2) {
     //optional - just to guarantee, sort the list of numbers (it should be already sorted)
