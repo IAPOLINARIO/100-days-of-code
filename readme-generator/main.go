@@ -155,7 +155,7 @@ func buildOutputResult(PRs []structs.PullRequest) {
 	sortedMap := SortMapByValue(req)
 
 	table := tablewriter.NewWriter(os.Stdout)
-	table.SetHeader([]string{"Ranking", "Contributor", "Challenges", "Total Points"})
+	table.SetHeader([]string{"Ranking", "Contributor", "Challenges Completed", "Total Points"})
 	table.SetBorders(tablewriter.Border{Left: true, Top: false, Right: true, Bottom: false})
 	table.SetCenterSeparator("|")
 
