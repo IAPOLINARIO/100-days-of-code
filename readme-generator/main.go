@@ -130,7 +130,7 @@ func buildOutputResult(PRs []structs.PullRequest) {
 				if len(match) > 0 {
 					userHasDoneLabel = true
 					if !strings.Contains(challengesDone, match[0]) {
-						challengesDone += match[0]
+						challengesDone = match[0]
 						totalPoints += 100
 					}
 				}
