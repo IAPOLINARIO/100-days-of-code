@@ -3,4 +3,4 @@ Month-1/Week-1/day-01/kts/build/
 *.class
 .vscode
 **/c++/bin/
-
+__pycache__
