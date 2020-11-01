@@ -17,6 +17,16 @@ Most of the challenges can be solved in three hours or less.
 
 ---
 
+## Ranking
+
+| RANKING | CONTRIBUTOR | CHALLENGES                                                     | TOTAL POINTS |
+| ------- | ----------- | -------------------------------------------------------------- | ------------ |
+| 1       | acanova     | day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01 | 900          |
+| 2       | diogotorres | day-02,day-01                                                  | 200          |
+| 3       | IAPOLINARIO | day-01                                                         | 100          |
+
+---
+
 #### Original Idea
 
 Check out the [#100DaysOfCode Project](https://www.100daysofcode.com/). Changing your habits you are changing your life. Remember that the best time to start is always NOW.
