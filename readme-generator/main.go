@@ -160,7 +160,7 @@ func buildOutputResult(PRs []structs.PullRequest) {
 	table.SetCenterSeparator("|")
 
 	for k, v := range sortedMap {
-		result := []string{v[0], k, "[" + v[1] + "] (https://github.com/IAPOLINARIO/100-days-of-code/tree/main/Month-1/Week-1/" + v[1] + ")", v[2]}
+		result := []string{v[0], k, v[1], v[2]}
 		table.Append(result)
 	}
 
