@@ -33,3 +33,13 @@ func TestFindNemoAtPosition4(t *testing.T) {
 		t.Errorf("Finding Nemo position was incorrect, got: %d, want: %d.", nemoIndex, expectedResult)
 	}
 }
+
+func TestFindNemoAtPosition5(t *testing.T) {
+	testInput := "Right, now you found Nemo"
+	expectedResult := 5
+	nemoIndex := findNemo(testInput)
+
+	if nemoIndex != expectedResult {
+		t.Errorf("Finding Nemo position was incorrect, got: %d, want: %d.", nemoIndex, expectedResult)
+	}
+}
