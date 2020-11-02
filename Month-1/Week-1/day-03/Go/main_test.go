@@ -36,3 +36,14 @@ func Test3VeganAnd2Meat(t *testing.T) {
 		t.Errorf("Your skewer evaluation was incorrect, got: %s, want: %s", result, expectedResult)
 	}
 }
+
+func Test3VeganAnd3Meat(t *testing.T) {
+	testInput := ` ["--oo--o--oo--x-xxx-x-","--oooo-ooo--","--oo--o--oo--","--oo--x--x--","--oo--o--oo--", "--oo--o--xo--"] `
+	expectedResult := "[3,3]"
+
+	result, _ := parseJson(testInput)
+
+	if result != expectedResult {
+		t.Errorf("Your skewer evaluation was incorrect, got: %s, want: %s", result, expectedResult)
+	}
+}
