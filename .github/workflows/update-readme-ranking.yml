@@ -17,7 +17,9 @@ jobs:
           go-version: ^1.15
 
       - name: Check out code
-        uses: actions/checkout@main
+        uses: actions/checkout@v2
+        with:
+          ref: main
 
       - name: Get dependencies
         run: |
@@ -38,4 +40,13 @@ jobs:
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           git add .
           git commit -am "Updating ranking"
-          git push --all -f https://${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          commit-message: Update Readme
+          reviewers: IAPOLINARIO
+          title: Update Readme
+          body: Update Readme with the new ranking
+          branch: update-ranking
+          base: main
