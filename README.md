@@ -21,11 +21,11 @@ Most of the challenges can be solved in three hours or less.
 
 | RANKING | CONTRIBUTOR |                      CHALLENGES COMPLETED                      | TOTAL POINTS |
 |---------|-------------|----------------------------------------------------------------|--------------|
+|       3 | diogotorres | day-02,day-01                                                  |          200 |
 |       1 | acanova     | day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01 |          900 |
 |       2 | IAPOLINARIO | day-07,day-06,day-05,day-04,day-03,day-02,day-01               |          700 |
-|       3 | diogotorres | day-02,day-01                                                  |          200 |
 
-Latest Update: 2020-11-02 15:02:40.653579476 +0000 UTC m=+1.014855119
+Latest Update: 2020-11-02 16:22:35.015378154 +0000 UTC m=+0.778798461
 
 ---
 
