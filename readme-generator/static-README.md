@@ -20,7 +20,7 @@ Most of the challenges can be solved in three hours or less.
 ## Ranking
 
 ##RANKING_TOKEN##
-Latested Update: ##LATEST_UPDATED##
+Latest Update: ##LATEST_UPDATED##
 
 ---
 

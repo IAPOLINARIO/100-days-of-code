@@ -44,9 +44,9 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
-          commit-message: Update Readme
+          commit-message: Updating Readme file
           reviewers: IAPOLINARIO
-          title: Update Readme
+          title: Updating Readme
           body: Update Readme with the new ranking
           branch: update-ranking
           base: main
