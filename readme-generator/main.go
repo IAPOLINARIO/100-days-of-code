@@ -26,7 +26,7 @@ const (
 	templatePath     = "./static-README.md"
 	rankingToken     = "##RANKING_TOKEN##"
 	updateToken      = "##LATEST_UPDATED##"
-	ReadmePath       = "..\\README.md"
+	ReadmePath       = "../README.md"
 )
 
 func main() {
