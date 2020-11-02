@@ -11,6 +11,7 @@ import (
 	"sort"
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/IAPOLINARIO/100-days-of-code/readme-generator/structs"
 	"github.com/olekukonko/tablewriter"
@@ -22,6 +23,10 @@ const (
 	commitsURI       = "/repos/IAPOLINARIO/100-days-of-code/commits"
 	eventsURI        = "/repos/IAPOLINARIO/100-days-of-code/events"
 	pullRequestsURI  = "/repos/IAPOLINARIO/100-days-of-code/pulls?state=closed"
+	templatePath     = "./static-README.md"
+	rankingToken     = "##RANKING_TOKEN##"
+	updateToken      = "##LATEST_UPDATED##"
+	ReadmePath       = "..\\README.md"
 )
 
 func main() {
@@ -153,18 +158,33 @@ func buildOutputResult(PRs []structs.PullRequest) {
 	}
 
 	sortedMap := SortMapByValue(req)
+	filecontent := getTemplateFile()
+	rankingTable := buildRankingTable(&sortedMap)
+	updatedReadme := strings.Replace(filecontent, rankingToken, rankingTable, 1)
+	updatedReadme = strings.Replace(updatedReadme, updateToken, time.Now().String(), 1)
 
-	table := tablewriter.NewWriter(os.Stdout)
+	writeReadme(updatedReadme)
+	fmt.Println(updatedReadme)
+
+	//buildRankingTable(&sortedMap)
+}
+
+func buildRankingTable(sortedMap *map[string][]string) string {
+	//table := tablewriter.NewWriter(os.Stdout)
+	tableString := &strings.Builder{}
+	table := tablewriter.NewWriter(tableString)
 	table.SetHeader([]string{"Ranking", "Contributor", "Challenges Completed", "Total Points"})
 	table.SetBorders(tablewriter.Border{Left: true, Top: false, Right: true, Bottom: false})
 	table.SetCenterSeparator("|")
 
-	for k, v := range sortedMap {
+	for k, v := range *sortedMap {
 		result := []string{v[0], k, v[1], v[2]}
 		table.Append(result)
 	}
 
 	table.Render()
+
+	return tableString.String()
 }
 
 func SortMapByValue(Map map[string][]string) map[string][]string {
@@ -211,4 +231,25 @@ func getPullRequests(token string) (PR []structs.PullRequest) {
 
 	return PRs
 	//fmt.Printf("These are the pull requests approved and done:\n")
+}
+
+func getTemplateFile() string {
+	data, err := ioutil.ReadFile(templatePath)
+
+	if err != nil {
+		panic(err)
+	}
+
+	return string(data)
+}
+
+func writeReadme(fileContent string) {
+	err := ioutil.WriteFile(ReadmePath, []byte(fileContent), 0)
+	if err != nil {
+		panic(err)
+	}
+
+	if err != nil {
+		log.Fatalf("failed writing to file: %s", err)
+	}
 }
