@@ -1,8 +1,6 @@
 name: update-readme-ranking
 
 on:
-  push:
-    branches: [main]
   pull_request:
     branches: [main]
 
