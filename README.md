@@ -23,9 +23,9 @@ Most of the challenges can be solved in three hours or less.
 |---------|-------------|----------------------------------------------------------------|--------------|
 |       1 | acanova     | day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01 |          900 |
 |       2 | IAPOLINARIO | day-07,day-06,day-05,day-04,day-03,day-02,day-01               |          700 |
-|       3 | diogotorres | day-02,day-01                                                  |          200 |
+|       3 | diogotorres | day-03,day-02,day-01                                           |          300 |
 
-Latest Update: 2020-11-02 15:02:40.653579476 +0000 UTC m=+1.014855119
+Latest Update: 2020-11-02 16:37:05.971702296 +0000 UTC m=+1.930565600
 
 ---
 
