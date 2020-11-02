@@ -34,8 +34,9 @@ jobs:
 
       - name: 🚀 Deploy
         run: |
+          git checkout -b ranking-update
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           git add .
           git commit -am "Updating ranking"
-          git push --all -f https://${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git
+          git push --set-upstream origin ranking-update --all -f https://${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git
