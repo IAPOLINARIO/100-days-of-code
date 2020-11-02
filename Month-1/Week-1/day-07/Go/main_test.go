@@ -51,3 +51,15 @@ func TestMergeArray_6(t *testing.T) {
 		t.Errorf("Your evaluation was incorrect, got: %v, want: %v", result, expectedResult)
 	}
 }
+
+func TestMergeArray_7(t *testing.T) {
+	array_1 := "[4,5,6,7,8,9,10,0,0,0]"
+	array_2 := "[4,5,6]"
+	expectedResult := "[4,4,5,5,6,6,7,8,9,10]"
+
+	result, _ := MergeArrays(array_1, array_2)
+
+	if result != expectedResult {
+		t.Errorf("Your evaluation was incorrect, got: %v, want: %v", result, expectedResult)
+	}
+}
