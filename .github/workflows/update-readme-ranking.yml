@@ -1,7 +1,7 @@
 name: update-readme-ranking
 
 on:
-  pull_request:
+  push:
     branches: [main]
 
 jobs:
