@@ -25,7 +25,7 @@ Most of the challenges can be solved in three hours or less.
 |       2 | IAPOLINARIO | day-07,day-06,day-05,day-04,day-03,day-02,day-01               |          700 |
 |       3 | diogotorres | day-03,day-02,day-01                                           |          300 |
 
-Latest Update: 2020-11-02 16:38:53.112437891 +0000 UTC m=+0.915066869
+Latest Update: 2020-11-02 22:16:26.222279291 +0000 UTC m=+1.007589863
 
 ---
 
