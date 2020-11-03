@@ -27,12 +27,12 @@ After review, if everything is fine with your PR, the branch will be merge into 
 | :trophy: 1          | IAPOLINARIO | day-10,day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01 |         1000 |
 | :2nd_place_medal: 2 | acanova     | day-10,day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01 |         1000 |
 | :3rd_place_medal: 3 | diogotorres | day-03,day-02,day-01                                                  |          300 |
+| :unamused: 4        | nucci       | day-2,day-1                                                           |          200 |
 
-Latest Update: 2020-11-03 21:27:41.9886268 +0100 CET m=+1.301999801
+Latest Update: 2020-11-03 20:29:27.000745553 +0000 UTC m=+1.248700705
 
 ---
 
 #### Original Idea
 
 Check out the [#100DaysOfCode Project](https://www.100daysofcode.com/). Changing your habits you are changing your life. Remember that the best time to start is always NOW.
-
