@@ -19,13 +19,19 @@ Most of the challenges can be solved in three hours or less.
 
 ## Ranking
 
-| RANKING | CONTRIBUTOR |                      CHALLENGES COMPLETED                      | TOTAL POINTS |
-|---------|-------------|----------------------------------------------------------------|--------------|
-|       1 | acanova     | day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01 |          900 |
-|       2 | IAPOLINARIO | day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01 |          900 |
-|       3 | diogotorres | day-03,day-02,day-01                                           |          300 |
+If you want to be part of the **challenge ranking**, you need to submit a pull request to be validated by the project contributors. The PR **must** have the label `done` and the title of the PR **must** include the challenge you are submitting (e.g. **day-10**), otherwise no points will not be added to the ranking.
+After review, if everything is fine with your PR, the branch will be merged into the `main` and the ranking generator **automated pipeline** will run everyday at 22:00PM (Amsterdam time) or when triggered manually, to update the README file.
 
-Latest Update: 2020-11-03 15:45:53.8861958 +0100 CET m=+1.549015401
+Check bellow the current ranking:
+
+|       RANKING       |                  CONTRIBUTOR                  |                         CHALLENGES COMPLETED                          | TOTAL POINTS |
+|---------------------|-----------------------------------------------|-----------------------------------------------------------------------|--------------|
+| :trophy: 1          | [IAPOLINARIO](https://github.com/IAPOLINARIO) | day-10,day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01 |         1000 |
+| :2nd_place_medal: 2 | [acanova](https://github.com/acanova)         | day-10,day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01 |         1000 |
+| :3rd_place_medal: 3 | [diogotorres](https://github.com/diogotorres) | day-03,day-02,day-01                                                  |          300 |
+| :unamused: 4        | [nucci](https://github.com/nucci)             | day-2,day-1                                                           |          200 |
+
+Latest Update: 2020-11-03 21:41:17.5274746 +0100 CET m=+1.419278701
 
 ---
 
