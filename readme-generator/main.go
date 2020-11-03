@@ -31,15 +31,12 @@ const (
 
 func main() {
 	token := os.Args[1]
-
-	//getCollaboratorStats(token)
-	//getCommits(token)
 	PRs := getPullRequests(token)
 
 	buildOutputResult(PRs)
 }
 
-func getGithubAPIResult(repoUrl string, token string) ([]byte, error) {
+func getGithubAPIResult(repoUrl string, token string) (*http.Response, error) {
 	// Create a token string by appending string access token
 	var bearer = "token  " + token
 
@@ -53,16 +50,17 @@ func getGithubAPIResult(repoUrl string, token string) ([]byte, error) {
 		log.Fatalln(err)
 	}
 
-	defer resp.Body.Close()
-
-	return ioutil.ReadAll(resp.Body)
+	return resp, err
 }
 
 func getCollaboratorStats(token string) {
 
-	bodyBytes, _ := getGithubAPIResult(baseGithubURI+collaboratorsURI, token)
+	resp, _ := getGithubAPIResult(baseGithubURI+collaboratorsURI, token)
+	bodyBytes, _ := ioutil.ReadAll(resp.Body)
+
 	// Convert response body to Contributors
 	var contributors []structs.Contributor
+
 	json.Unmarshal(bodyBytes, &contributors)
 
 	fmt.Printf("Contributors on this repo:\n")
@@ -70,11 +68,12 @@ func getCollaboratorStats(token string) {
 		fmt.Printf("%v \n", contr.Login)
 	}
 
-	//fmt.Printf("API Response as struct %+v\n", todoStruct)
 }
 
 func getCommits(token string) {
-	bodyBytes, _ := getGithubAPIResult(baseGithubURI+commitsURI, token)
+
+	resp, _ := getGithubAPIResult(baseGithubURI+commitsURI, token)
+	bodyBytes, _ := ioutil.ReadAll(resp.Body)
 
 	var commitBody []structs.Commit_Body
 	json.Unmarshal(bodyBytes, &commitBody)
@@ -85,14 +84,12 @@ func getCommits(token string) {
 
 		getcommit(token, c.Sha)
 	}
-	//bodyString := string(bodyBytes)
-	//fmt.Println("API Response as String:\n" + bodyString)
-
 }
 
 func getcommit(token string, id string) {
 	commitURI := baseGithubURI + commitsURI + "/" + id
-	bodyBytes, _ := getGithubAPIResult(commitURI, token)
+	resp, _ := getGithubAPIResult(commitURI, token)
+	bodyBytes, _ := ioutil.ReadAll(resp.Body)
 
 	var commit structs.Commit_Body
 	json.Unmarshal(bodyBytes, &commit)
@@ -112,7 +109,9 @@ func getcommit(token string, id string) {
 }
 
 func getEvents(token string) {
-	bodyBytes, _ := getGithubAPIResult(baseGithubURI+eventsURI, token)
+	resp, _ := getGithubAPIResult(baseGithubURI+eventsURI, token)
+	bodyBytes, _ := ioutil.ReadAll(resp.Body)
+
 	fmt.Printf("Latest Events:\n")
 
 	bodyString := string(bodyBytes)
@@ -222,15 +221,32 @@ func SortMapByValue(Map map[string][]string) map[string][]string {
 	return resultMap
 }
 
-func getPullRequests(token string) (PR []structs.PullRequest) {
-	bodyBytes, _ := getGithubAPIResult(baseGithubURI+pullRequestsURI, token)
-
-	fmt.Println(baseGithubURI + pullRequestsURI)
+func getPullRequests(token string) []structs.PullRequest {
 	var PRs []structs.PullRequest
+	resp, _ := getGithubAPIResult(baseGithubURI+pullRequestsURI, token)
+	bodyBytes, _ := ioutil.ReadAll(resp.Body)
 	json.Unmarshal(bodyBytes, &PRs)
 
+	links := strings.Split(resp.Header["Link"][0], ",")
+	lastLink := links[1]
+
+	rg := regexp.MustCompile("page=(\\d+)")
+	match := rg.FindStringSubmatch(lastLink)
+
+	totalPages, err := strconv.Atoi(match[1])
+
+	if err != nil {
+		panic(err)
+	}
+
+	for p := 2; p <= totalPages; p++ {
+		newPRs := []structs.PullRequest{}
+		respNextPage, _ := getGithubAPIResult(baseGithubURI+pullRequestsURI+"&page="+fmt.Sprint(p), token)
+		bodyBytesNextPage, _ := ioutil.ReadAll(respNextPage.Body)
+		json.Unmarshal(bodyBytesNextPage, &newPRs)
+		PRs = append(PRs, newPRs...)
+	}
 	return PRs
-	//fmt.Printf("These are the pull requests approved and done:\n")
 }
 
 func getTemplateFile() string {
