@@ -20,7 +20,9 @@ Most of the challenges can be solved in three hours or less.
 ## Ranking
 
 If you want to be part of the **challenge ranking**, you need to submit a pull request to be validated by the project contributors. The PR **must** have the label `done` and the title of the PR **must** include the challenge you are submitting (e.g. **day-10**), otherwise no points will not be added to the ranking.
-After review, if everything is fine with your PR, the branch will be merged into the `main` and the ranking generator pipeline will run to update the README file. Check bellow the current ranking:
+After review, if everything is fine with your PR, the branch will be merged into the `main` and the ranking generator **automated pipeline** will run everyday at 22:00PM (Amsterdam time) or when triggered manually, to update the README file.
+
+Check bellow the current ranking:
 
 |       RANKING       |                  CONTRIBUTOR                  |                         CHALLENGES COMPLETED                          | TOTAL POINTS |
 |---------------------|-----------------------------------------------|-----------------------------------------------------------------------|--------------|
@@ -29,7 +31,7 @@ After review, if everything is fine with your PR, the branch will be merged into
 | :3rd_place_medal: 3 | [diogotorres](https://github.com/diogotorres) | day-03,day-02,day-01                                                  |          300 |
 | :unamused: 4        | [nucci](https://github.com/nucci)             | day-2,day-1                                                           |          200 |
 
-Latest Update: 2020-11-03 21:37:34.3800615 +0100 CET m=+1.556512001
+Latest Update: 2020-11-03 21:41:17.5274746 +0100 CET m=+1.419278701
 
 ---
 
