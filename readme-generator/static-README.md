@@ -20,7 +20,7 @@ Most of the challenges can be solved in three hours or less.
 ## Ranking
 
 If you want to be part of the **challenge ranking**, you need to submit a pull request to be validated by the project contributors. The PR **must** have the label `done` and the title of the PR **must** include the challenge you are submitting (e.g. **day-10**), otherwise no points will not be added to the ranking.
-After review, if everything is fine with your PR, the branch will be merge into the `main` and the ranking generator will run to update the README file. Check bellow the current ranking:
+After review, if everything is fine with your PR, the branch will be merged into the `main` and the ranking generator will run to update the README file. Check bellow the current ranking:
 
 ##RANKING_TOKEN##
 Latest Update: ##LATEST_UPDATED##
