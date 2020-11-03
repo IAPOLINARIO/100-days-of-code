@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
+	"math/rand"
 	"net/http"
 	"os"
 	"regexp"
@@ -172,6 +173,8 @@ func buildRankingTable(sortedMap *map[string][]string) string {
 	//table := tablewriter.NewWriter(os.Stdout)
 	tableString := &strings.Builder{}
 	table := tablewriter.NewWriter(tableString)
+	emojiList := []string{":worried:", ":confused:", ":star2:", ":sweat_drops:", ":no_good:", ":older_man:", ":guardsman:", ":hear_no_evil:", ":see_no_evil:", ":speak_no_evil:", ":cool:", ":small_red_triangle_down:", ":cookie:", ":hamburger:", ":floppy_disk:", ":ghost:", ":snail:", ":zap:", ":poop:", ":imp:"}
+
 	table.SetHeader([]string{"Ranking", "Contributor", "Challenges Completed", "Total Points"})
 	table.SetBorders(tablewriter.Border{Left: true, Top: false, Right: true, Bottom: false})
 	table.SetCenterSeparator("|")
@@ -188,8 +191,10 @@ func buildRankingTable(sortedMap *map[string][]string) string {
 			ranking = ":2nd_place_medal:" + " " + ranking
 		} else if ranking == "3" {
 			ranking = ":3rd_place_medal:" + " " + ranking
-		} else if ranking == "4" {
-			ranking = ":unamused:" + " " + ranking
+		} else {
+			randomIndex := rand.Intn(len(emojiList))
+			emoji := emojiList[randomIndex]
+			ranking = emoji + " " + ranking
 		}
 
 		result := []string{ranking, contributor, challengesCompleted, totalPoints}
