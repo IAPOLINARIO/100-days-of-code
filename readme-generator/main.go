@@ -188,7 +188,7 @@ func buildRankingTable(sortedMap *map[string][]string) string {
 			ranking = ":2nd_place_medal:" + " " + ranking
 		} else if ranking == "3" {
 			ranking = ":3rd_place_medal:" + " " + ranking
-		} else {
+		} else if ranking == "4" {
 			ranking = ":unamused:" + " " + ranking
 		}
 
