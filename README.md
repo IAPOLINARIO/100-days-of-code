@@ -19,13 +19,16 @@ Most of the challenges can be solved in three hours or less.
 
 ## Ranking
 
-| RANKING | CONTRIBUTOR |                         CHALLENGES COMPLETED                          | TOTAL POINTS |
-|---------|-------------|-----------------------------------------------------------------------|--------------|
-|       1 | IAPOLINARIO | day-10,day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01 |         1000 |
-|       2 | acanova     | day-10,day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01 |         1000 |
-|       3 | diogotorres | day-03,day-02,day-01                                                  |          300 |
+If you want to be part of the **challenge ranking**, you need to submit a pull request to be validated by the project contributors. The PR **must** have the label `done` and the title of the PR **must** include the challenge you are submitting (e.g. **day-10**), otherwise no points will not be added to the ranking.
+After review, if everything is fine with your PR, the branch will be merge into the `main` and the ranking generator will run to update the README file. Check bellow the current ranking:
 
-Latest Update: 2020-11-03 19:53:53.752570204 +0000 UTC m=+1.118700793
+|       RANKING       | CONTRIBUTOR |                         CHALLENGES COMPLETED                          | TOTAL POINTS |
+|---------------------|-------------|-----------------------------------------------------------------------|--------------|
+| :trophy: 1          | IAPOLINARIO | day-10,day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01 |         1000 |
+| :2nd_place_medal: 2 | acanova     | day-10,day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01 |         1000 |
+| :3rd_place_medal: 3 | diogotorres | day-03,day-02,day-01                                                  |          300 |
+
+Latest Update: 2020-11-03 21:27:41.9886268 +0100 CET m=+1.301999801
 
 ---
 

@@ -177,7 +177,22 @@ func buildRankingTable(sortedMap *map[string][]string) string {
 	table.SetCenterSeparator("|")
 
 	for k, v := range *sortedMap {
-		result := []string{v[0], k, v[1], v[2]}
+		ranking := v[0]
+		contributor := k
+		challengesCompleted := v[1]
+		totalPoints := v[2]
+
+		if ranking == "1" {
+			ranking = ":trophy:" + " " + ranking
+		} else if ranking == "2" {
+			ranking = ":2nd_place_medal:" + " " + ranking
+		} else if ranking == "3" {
+			ranking = ":3rd_place_medal:" + " " + ranking
+		} else {
+			ranking = ":unamused:" + " " + ranking
+		}
+
+		result := []string{ranking, contributor, challengesCompleted, totalPoints}
 		table.Append(result)
 	}
 
