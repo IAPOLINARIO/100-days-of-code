@@ -26,12 +26,12 @@ Check bellow the current ranking:
 
 |       RANKING       |                  CONTRIBUTOR                  |                         CHALLENGES COMPLETED                          | TOTAL POINTS |
 |---------------------|-----------------------------------------------|-----------------------------------------------------------------------|--------------|
+| :unamused: 4        | [nucci](https://github.com/nucci)             | day-3,day-2,day-1                                                     |          300 |
 | :trophy: 1          | [IAPOLINARIO](https://github.com/IAPOLINARIO) | day-10,day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01 |         1000 |
 | :2nd_place_medal: 2 | [acanova](https://github.com/acanova)         | day-10,day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01 |         1000 |
 | :3rd_place_medal: 3 | [diogotorres](https://github.com/diogotorres) | day-03,day-02,day-01                                                  |          300 |
-| :unamused: 4        | [nucci](https://github.com/nucci)             | day-3,day-2,day-1                                                     |          300 |
 
-Latest Update: 2020-11-03 21:17:11.938415327 +0000 UTC m=+1.715624145
+Latest Update: 2020-11-03 22:16:22.897541984 +0000 UTC m=+1.194516211
 
 ---
 
