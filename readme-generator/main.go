@@ -178,7 +178,7 @@ func buildRankingTable(sortedMap *map[string][]string) string {
 
 	for k, v := range *sortedMap {
 		ranking := v[0]
-		contributor := k
+		contributor := "[" + k + "](" + "https://github.com/" + k + ")"
 		challengesCompleted := v[1]
 		totalPoints := v[2]
 
