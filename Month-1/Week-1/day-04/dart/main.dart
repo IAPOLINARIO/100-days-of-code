@@ -2,7 +2,7 @@ import 'dart:io';
 import 'dart:convert';
 
 void main() {
-  stdout.writeln('How do you wanna your skewers');
+  stdout.writeln('Let me know your Progress');
   var running = stdin.readLineSync();
   var lists = jsonDecode(running);
 
