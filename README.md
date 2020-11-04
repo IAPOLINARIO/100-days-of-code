@@ -24,15 +24,16 @@ After review, if everything is fine with your PR, the branch will be merged into
 
 Check bellow the current ranking:
 
-|       RANKING       |                  CONTRIBUTOR                  |                         CHALLENGES COMPLETED                          | TOTAL POINTS |
-|---------------------|-----------------------------------------------|-----------------------------------------------------------------------|--------------|
-| :trophy: 1          | [IAPOLINARIO](https://github.com/IAPOLINARIO) | day-10,day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01 |         1000 |
-| :2nd_place_medal: 2 | [acanova](https://github.com/acanova)         | day-10,day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01 |         1000 |
-| :3rd_place_medal: 3 | [diogotorres](https://github.com/diogotorres) | day-05,day-04,day-03,day-02,day-01                                    |          500 |
-| :confused: 4        | [nucci](https://github.com/nucci)             | day-3,day-2,day-1                                                     |          300 |
-| :hear_no_evil: 5    | [evandrom](https://github.com/evandrom)       | day-02,day-01                                                         |          200 |
+|       RANKING       |                   CONTRIBUTOR                   |                             CHALLENGES COMPLETED                             | TOTAL POINTS |
+|---------------------|-------------------------------------------------|------------------------------------------------------------------------------|--------------|
+| :trophy: 1          | [IAPOLINARIO](https://github.com/IAPOLINARIO)   | day-11,day-10,day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01 |         1100 |
+| :2nd_place_medal: 2 | [acanova](https://github.com/acanova)           | day-10,day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01        |         1000 |
+| :3rd_place_medal: 3 | [diogotorres](https://github.com/diogotorres)   | day-06,day-05,day-04,day-03,day-02,day-01                                    |          600 |
+| :imp: 4             | [nucci](https://github.com/nucci)               | day-5,day-4,day-3,day-2,day-1                                                |          500 |
+| :confused: 5        | [evmartinelli](https://github.com/evmartinelli) | day-03,day-02,day-01                                                         |          300 |
+| :poop: 6            | [muclemente](https://github.com/muclemente)     | day-03,day-02,day-01                                                         |          300 |
 
-Latest Update: 2020-11-04 12:40:36.024783037 +0000 UTC m=+1.694693529
+Latest Update: 2020-11-04 22:49:26.52831671 +0000 UTC m=+1.892034178
 
 ---
 
