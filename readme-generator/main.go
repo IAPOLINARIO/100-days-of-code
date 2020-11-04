@@ -159,7 +159,7 @@ func buildOutputResult(PRs []structs.PullRequest) {
 
 	sortedMap := SortMapByValue(req)
 	filecontent := getTemplateFile()
-	rankingTable := buildRankingTable(&sortedMap)
+	rankingTable := buildRankingTable(sortedMap)
 	updatedReadme := strings.Replace(filecontent, rankingToken, rankingTable, 1)
 	updatedReadme = strings.Replace(updatedReadme, updateToken, time.Now().String(), 1)
 
@@ -169,7 +169,7 @@ func buildOutputResult(PRs []structs.PullRequest) {
 	//buildRankingTable(&sortedMap)
 }
 
-func buildRankingTable(sortedMap *map[string][]string) string {
+func buildRankingTable(sortedMap map[string][]string) string {
 	//table := tablewriter.NewWriter(os.Stdout)
 	tableString := &strings.Builder{}
 	table := tablewriter.NewWriter(tableString)
@@ -179,7 +179,8 @@ func buildRankingTable(sortedMap *map[string][]string) string {
 	table.SetBorders(tablewriter.Border{Left: true, Top: false, Right: true, Bottom: false})
 	table.SetCenterSeparator("|")
 
-	for k, v := range *sortedMap {
+	fmt.Printf("Number of participants: %v \n", len(sortedMap))
+	for k, v := range sortedMap {
 		ranking := v[0]
 		contributor := "[" + k + "](" + "https://github.com/" + k + ")"
 		challengesCompleted := v[1]
