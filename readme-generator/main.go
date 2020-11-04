@@ -181,6 +181,7 @@ func buildRankingTable(sortedMap map[string][]string) string {
 
 	fmt.Printf("Number of participants: %v \n", len(sortedMap))
 	for k, v := range sortedMap {
+		randomIndex := rand.Intn(20)
 		ranking := v[0]
 		contributor := "[" + k + "](" + "https://github.com/" + k + ")"
 		challengesCompleted := v[1]
@@ -193,7 +194,6 @@ func buildRankingTable(sortedMap map[string][]string) string {
 		} else if ranking == "3" {
 			ranking = ":3rd_place_medal:" + " " + ranking
 		} else {
-			randomIndex := rand.Intn(len(emojiList))
 			emoji := emojiList[randomIndex]
 			ranking = emoji + " " + ranking
 		}
