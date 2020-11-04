@@ -1,14 +1,19 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"os"
 	"strconv"
 	"strings"
 )
 
 func main() {
-	input := "25525511135"
-	result := restoreIpAddresses(input)
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Println("Enter the ip:")
+
+	input, _ := reader.ReadString('\n')
+	result := restoreIpAddresses(strings.TrimSpace(input))
 
 	fmt.Println(strings.Join(result, ","))
 }
