@@ -29,10 +29,11 @@ Check bellow the current ranking:
 | :trophy: 1          | [IAPOLINARIO](https://github.com/IAPOLINARIO) | day-11,day-10,day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01 |         1100 |
 | :2nd_place_medal: 2 | [acanova](https://github.com/acanova)         | day-10,day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01        |         1000 |
 | :3rd_place_medal: 3 | [diogotorres](https://github.com/diogotorres) | day-06,day-05,day-04,day-03,day-02,day-01                                    |          600 |
-| :confused: 5        | [nucci](https://github.com/nucci)             | day-3,day-2,day-1                                                            |          300 |
-| :hear_no_evil: 6    | [muclemente](https://github.com/muclemente)   | day-03,day-02,day-01                                                         |          300 |
+| :imp: 4             | [nucci](https://github.com/nucci)             | day-4,day-3,day-2,day-1                                                      |          400 |
+| :confused: 5        | [muclemente](https://github.com/muclemente)   | day-03,day-02,day-01                                                         |          300 |
+| :poop: 6            | [evandrom](https://github.com/evandrom)       | day-03,day-02,day-01                                                         |          300 |
 
-Latest Update: 2020-11-04 21:37:48.805509707 +0000 UTC m=+2.375406511
+Latest Update: 2020-11-04 22:47:11.074212 +0100 CET m=+2.358956901
 
 ---
 
