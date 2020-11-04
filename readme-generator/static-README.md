@@ -25,7 +25,7 @@ After review, if everything is fine with your PR, the branch will be merged into
 Check bellow the current ranking:
 
 ##RANKING_TOKEN##
-Latest Update: ##LATEST_UPDATED##
+Last Update: ##LATEST_UPDATED##
 
 ---
 
