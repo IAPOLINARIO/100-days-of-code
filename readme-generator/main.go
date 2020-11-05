@@ -157,19 +157,17 @@ func buildOutputResult(PRs []structs.PullRequest) {
 
 	}
 
-	sortedMap := SortMapByValue(req)
 	filecontent := getTemplateFile()
-	rankingTable := buildRankingTable(sortedMap)
+	rankingTable := buildRankingTable(SortMapByValue(&req))
 	updatedReadme := strings.Replace(filecontent, rankingToken, rankingTable, 1)
 	updatedReadme = strings.Replace(updatedReadme, updateToken, time.Now().String(), 1)
 
 	writeReadme(updatedReadme)
 	fmt.Println(updatedReadme)
 
-	//buildRankingTable(&sortedMap)
 }
 
-func buildRankingTable(sortedMap map[string][]string) string {
+func buildRankingTable(sortedMap *map[string][]string) string {
 	//table := tablewriter.NewWriter(os.Stdout)
 	tableString := &strings.Builder{}
 	table := tablewriter.NewWriter(tableString)
@@ -179,13 +177,13 @@ func buildRankingTable(sortedMap map[string][]string) string {
 	table.SetBorders(tablewriter.Border{Left: true, Top: false, Right: true, Bottom: false})
 	table.SetCenterSeparator("|")
 
-	fmt.Printf("Number of participants: %v \n", len(sortedMap))
-	for k, v := range sortedMap {
+	for contributor, value := range *sortedMap {
 		randomIndex := rand.Intn(20)
-		ranking := v[0]
-		contributor := "[" + k + "](" + "https://github.com/" + k + ")"
-		challengesCompleted := v[1]
-		totalPoints := v[2]
+		ranking := value[0]
+		//fmt.Printf("Ranking order: %v \n", ranking)
+		contributor := "[" + contributor + "](" + "https://github.com/" + contributor + ")"
+		challengesCompleted := value[1]
+		totalPoints := value[2]
 
 		if ranking == "1" {
 			ranking = ":trophy:" + " " + ranking
@@ -207,14 +205,15 @@ func buildRankingTable(sortedMap map[string][]string) string {
 	return tableString.String()
 }
 
-func SortMapByValue(Map map[string][]string) map[string][]string {
+func SortMapByValue(Map *map[string][]string) *map[string][]string {
 
 	resultMap := make(map[string][]string)
+
 	// used to switch key and value
 	hack := map[float64][]string{}
 	hackkeys := []float64{}
 
-	for key, val := range Map {
+	for key, val := range *Map {
 		NewKey, _ := strconv.ParseFloat(val[1], 64)
 		NewValue := []string{key, val[0]}
 
@@ -227,9 +226,7 @@ func SortMapByValue(Map map[string][]string) map[string][]string {
 		hack[NewKey] = NewValue
 	}
 
-	sort.Slice(hackkeys, func(i, j int) bool {
-		return hackkeys[i] >= hackkeys[j]
-	})
+	sort.Float64s(hackkeys)
 
 	for i := 0; i < len(hackkeys); i++ {
 		key := hack[hackkeys[i]][0]
@@ -239,7 +236,7 @@ func SortMapByValue(Map map[string][]string) map[string][]string {
 		resultMap[key] = value
 	}
 
-	return resultMap
+	return &resultMap
 }
 
 func getPullRequests(token string) []structs.PullRequest {
