@@ -43,8 +43,9 @@ Output: ["1.0.10.23","1.0.102.3","10.1.0.23","10.10.2.3","101.0.2.3"]
 
 ### Constraints
 
-- `0 <= s.length <= 3000`
+- `0 <= s.length`
 - `s consists of digits only.`
+- `Ipv4 format only.`
 
 ---
 
