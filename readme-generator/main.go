@@ -226,7 +226,9 @@ func SortMapByValue(Map *map[string][]string) *map[string][]string {
 		hack[NewKey] = NewValue
 	}
 
-	sort.Float64s(hackkeys)
+	sort.Slice(hackkeys, func(i, j int) bool {
+		return hackkeys[i] >= hackkeys[j]
+	})
 
 	for i := 0; i < len(hackkeys); i++ {
 		key := hack[hackkeys[i]][0]
