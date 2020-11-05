@@ -12,7 +12,6 @@ int nextPrime(var number) {
   while (!isPrime(nextPrimeNumber)) {
     nextPrimeNumber += 1;
   }
-
   return nextPrimeNumber;
 }
 
