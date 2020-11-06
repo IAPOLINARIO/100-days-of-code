@@ -33,7 +33,7 @@ Check bellow the current ranking:
 | :confused: 5        | [diogotorres](https://github.com/diogotorres)   | day-07,day-06,day-05,day-04,day-03,day-02,day-01                                    |          700 |
 | :poop: 6            | [muclemente](https://github.com/muclemente)     | day-03,day-02,day-01                                                                |          300 |
 
-Last Update: 2020-11-06 15:59:03.7974726 +0100 CET m=+3.807032901
+Last Update: 2020-11-06 16:00:51.7642515 +0100 CET m=+3.003000001
 
 ---
 
