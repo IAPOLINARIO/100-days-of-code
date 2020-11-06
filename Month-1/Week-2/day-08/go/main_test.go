@@ -26,3 +26,14 @@ func Test_45_digits(t *testing.T) {
 		t.Errorf("Your evaluation was incorrect, got: %v, want: %v", result, expectedResult)
 	}
 }
+
+func Test_456_digits(t *testing.T) {
+	input := "456"
+	expectedResult := []string{"gjm", "gjn", "gjo", "gkm", "gkn", "gko", "glm", "gln", "glo", "hjm", "hjn", "hjo", "hkm", "hkn", "hko", "hlm", "hln", "hlo", "ijm", "ijn", "ijo", "ikm", "ikn", "iko", "ilm", "iln", "ilo"}
+
+	result := letterCombinations(input)
+
+	if !reflect.DeepEqual(result, expectedResult) {
+		t.Errorf("Your evaluation was incorrect, got: %v, want: %v", result, expectedResult)
+	}
+}
