@@ -28,11 +28,12 @@ Check bellow the current ranking:
 |---------------------|-------------------------------------------------|-------------------------------------------------------------------------------------|--------------|
 | :trophy: 1          | [IAPOLINARIO](https://github.com/IAPOLINARIO)   | day-12,day-11,day-10,day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01 |         1200 |
 | :2nd_place_medal: 2 | [acanova](https://github.com/acanova)           | day-10,day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01               |         1000 |
-| :hear_no_evil: 4    | [diogotorres](https://github.com/diogotorres)   | day-07,day-06,day-05,day-04,day-03,day-02,day-01                                    |          700 |
-| :imp: 5             | [evmartinelli](https://github.com/evmartinelli) | day-07,day-06,day-05,day-04,day-03,day-02,day-01                                    |          700 |
-| :confused: 6        | [muclemente](https://github.com/muclemente)     | day-03,day-02,day-01                                                                |          300 |
+| :3rd_place_medal: 3 | [nucci](https://github.com/nucci)               | day-8,day-7,day-6,day-5,day-4,day-3,day-2,day-1                                     |          800 |
+| :imp: 4             | [evmartinelli](https://github.com/evmartinelli) | day-07,day-06,day-05,day-04,day-03,day-02,day-01                                    |          700 |
+| :confused: 5        | [diogotorres](https://github.com/diogotorres)   | day-07,day-06,day-05,day-04,day-03,day-02,day-01                                    |          700 |
+| :poop: 6            | [muclemente](https://github.com/muclemente)     | day-03,day-02,day-01                                                                |          300 |
 
-Last Update: 2020-11-06 13:07:46.8713083 +0100 CET m=+3.605516601
+Last Update: 2020-11-06 15:59:03.7974726 +0100 CET m=+3.807032901
 
 ---
 
