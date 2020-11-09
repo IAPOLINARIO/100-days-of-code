@@ -24,16 +24,16 @@ After review, if everything is fine with your PR, the branch will be merged into
 
 Check bellow the current ranking:
 
-|       RANKING       |                   CONTRIBUTOR                   |                                              CHALLENGES COMPLETED                                               | TOTAL POINTS |
-|---------------------|-------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|--------------|
-| :trophy: 1          | [acanova](https://github.com/acanova)           | day-16,day-15,day-14,day-13,day-12,day-11,day-10,day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01 |         1600 |
-| :2nd_place_medal: 2 | [IAPOLINARIO](https://github.com/IAPOLINARIO)   | day-16,day-15,day-14,day-13,day-12,day-11,day-10,day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01 |         1600 |
-| :3rd_place_medal: 3 | [nucci](https://github.com/nucci)               | day-10,day-9,day-8,day-7,day-6,day-5,day-4,day-3,day-2,day-1                                                    |         1000 |
-| :imp: 4             | [evmartinelli](https://github.com/evmartinelli) | day-07,day-06,day-05,day-04,day-03,day-02,day-01                                                                |          700 |
-| :confused: 5        | [diogotorres](https://github.com/diogotorres)   | day-07,day-06,day-05,day-04,day-03,day-02,day-01                                                                |          700 |
-| :poop: 6            | [muclemente](https://github.com/muclemente)     | day-04,day-04,day-03,day-02,day-01                                                                              |          500 |
+|       RANKING       |                   CONTRIBUTOR                   |                                                  CHALLENGES COMPLETED                                                  | TOTAL POINTS |
+|---------------------|-------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|--------------|
+| :trophy: 1          | [IAPOLINARIO](https://github.com/IAPOLINARIO)   | day-17,day-16,day-15,day-14,day-13,day-12,day-11,day-10,day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01 |         1700 |
+| :2nd_place_medal: 2 | [acanova](https://github.com/acanova)           | day-16,day-15,day-14,day-13,day-12,day-11,day-10,day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01        |         1600 |
+| :3rd_place_medal: 3 | [nucci](https://github.com/nucci)               | day-10,day-9,day-8,day-7,day-6,day-5,day-4,day-3,day-2,day-1                                                           |         1000 |
+| :imp: 4             | [diogotorres](https://github.com/diogotorres)   | day-07,day-06,day-05,day-04,day-03,day-02,day-01                                                                       |          700 |
+| :confused: 5        | [evmartinelli](https://github.com/evmartinelli) | day-07,day-06,day-05,day-04,day-03,day-02,day-01                                                                       |          700 |
+| :poop: 6            | [muclemente](https://github.com/muclemente)     | day-04,day-04,day-03,day-02,day-01                                                                                     |          500 |
 
-Last Update: 2020-11-09 21:34:34.706822 +0100 CET m=+3.418435601
+Last Update: 2020-11-09 22:17:03.4765329 +0100 CET m=+3.741759901
 
 ---
 
