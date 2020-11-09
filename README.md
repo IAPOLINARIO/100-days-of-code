@@ -31,9 +31,9 @@ Check bellow the current ranking:
 | :3rd_place_medal: 3 | [nucci](https://github.com/nucci)               | day-9,day-8,day-7,day-6,day-5,day-4,day-3,day-2,day-1                                                           |          900 |
 | :imp: 4             | [evmartinelli](https://github.com/evmartinelli) | day-07,day-06,day-05,day-04,day-03,day-02,day-01                                                                |          700 |
 | :confused: 5        | [diogotorres](https://github.com/diogotorres)   | day-07,day-06,day-05,day-04,day-03,day-02,day-01                                                                |          700 |
-| :poop: 6            | [muclemente](https://github.com/muclemente)     | day-03,day-02,day-01                                                                                            |          300 |
+| :poop: 6            | [muclemente](https://github.com/muclemente)     | day-04,day-04,day-03,day-02,day-01                                                                              |          500 |
 
-Last Update: 2020-11-09 12:40:48.6985777 +0100 CET m=+3.002515401
+Last Update: 2020-11-09 16:06:46.7388006 +0100 CET m=+2.792974101
 
 ---
 
