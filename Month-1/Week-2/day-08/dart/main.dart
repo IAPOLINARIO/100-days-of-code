@@ -19,11 +19,11 @@ void main() {
   stdout.writeln('${combinedNumbers(numbers)}');
 }
 
-List<String> letterCombinations(String digits) {
+List<String> combinedNumbers(String digits) {
   var result = new List<String>();
   if (digits == null || digits.length == 0) return result;
 
-  var map;
+  Map map = Map<String, List<String>>();
 
   map['2'] = ['a', 'b', 'c'];
   map['3'] = ['d', 'e', 'f'];
@@ -37,16 +37,14 @@ List<String> letterCombinations(String digits) {
   result.add("");
 
   for (int i = 0; i < digits.length; i++) {
-    var new_result = new List<String>();
-    var alphabates = map[digits[i]];
+    var tempList = new List<String>();
+    var mapLetters = map[digits[i]];
     for (int j = 0; j < result.length; j++) {
-      for (int k = 0; k < alphabates.length; k++) {
-        new_result.add(result[j] + alphabates[k]);
+      for (int k = 0; k < mapLetters.length; k++) {
+        tempList.add(result[j] + mapLetters[k]);
       }
     }
-    result = new_result;
-    print(result);
+    result = tempList;
   }
-
   return result;
 }

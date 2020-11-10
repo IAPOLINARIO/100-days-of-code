@@ -3,17 +3,55 @@ import 'package:test/test.dart';
 import '../main.dart';
 
 void main() {
-  test('Orderned Array', () {
-    List expected = [1, 2, 2, 3, 5, 6];
-    String nums1 = '23';
+  test('Letters from 23', () {
+    List<String> expected = [
+      "ad",
+      "ae",
+      "af",
+      "bd",
+      "be",
+      "bf",
+      "cd",
+      "ce",
+      "cf"
+    ];
+    String digits = '23';
 
-    expect(combinedNumbers(nums1), true);
+    expect(combinedNumbers(digits), expected);
   });
 
-  test('Orderned Array2 ', () {
-    List expected = [1, 2, 2, 3, 5, 6];
-    String nums1 = '234';
+  test('Letters from 456', () {
+    List<String> expected = [
+      "gjm",
+      "gjn",
+      "gjo",
+      "gkm",
+      "gkn",
+      "gko",
+      "glm",
+      "gln",
+      "glo",
+      "hjm",
+      "hjn",
+      "hjo",
+      "hkm",
+      "hkn",
+      "hko",
+      "hlm",
+      "hln",
+      "hlo",
+      "ijm",
+      "ijn",
+      "ijo",
+      "ikm",
+      "ikn",
+      "iko",
+      "ilm",
+      "iln",
+      "ilo"
+    ];
+    String digits = '456';
 
-    expect(letterCombinations(nums1), true);
+    expect(combinedNumbers(digits), expected);
   });
 }
