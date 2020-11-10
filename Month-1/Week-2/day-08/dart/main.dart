@@ -1,17 +1,5 @@
 import 'dart:io';
 
-List<String> phoneLetters = [
-  '0',
-  '1',
-  'abc',
-  'def',
-  'ghi',
-  'jkl',
-  'mno',
-  'pqrs',
-  'tuv',
-  'wxyz'
-];
 void main() {
   stdout.writeln('Lets combine your Phone Number');
   var numbers = stdin.readLineSync();
