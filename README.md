@@ -29,11 +29,11 @@ Check bellow the current ranking:
 | :trophy: 1          | [IAPOLINARIO](https://github.com/IAPOLINARIO)   | day-17,day-16,day-15,day-14,day-13,day-12,day-11,day-10,day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01 |         1700 |
 | :2nd_place_medal: 2 | [acanova](https://github.com/acanova)           | day-17,day-16,day-15,day-14,day-13,day-12,day-11,day-10,day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01 |         1700 |
 | :3rd_place_medal: 3 | [nucci](https://github.com/nucci)               | day-10,day-9,day-8,day-7,day-6,day-5,day-4,day-3,day-2,day-1                                                           |         1000 |
-| :imp: 4             | [evmartinelli](https://github.com/evmartinelli) | day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01                                                         |          900 |
-| :confused: 5        | [diogotorres](https://github.com/diogotorres)   | day-07,day-06,day-05,day-04,day-03,day-02,day-01                                                                       |          700 |
-| :poop: 6            | [muclemente](https://github.com/muclemente)     | day-06,day-05,day-04,day-03,day-02,day-01                                                                              |          600 |
+| :hear_no_evil: 4    | [evmartinelli](https://github.com/evmartinelli) | day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01                                                         |          900 |
+| :hear_no_evil: 5    | [diogotorres](https://github.com/diogotorres)   | day-07,day-06,day-05,day-04,day-03,day-02,day-01                                                                       |          700 |
+| :cookie: 6          | [muclemente](https://github.com/muclemente)     | day-06,day-05,day-04,day-03,day-02,day-01                                                                              |          600 |
 
-Last Update: 2020-11-10 17:29:18.3935218 +0100 CET m=+3.715515201
+Last Update: 2020-11-10 18:45:06.2046304 +0100 CET m=+4.250650201
 
 ---
 

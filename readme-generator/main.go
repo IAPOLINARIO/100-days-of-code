@@ -177,8 +177,11 @@ func buildRankingTable(sortedMap *map[string][]string) string {
 	table.SetBorders(tablewriter.Border{Left: true, Top: false, Right: true, Bottom: false})
 	table.SetCenterSeparator("|")
 
+	s1 := rand.NewSource(time.Now().UnixNano())
+	r1 := rand.New(s1)
+
 	for contributor, value := range *sortedMap {
-		randomIndex := rand.Intn(20)
+		randomIndex := r1.Intn(len(emojiList))
 		ranking := value[0]
 		//fmt.Printf("Ranking order: %v \n", ranking)
 		contributor := "[" + contributor + "](" + "https://github.com/" + contributor + ")"
