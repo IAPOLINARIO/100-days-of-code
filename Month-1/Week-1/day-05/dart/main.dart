@@ -15,7 +15,7 @@ int sockPairs(var socks) {
     var character = new String.fromCharCode(element);
     mapSocks[character] = (mapSocks[character] ?? 0) + 1;
 
-    mapSocks. [character]. isEven ? pairsSocks++ : pairsSocks;
+    mapSocks[character].isEven ? pairsSocks++ : pairsSocks;
   });
 
   return pairsSocks;
