@@ -16,4 +16,11 @@ void main() {
 
     expect(elevationMap(elevMap), expected);
   });
+
+  test('[3,0,2,0,4] = 7', () {
+    int expected = 7;
+    String elevMap = '[3,0,2,0,4]';
+
+    expect(elevationMap(elevMap), expected);
+  });
 }

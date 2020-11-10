@@ -15,15 +15,9 @@ int elevationMap(var arrElevMap) {
   int size = lstEvelMap.length;
 
   for (int i = 1; i < size - 1; i++) {
-    int left = lstEvelMap[i];
-    for (int j = 0; j < i; j++) {
-      left = max(left, lstEvelMap[j]);
-    }
-
-    int right = lstEvelMap[i];
-    for (int j = i + 1; j < size; j++) {
-      right = max(right, lstEvelMap[j]);
-    }
+    int left =
+        List<int>.from(lstEvelMap.sublist(0, i)).fold(lstEvelMap[i], max);
+    int right = List<int>.from(lstEvelMap.sublist(i)).reduce((max));
 
     result += min(left, right) - lstEvelMap[i];
   }
