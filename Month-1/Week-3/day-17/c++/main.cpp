@@ -19,7 +19,7 @@ void switchPrisonCells(std::vector<int> &pa) {
 /**
  *  How many prisoners can be freed?
  *  @param pa prison arrangement
- *  @return true if you can win
+ *  @return number of prisoners
  */
 int freedPrisoners(std::vector<int> pa)
 {       
