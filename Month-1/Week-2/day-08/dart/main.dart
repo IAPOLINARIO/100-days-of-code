@@ -13,6 +13,8 @@ List<String> combinedNumbers(String digits) {
 
   Map map = Map<String, List<String>>();
 
+  map['0'] = [''];
+  map['1'] = [''];
   map['2'] = ['a', 'b', 'c'];
   map['3'] = ['d', 'e', 'f'];
   map['4'] = ['g', 'h', 'i'];
