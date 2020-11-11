@@ -9,7 +9,7 @@ void main() {
 
 int bstSearch(var number) {
   number = int.parse(number);
-  return bstSearchCalc(number);
+  return (number == 0 || number == 1) ? 1 : bstSearchCalc(number);
 }
 
 int bstSearchCalc(int n) {
