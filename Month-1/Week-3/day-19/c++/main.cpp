@@ -9,6 +9,15 @@
 
 /* Mock object representing an EXTERNAL DATABASE responsable to store data and generate sequence IDs */
 std::vector<std::string> EXTERNAL_DATABASE;
+const unsigned int SEQUENCE_OFFSET = 1000000;
+
+/**
+ * Default message for invalid URLs, used in many scenarios.
+ * @return message of invalid URL
+ */
+std::string invalidURLMessage(void) {
+    return "INVALID URL";    
+}
 
 /**
  * Save the URL provided by the user into the 'database' and return a sequence ID.
@@ -18,7 +27,7 @@ std::vector<std::string> EXTERNAL_DATABASE;
  */
 int save(std::string url, std::vector<std::string> &db) {    
     db.push_back(url);
-    return db.size();
+    return db.size() + SEQUENCE_OFFSET;
 }
 
 /**
@@ -28,7 +37,12 @@ int save(std::string url, std::vector<std::string> &db) {
  * @return generated sequence of save
  */
 std::string get(int id, std::vector<std::string> &db) {
-    return db[id - 1];
+    const int value = id - 1 - SEQUENCE_OFFSET;
+    if (value >= db.size()) {
+        return invalidURLMessage();
+    } else {
+        return db[id - 1 - SEQUENCE_OFFSET];
+    }    
 }
 
 /**
@@ -82,14 +96,6 @@ int decode(std::string code, std::vector<char> base) {
         }
     }
     return id;
-}
-
-/**
- * Default message for invalid URLs, used in many scenarios.
- * @return message of invalid URL
- */
-std::string invalidURLMessage(void) {
-    return "INVALID URL";    
 }
 
 /**
@@ -155,16 +161,19 @@ TEST_CASE("Tests - with a clean database")  //Starting with a clean database...
     //Given a URL, our service should generate a shorter and unique alias of it. 
     //This is called a short link. This link should be short enough to be easily copied 
     //and pasted into applications
-    CHECK(makeShortURL("youtube.com") == "l.to/b");    
+    CHECK(makeShortURL("youtube.com") == "l.to/emjd");    
 
     //Resolve Full URL from short link provided
-    CHECK(getFullURL("l.to/b") == "youtube.com");
+    CHECK(getFullURL("l.to/emjd") == "youtube.com");
+
+    //Try to resolve a Full URL from an inexistent short link 
+    CHECK(getFullURL("l.to/abcd") == "INVALID URL");
 
     //Users should optionally be able to pick a custom short link for their URL
-    CHECK(makeShortURL("https://pt.wikipedia.org/wiki/Jair_Bolsonaro", "muito.mito") == "muito.mito/c");
+    CHECK(makeShortURL("https://pt.wikipedia.org/wiki/Jair_Bolsonaro", "muito.mito") == "muito.mito/emje");
 
     //Valid URL size - 199 characters
-    CHECK(makeShortURL("www.super-long-url.com/asdfasdhdflkasdjfhadjklfhadkljfhdlfkjaasdfhasdjklfhdklfjahdflkjasdhfasdkljfhasdklfjahdflkajsdhfasdkljfhadlfkjasdhdlaskdjfhasdlkfjhadlfkjshdflaksdjfhasdkljfhadlfkajhdflasdkjfha") == "l.to/d");
+    CHECK(makeShortURL("www.super-long-url.com/asdfasdhdflkasdjfhadjklfhadkljfhdlfkjaasdfhasdjklfhdklfjahdflkjasdhfasdkljfhasdklfjahdflkajsdhfasdkljfhadlfkjasdhdlaskdjfhasdlkfjhadlfkjshdflaksdjfhasdkljfhadlfkajhdflasdkjfha") == "l.to/emjf");
 
     //Invalid URL size - greater than 200 characters
     CHECK(makeShortURL("www.super-long-url.com/asdfasdhdflkasdjfhDadjklfhadkljfhdlfkjaasdfhasdjklfhdklfjahdflkjasdhfasdkljfhasdklfjahdflkajsdhfasdkljfhadlfkjasdhdlaskdjfhasdlkfjhadlfkjshdflaksdjfhasdkljfhadlfkajhdflasdkjfhDaz") == "INVALID URL");
