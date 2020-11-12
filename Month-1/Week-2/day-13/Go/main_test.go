@@ -88,3 +88,15 @@ func Test6Bags_Fit(t *testing.T) {
 		t.Errorf("Your evaluation was incorrect, got: %v, want: %v", result, expectedResult)
 	}
 }
+
+func Test_Gian_Fit(t *testing.T) {
+	input := []int{4, 7, 1, 6, 3, 4, 7, 4, 8, 8, 7}
+	expectedResult := true
+	numberofBags := 6
+
+	result := CanFit(input, numberofBags)
+
+	if !reflect.DeepEqual(result, expectedResult) {
+		t.Errorf("Your evaluation was incorrect, got: %v, want: %v", result, expectedResult)
+	}
+}
