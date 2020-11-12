@@ -28,12 +28,12 @@ Check bellow the current ranking:
 |---------------------|-------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|--------------|
 | :trophy: 1          | [IAPOLINARIO](https://github.com/IAPOLINARIO)   | day-19,day-18,day-17,day-16,day-15,day-14,day-13,day-12,day-11,day-10,day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01 |         1900 |
 | :2nd_place_medal: 2 | [acanova](https://github.com/acanova)           | day-19,day-18,day-17,day-16,day-15,day-14,day-13,day-12,day-11,day-10,day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01 |         1900 |
-| :3rd_place_medal: 3 | [nucci](https://github.com/nucci)               | day-12,day-11,day-10,day-9,day-8,day-7,day-6,day-5,day-4,day-3,day-2,day-1                                                           |         1200 |
-| :older_man: 4       | [evmartinelli](https://github.com/evmartinelli) | day-10,day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01                                                                |         1000 |
-| :floppy_disk: 5     | [diogotorres](https://github.com/diogotorres)   | day-07,day-06,day-05,day-04,day-03,day-02,day-01                                                                                     |          700 |
-| :confused: 6        | [muclemente](https://github.com/muclemente)     | day-06,day-05,day-04,day-03,day-02,day-01                                                                                            |          600 |
+| :3rd_place_medal: 3 | [nucci](https://github.com/nucci)               | day-13,day-12,day-11,day-10,day-9,day-8,day-7,day-6,day-5,day-4,day-3,day-2,day-1                                                    |         1300 |
+| :speak_no_evil: 4   | [evmartinelli](https://github.com/evmartinelli) | day-10,day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01                                                                |         1000 |
+| :worried: 5         | [diogotorres](https://github.com/diogotorres)   | day-07,day-06,day-05,day-04,day-03,day-02,day-01                                                                                     |          700 |
+| :older_man: 6       | [muclemente](https://github.com/muclemente)     | day-06,day-05,day-04,day-03,day-02,day-01                                                                                            |          600 |
 
-Last Update: 2020-11-12 00:18:51.2097755 +0100 CET m=+3.254001301
+Last Update: 2020-11-12 01:37:37.6848397 +0100 CET m=+3.512999701
 
 ---
 
