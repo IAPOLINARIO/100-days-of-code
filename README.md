@@ -24,16 +24,17 @@ After review, if everything is fine with your PR, the branch will be merged into
 
 Check bellow the current ranking:
 
-|       RANKING       |                   CONTRIBUTOR                   |                                                            CHALLENGES COMPLETED                                                             | TOTAL POINTS |
-|---------------------|-------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|--------------|
-| :trophy: 1          | [IAPOLINARIO](https://github.com/IAPOLINARIO)   | day-20,day-19,day-18,day-17,day-16,day-15,day-14,day-13,day-12,day-11,day-10,day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01 |         2000 |
-| :2nd_place_medal: 2 | [acanova](https://github.com/acanova)           | day-19,day-18,day-17,day-16,day-15,day-14,day-13,day-12,day-11,day-10,day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01        |         1900 |
-| :3rd_place_medal: 3 | [nucci](https://github.com/nucci)               | day-15,day-14,day-13,day-12,day-11,day-10,day-9,day-8,day-7,day-6,day-5,day-4,day-3,day-2,day-1                                             |         1500 |
-| :confused: 4        | [evmartinelli](https://github.com/evmartinelli) | day-10,day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01                                                                       |         1000 |
-| :snail: 5           | [diogotorres](https://github.com/diogotorres)   | day-07,day-06,day-05,day-04,day-03,day-02,day-01                                                                                            |          700 |
-| :hear_no_evil: 6    | [muclemente](https://github.com/muclemente)     | day-06,day-05,day-04,day-03,day-02,day-01                                                                                                   |          600 |
+|           RANKING           |                   CONTRIBUTOR                   |                                                                CHALLENGES COMPLETED                                                                | TOTAL POINTS |
+|-----------------------------|-------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|--------------|
+| :trophy: 1                  | [IAPOLINARIO](https://github.com/IAPOLINARIO)   | day-21,day-20,day-19,day-18,day-17,day-16,day-15,day-14,day-13,day-12,day-11,day-10,day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01 |         2100 |
+| :2nd_place_medal: 2         | [acanova](https://github.com/acanova)           | day-19,day-18,day-17,day-16,day-15,day-14,day-13,day-12,day-11,day-10,day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01               |         1900 |
+| :3rd_place_medal: 3         | [nucci](https://github.com/nucci)               | day-16,day-15,day-14,day-13,day-12,day-11,day-10,day-9,day-8,day-7,day-6,day-5,day-4,day-3,day-2,day-1                                             |         1600 |
+| :speak_no_evil: 4           | [evmartinelli](https://github.com/evmartinelli) | day-10,day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01                                                                              |         1000 |
+| :star2: 5                   | [diogotorres](https://github.com/diogotorres)   | day-07,day-06,day-05,day-04,day-03,day-02,day-01                                                                                                   |          700 |
+| :small_red_triangle_down: 6 | [muclemente](https://github.com/muclemente)     | day-06,day-05,day-04,day-03,day-02,day-01                                                                                                          |          600 |
+| :snail: 7                   | [jaumzors](https://github.com/jaumzors)         | day-01                                                                                                                                             |          100 |
 
-Last Update: 2020-11-13 00:23:27.5771669 +0100 CET m=+3.728125201
+Last Update: 2020-11-13 21:18:23.2601785 +0100 CET m=+3.761998401
 
 ---
 
