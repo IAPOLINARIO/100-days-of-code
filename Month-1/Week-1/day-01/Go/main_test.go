@@ -20,6 +20,15 @@ func Test20AgeConvertion(t *testing.T) {
 	}
 }
 
+func Test40AgeConvertion(t *testing.T) {
+	age, err := CalculateAge("40")
+	expectedAge := int64(14600)
+
+	if err != nil || age != expectedAge {
+		t.Errorf("Age calculation was incorrect, got: %d, want: %d.", age, expectedAge)
+	}
+}
+
 func TestStringAgeConvertion(t *testing.T) {
 	_, err := CalculateAge("xpto")
 

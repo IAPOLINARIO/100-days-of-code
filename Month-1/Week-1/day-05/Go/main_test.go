@@ -47,3 +47,14 @@ func TestFivePairSocks(t *testing.T) {
 		t.Errorf("Your evaluation was incorrect, got: %v, want: %v", result, expectedResult)
 	}
 }
+
+func TestSixPairSocks(t *testing.T) {
+	testInput := "ABCDEQWEREDCBANPMP"
+	expectedResult := 6
+
+	result, _ := sockPairs(testInput)
+
+	if result != expectedResult {
+		t.Errorf("Your evaluation was incorrect, got: %v, want: %v", result, expectedResult)
+	}
+}
