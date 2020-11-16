@@ -1,7 +1,8 @@
 name: update-readme-ranking
 
 on:
-  workflow_dispatch:
+  schedule:
+    - cron: "0 10-23 * * *"
 
 jobs:
   build:
