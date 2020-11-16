@@ -158,7 +158,8 @@ func buildOutputResult(PRs []structs.PullRequest) {
 	}
 
 	filecontent := getTemplateFile()
-	rankingTable := buildRankingTable(SortMapByValue(&req))
+	filtered := SortMapByValue(&req)
+	rankingTable := buildRankingTable(filtered)
 	updatedReadme := strings.Replace(filecontent, rankingToken, rankingTable, 1)
 	updatedReadme = strings.Replace(updatedReadme, updateToken, time.Now().String(), 1)
 
@@ -167,9 +168,10 @@ func buildOutputResult(PRs []structs.PullRequest) {
 
 }
 
-func buildRankingTable(sortedMap *map[string][]string) string {
-	//table := tablewriter.NewWriter(os.Stdout)
+func buildRankingTable(sortedMap map[string][]string) string {
 	tableString := &strings.Builder{}
+	orderedRanking := make(map[int][]string)
+
 	table := tablewriter.NewWriter(tableString)
 	emojiList := []string{":worried:", ":confused:", ":star2:", ":sweat_drops:", ":no_good:", ":older_man:", ":guardsman:", ":hear_no_evil:", ":see_no_evil:", ":speak_no_evil:", ":cool:", ":small_red_triangle_down:", ":cookie:", ":hamburger:", ":floppy_disk:", ":ghost:", ":snail:", ":zap:", ":poop:", ":imp:"}
 
@@ -180,9 +182,12 @@ func buildRankingTable(sortedMap *map[string][]string) string {
 	s1 := rand.NewSource(time.Now().UnixNano())
 	r1 := rand.New(s1)
 
-	for contributor, value := range *sortedMap {
+	for contributor, value := range sortedMap {
+		//fmt.Printf("Item: %v\n", contributor)
 		randomIndex := r1.Intn(len(emojiList))
 		ranking := value[0]
+		numberedRanking, _ := strconv.Atoi(ranking)
+
 		//fmt.Printf("Ranking order: %v \n", ranking)
 		contributor := "[" + contributor + "](" + "https://github.com/" + contributor + ")"
 		challengesCompleted := value[1]
@@ -199,16 +204,21 @@ func buildRankingTable(sortedMap *map[string][]string) string {
 			ranking = emoji + " " + ranking
 		}
 
-		result := []string{ranking, contributor, challengesCompleted, totalPoints}
-		table.Append(result)
+		orderedRanking[numberedRanking] = []string{ranking, contributor, challengesCompleted, totalPoints}
 	}
+
+	for i := 1; i <= len(orderedRanking); i++ {
+		table.Append(orderedRanking[i])
+	}
+
+	//table.Append(result)
 
 	table.Render()
 
 	return tableString.String()
 }
 
-func SortMapByValue(Map *map[string][]string) *map[string][]string {
+func SortMapByValue(Map *map[string][]string) map[string][]string {
 
 	resultMap := make(map[string][]string)
 
@@ -241,7 +251,7 @@ func SortMapByValue(Map *map[string][]string) *map[string][]string {
 		resultMap[key] = value
 	}
 
-	return &resultMap
+	return resultMap
 }
 
 func getPullRequests(token string) []structs.PullRequest {
