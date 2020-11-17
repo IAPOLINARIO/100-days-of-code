@@ -30,11 +30,11 @@ Check bellow the current ranking:
 | :2nd_place_medal: 2 | [acanova](https://github.com/acanova)           | day-20,day-19,day-18,day-17,day-16,day-15,day-14,day-13,day-12,day-11,day-10,day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01               |         2000 |
 | :3rd_place_medal: 3 | [nucci](https://github.com/nucci)               | day-16,day-15,day-14,day-13,day-12,day-11,day-10,day-9,day-8,day-7,day-6,day-5,day-4,day-3,day-2,day-1                                                    |         1600 |
 | :cookie: 4          | [evmartinelli](https://github.com/evmartinelli) | day-10,day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01                                                                                     |         1000 |
-| :snail: 5           | [diogotorres](https://github.com/diogotorres)   | day-07,day-06,day-05,day-04,day-03,day-02,day-01                                                                                                          |          700 |
-| :hamburger: 6       | [muclemente](https://github.com/muclemente)     | day-06,day-05,day-04,day-03,day-02,day-01                                                                                                                 |          600 |
-| :hamburger: 7       | [jaumzors](https://github.com/jaumzors)         | day-03,day-02,day-01                                                                                                                                      |          300 |
+| :zap: 5             | [diogotorres](https://github.com/diogotorres)   | day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01                                                                                                   |          800 |
+| :snail: 6           | [muclemente](https://github.com/muclemente)     | day-06,day-05,day-04,day-03,day-02,day-01                                                                                                                 |          600 |
+| :worried: 7         | [jaumzors](https://github.com/jaumzors)         | day-03,day-02,day-01                                                                                                                                      |          300 |
 
-Last Update: 2020-11-17 21:16:08.198666527 +0000 UTC m=+3.628640215
+Last Update: 2020-11-17 22:14:09.192326738 +0000 UTC m=+3.370467092
 
 ---
 
