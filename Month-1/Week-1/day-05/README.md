@@ -11,7 +11,7 @@ SockPairs("AA") ➞ 1
 
 SockPairs("ABABC") ➞ 2
 
-SockPairs("CABBACCC") ➞ 4
+SockPairs("CABBACCC") ➞ 5
 ```
 
 ---
