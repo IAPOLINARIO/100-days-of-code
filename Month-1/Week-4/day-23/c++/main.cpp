@@ -62,7 +62,7 @@ enum PHILOSOPHER_NEIGHBOR_DIRECTION {
 
 //Lambda to get the PHILOSOPHER_ID of a neighbor, based on the reference philosopher id and direction
 const auto PHILOSOPHER_NEIGHBOR_POSITION = [] (PHILOSOPHER_ID id, PHILOSOPHER_NEIGHBOR_DIRECTION direction) { 
-    PHILOSOPHER_ID neighborID =  (id + direction) % 5;
+    PHILOSOPHER_ID neighborID =  (id + direction) % NUMBER_OF_PHILOSOPHERS;
     return neighborID >= 0 ? neighborID : neighborID + NUMBER_OF_PHILOSOPHERS; 
 };
 
