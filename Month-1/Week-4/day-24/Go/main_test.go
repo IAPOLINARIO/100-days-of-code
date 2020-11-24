@@ -40,3 +40,15 @@ func Test_11_1_SurvivorL(t *testing.T) {
 		t.Errorf("Your evaluation was incorrect, got: %v, want: %v", result, expectedResult)
 	}
 }
+
+func Test_2_2_SurvivorL(t *testing.T) {
+	input_soldiers := 2
+	kill_interval := 2
+	expectedResult := 1
+
+	result := finalSurvivor(input_soldiers, kill_interval)
+
+	if !reflect.DeepEqual(result, expectedResult) {
+		t.Errorf("Your evaluation was incorrect, got: %v, want: %v", result, expectedResult)
+	}
+}
