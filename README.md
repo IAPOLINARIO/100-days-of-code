@@ -29,13 +29,14 @@ Check bellow the current ranking:
 | :trophy: 1          | [acanova](https://github.com/acanova)           | day-27,day-26,day-25,day-24,day-23,day-22,day-21,day-20,day-19,day-18,day-17,day-16,day-15,day-14,day-13,day-12,day-11,day-10,day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01 |         2700 |
 | :2nd_place_medal: 2 | [IAPOLINARIO](https://github.com/IAPOLINARIO)   | day-24,day-23,day-22,day-21,day-20,day-19,day-18,day-17,day-16,day-15,day-14,day-13,day-12,day-11,day-10,day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01                      |         2400 |
 | :3rd_place_medal: 3 | [nucci](https://github.com/nucci)               | day-18,day-17,day-16,day-15,day-14,day-13,day-12,day-11,day-10,day-9,day-8,day-7,day-6,day-5,day-4,day-3,day-2,day-1                                                                         |         1800 |
-| :snail: 4           | [evmartinelli](https://github.com/evmartinelli) | day-11,day-10,day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01                                                                                                                 |         1100 |
-| :snail: 5           | [diogotorres](https://github.com/diogotorres)   | day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01                                                                                                                                      |          800 |
-| :no_good: 6         | [jaumzors](https://github.com/jaumzors)         | day-07,day-06,day-05,day-04,day-03,day-02,day-01                                                                                                                                             |          700 |
-| :see_no_evil: 7     | [muclemente](https://github.com/muclemente)     | day-06,day-05,day-04,day-03,day-02,day-01                                                                                                                                                    |          600 |
-| :cool: 8            | [mbertoluci](https://github.com/mbertoluci)     | day-02,day-01                                                                                                                                                                                |          200 |
+| :poop: 4            | [evmartinelli](https://github.com/evmartinelli) | day-11,day-10,day-09,day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01                                                                                                                 |         1100 |
+| :no_good: 5         | [diogotorres](https://github.com/diogotorres)   | day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01                                                                                                                                      |          800 |
+| :poop: 6            | [jaumzors](https://github.com/jaumzors)         | day-08,day-07,day-06,day-05,day-04,day-03,day-02,day-01                                                                                                                                      |          800 |
+| :speak_no_evil: 7   | [muclemente](https://github.com/muclemente)     | day-06,day-05,day-04,day-03,day-02,day-01                                                                                                                                                    |          600 |
+| :imp: 8             | [mbertoluci](https://github.com/mbertoluci)     | day-02,day-01                                                                                                                                                                                |          200 |
+| :zap: 9             | [rschio](https://github.com/rschio)             | day-01                                                                                                                                                                                       |          100 |
 
-Last Update: 2020-11-24 20:13:00.648415701 +0000 UTC m=+3.930220065
+Last Update: 2020-11-25 11:20:05.264874664 +0000 UTC m=+5.809595943
 
 ---
 
