@@ -1,0 +1,41 @@
+name: 'Tests: node.js'
+
+on: [pull_request, push]
+
+jobs:
+  matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      latest: ${{ steps.set-matrix.outputs.requireds }}
+    steps:
+      - uses: ljharb/actions/node/matrix@main
+        id: set-matrix
+        with:
+          preset: '>=4'
+          type: 'majors'
+          envs: "[{ \"TEST_VARIANT\": \"es6-shim\" }, { \"TEST_VARIANT\": \"es6-shim\", \"PRELOAD_GET_ITERATOR\": true }, { \"TEST_VARIANT\": \"core-js\", \"CORE_JS\": 2 }, { \"TEST_VARIANT\": \"core-js\", \"CORE_JS\": 3 }]"
+
+  latest:
+    needs: [matrix]
+    name: 'latest minors'
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix: ${{ fromJson(needs.matrix.outputs.latest) }}
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ljharb/actions/node/run@main
+        name: 'npm install && npm run tests-only'
+        with:
+          node-version: ${{ matrix.node-version }}
+          shell-command: 'TEST_VARIANT=${{ matrix.envs.TEST_VARIANT }} npm run tests-only'
+          after_install: '[ -z "${{ matrix.envs.CORE_JS }}" ] || npm install core-js@${{ matrix.envs.CORE_JS }}'
+        
+  
+  node:
+    name: 'node 4+'
+    needs: [latest]
+    runs-on: ubuntu-latest
+    steps:
+      - run: 'echo tests completed'

@@ -1,0 +1,14 @@
+{
+  "name": "js",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "JeffiTequila",
+  "license": "MIT",
+  "dependencies": {
+    "readline-sync": "^1.4.10",
+    "tape": "^5.0.1"
+  },
+  "scripts": {
+    "test": "node index.test"
+  }
+}

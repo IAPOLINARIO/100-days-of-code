@@ -1,0 +1,9 @@
+const test = require('tape');
+const day01 = require('./day01');
+
+test('day01:' , function (t) {
+    var input = day01(3 , 365);
+    var expected = 1095;
+    t.equal(input, expected);
+    t.end();
+})
