@@ -1,4 +1,4 @@
-name: day08
+name: day09
 
 environment:
   sdk: '>=2.6.0 <3.0.0'
