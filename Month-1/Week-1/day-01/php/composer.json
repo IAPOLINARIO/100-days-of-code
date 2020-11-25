@@ -1,0 +1,6 @@
+{
+    "require": {
+        "phpunit/phpunit": "^9.4",
+        "mockery/mockery": "^1.4"
+    }
+}
