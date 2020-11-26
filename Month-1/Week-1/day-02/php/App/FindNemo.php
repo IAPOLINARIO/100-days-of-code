@@ -1,7 +1,6 @@
 <?php
 function FindNemo($text = ""){
     $nemo = "Nemo";
-    $pos = strpos($text, "Nemo");
     $explodeText = explode(" ", $text);
 
     foreach($explodeText as  $key=>$value){
