@@ -9,5 +9,6 @@ function FindNemo($text = ""){
             return "I found Nemo at ".$position;
         }
     }
+    
     return "I can't find Nemo :(";
 }
