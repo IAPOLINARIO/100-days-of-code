@@ -29,6 +29,12 @@ class FindNemoTest extends TestCase
         $text = "I am finding Nemo !";
         self::assertEquals( "I found Nemo at 4", FindNemo($text));
     }
+
+    public function test_find_nemo_twice_and_return_first_equals_4()
+    {
+        $text = "I am finding Nemo Nemo !";
+        self::assertEquals( "I found Nemo at 4", FindNemo($text));
+    } 
 }
 
    
