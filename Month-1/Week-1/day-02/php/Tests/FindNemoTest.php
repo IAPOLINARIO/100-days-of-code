@@ -17,6 +17,13 @@ class FindNemoTest extends TestCase
         $text = "Nemo is me";
         self::assertEquals( "I found Nemo at 1", FindNemo($text));
     }
+
+    public function test_find_nemo_at_position_2()
+    {
+        $text = "I Nemo am";
+        self::assertEquals( "I found Nemo at 2", FindNemo($text));
+    }
+
 }
 
    
