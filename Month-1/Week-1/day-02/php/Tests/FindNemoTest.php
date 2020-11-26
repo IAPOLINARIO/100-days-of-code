@@ -11,6 +11,12 @@ class FindNemoTest extends TestCase
         $text = "Mussum Ipsum, cacilds vidis litro abertis. Delegadis gente finis, bibendum egestas augue arcu ut est. Praesent malesuada urna nisi, quis volutpat erat hendrerit non. Nam vulputate dapibus. Atirei o pau no gatis, per gatis num morreus. A ordem dos tratores não altera o pão duris.";
         self::assertEquals( "I can't find Nemo :(", FindNemo($text));
     }
+
+    public function test_find_nemo_at_position_1()
+    {
+        $text = "Nemo is me";
+        self::assertEquals( "I found Nemo at 1", FindNemo($text));
+    }
 }
 
    
