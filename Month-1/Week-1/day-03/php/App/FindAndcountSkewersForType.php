@@ -1,6 +1,8 @@
 <?php
 namespace  App;
 function FindAndcountSkewersForType($skewers){
+    if($skewers === null or empty($skewers))  return "Please go get more skewers :)";
+
     $totalVegetarianSkewers = 0;
     $totalNonVegetarianSkewers = 0;
 
@@ -11,9 +13,6 @@ function FindAndcountSkewersForType($skewers){
             $totalVegetarianSkewers++;
         }
     }
-
-    echo "We have {$totalVegetarianSkewers} vegetarian skewers! \n";
-    echo "We have {$totalNonVegetarianSkewers} non-vegetarian skewers!\n";
 
     return [
         $totalVegetarianSkewers,
