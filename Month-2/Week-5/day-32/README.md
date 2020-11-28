@@ -14,6 +14,9 @@ Create a function with the following input parameters, in this order:
 Returns:
 - The player's rank after each new score, as an integer list
 
+### Observations
+It is important do consider that once a player ranking is computed for his/her score, the ranking of the next player score in the **playerScores** list needs to consider the updated leaderboard.
+
 
 ### Example
 ```text
@@ -22,5 +25,10 @@ playerRank([100, 90, 90, 80], [70, 80, 105])  ➞ [4, 3, 1]
 
 In the above example, ranked players will have ranks **1**, **2**, **2**, and **3**, respectively. If the player's scores are **70**, **80** and **105**, their rankings after each game are **4***th*, **3***th* and **1***th*. Return **[4, 3, 1]**.
 
+### Additional Examples
+```text
+playerRank([100, 90, 90, 80], [106, 107, 105])  ➞ [1, 1, 3]
+playerRank([100, 90, 90, 80], [90, 80, 1])  ➞ [2, 3, 4]
+```
 
 [1]: https://en.wikipedia.org/wiki/Ranking#Dense_ranking_(%221223%22_ranking)
