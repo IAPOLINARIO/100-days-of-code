@@ -60,8 +60,7 @@ There are at most 1,000 gopher holes in a set of input and all coordinates range
 
 ### Expected return
 ```text
-The gopher cannot escape.
-The gopher can escape through the hole at (2.500,2.500).
+["The gopher cannot escape.", "The gopher can escape through the hole at (2.500,2.500)."]
 ```
 
 
