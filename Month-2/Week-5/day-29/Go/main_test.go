@@ -38,3 +38,14 @@ func Test_ERROR_UNDEFINED(t *testing.T) {
 		t.Errorf("Your evaluation was incorrect, got: %v, want: %v", result, expectedResult)
 	}
 }
+
+func Test_ERROR_TO_LONG(t *testing.T) {
+	input := "R G Y R G Y R G Y C X R G Y R G Y"
+	expectedResult := "REJECT"
+
+	result := trafficLightChecker(strings.Split(input, " "))
+
+	if !reflect.DeepEqual(result, expectedResult) {
+		t.Errorf("Your evaluation was incorrect, got: %v, want: %v", result, expectedResult)
+	}
+}
