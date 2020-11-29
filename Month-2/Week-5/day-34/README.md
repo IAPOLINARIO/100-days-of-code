@@ -24,4 +24,7 @@ Returns:
 carryOperations(123, 456) ➞ 0
 carryOperations(555, 555) ➞ 3
 carryOperations(123, 594) ➞ 1
+carryOperations(555, 545) ➞ 3
+carryOperations(1, 20000) ➞ 0
+carryOperations(1, 2) ➞ 0
 ```
