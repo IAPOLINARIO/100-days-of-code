@@ -15,6 +15,7 @@ func main() {
 
 func Solution(N int) int {
 	valueToAdd := "5"
+	staticValue := 50
 	stringNumber := strconv.Itoa(N)
 	arrayNumber := strings.Split(stringNumber, "")
 	maxValue := N
@@ -24,9 +25,8 @@ func Solution(N int) int {
 		finalResult, _ := strconv.Atoi(resultString)
 		return finalResult
 	} else if N == 0 {
-		return 50
+		return staticValue
 	} else {
-
 		for i := 0; i < len(arrayNumber); i++ {
 			sliceEnd := stringNumber[i+1 : len(stringNumber)]
 			sliceBegin := stringNumber[0:i]
