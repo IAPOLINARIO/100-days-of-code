@@ -13,15 +13,13 @@ func main() {
 
 }
 
-func playerRank(boardLeaders, gamesPlayed []int) (result []int) {
-	n := len(boardLeaders)
-	m := len(gamesPlayed)
-
+func playerRank(leaderBoard, gamesPlayed []int) (result []int) {
+	n := len(leaderBoard)
 	score := make([]int, n)
 	uniq := 0
 
 	for i := 0; i < n; i++ {
-		sc := boardLeaders[i]
+		sc := leaderBoard[i]
 		if uniq > 0 && sc < score[uniq-1] || uniq == 0 {
 			uniq++
 			score[uniq-1] = sc
@@ -29,6 +27,8 @@ func playerRank(boardLeaders, gamesPlayed []int) (result []int) {
 	}
 	score = score[:uniq]
 	curPlace := uniq + 1
+	m := len(gamesPlayed)
+
 	for i := 0; i < m; i++ {
 		al := gamesPlayed[i]
 		for {
