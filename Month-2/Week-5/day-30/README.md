@@ -12,5 +12,5 @@ _Example_
 Given N = 276, Digit = 3, function should return 3276
 Given N = -999, Digit = 4, function should return -4999
 Given N = 0, Digit = 3, function should return 30
-Given N = 860, Digit = 7, function should return 87650
+Given N = 860, Digit = 7, function should return 8760
 ```
