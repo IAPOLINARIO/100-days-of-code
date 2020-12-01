@@ -37,7 +37,6 @@ func Test_BOLSOMINION_TUDO_GADO(t *testing.T) {
 		t.Errorf("Your evaluation was incorrect, got: %v, want: %v", result, expectedResult)
 	}
 }
-
 func Test_LACRE_13_NAS_ELEICOES_DE_2022(t *testing.T) {
 	input := ";SVTR 24 MSD R;ROVPRD FR 3-33"
 	expectedResult := "LACRE 13 NAS ELEICOES DE 2022"
