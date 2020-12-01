@@ -7,15 +7,16 @@ Write a **toLCD** function which returns a LCD display representation as a strin
 
 The function has one input parameter:
 - **n**: integer to be converted to LCD display
+- **s**: size as number of signs
 
 The function returns:
--  **n** LCD display representation as a string
+-  LCD display representation as a string
 
 Print the number specified in the input in an LCD display-style using s “-” signs for the horizontal segments ands “|” signs for the vertical ones. Each digit occupies exactly s + 2 columns and 2s + 3 rows. 
 
 Be sure to fill all the white space occupied by the digits with blanks, including the last digit. There must be exactly one column of blanks between two digits.
 
-### Examples for input 12345 and 67890:
+### Examples for input (n=12345, s=2) and (n=67890, s=3):
 <p align="left">
   <img src="../../../assets/lcd.png" alt="LCD">
 </p>
