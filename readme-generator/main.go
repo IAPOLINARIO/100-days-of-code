@@ -57,7 +57,7 @@ func buildChallengeIndex() (result []string) {
 			weekFolders, _ := ioutil.ReadDir(monthDir)
 			for _, wFolder := range weekFolders {
 				if strings.Contains(wFolder.Name(), "Week-") {
-					weekLinkToAppend := fmt.Sprintf("[%v](https://github.com/IAPOLINARIO/100-days-of-code/tree/main/%v/%v) \n", wFolder.Name(), mFolder.Name(), wFolder.Name())
+					weekLinkToAppend := fmt.Sprintf("[%v](https://github.com/IAPOLINARIO/100-days-of-code/tree/main/%v/%v) <br/>", wFolder.Name(), mFolder.Name(), wFolder.Name())
 
 					result = append(result, weekLinkToAppend)
 					weekDir := monthDir + wFolder.Name() + "/"
@@ -93,9 +93,9 @@ func buildChallengeIndex() (result []string) {
 									challengeTitle := strings.Replace(scanner.Text(), "#", "", 2)
 									challengeToAppend := fmt.Sprintf("[%v -%v](https://github.com/IAPOLINARIO/100-days-of-code/blob/main/%v/%v/%v/README.md)", dFolder.Name(), challengeTitle, mFolder.Name(), wFolder.Name(), dFolder.Name())
 									if solvedWith != "" {
-										result = append(result, fmt.Sprintf("&nbsp;&nbsp;&nbsp;&nbsp;%v - [Already solved with %v] \n", challengeToAppend, solvedWith))
+										result = append(result, fmt.Sprintf("&nbsp;&nbsp;&nbsp;&nbsp;%v - [Already solved with %v] <br/>", challengeToAppend, solvedWith))
 									} else {
-										result = append(result, fmt.Sprintf("&nbsp;&nbsp;&nbsp;&nbsp;%v - Not Solved yet \n", challengeToAppend))
+										result = append(result, fmt.Sprintf("&nbsp;&nbsp;&nbsp;&nbsp;%v - Not Solved yet <br/>", challengeToAppend))
 									}
 								}
 								line++
