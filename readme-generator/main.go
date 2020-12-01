@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -18,6 +19,7 @@ import (
 	"github.com/olekukonko/tablewriter"
 )
 
+//const variables
 const (
 	baseGithubURI    = "https://api.github.com"
 	collaboratorsURI = "/repos/IAPOLINARIO/100-days-of-code/collaborators"
@@ -28,21 +30,100 @@ const (
 	rankingToken     = "##RANKING_TOKEN##"
 	updateToken      = "##LATEST_UPDATED##"
 	ReadmePath       = "../README.md"
+	indexToken       = "##INDEX_TOKEN##"
 )
 
 func main() {
 	token := os.Args[1]
 	PRs := getPullRequests(token)
 
-	buildOutputResult(PRs)
+	updatedReadme := buildOutputResult(PRs)
+	indexUpdated := buildChallengeIndex()
+	updatedReadmeWithIndex := strings.Replace(updatedReadme, indexToken, strings.Join(indexUpdated, " "), 1)
+
+	writeReadme(updatedReadmeWithIndex)
+	fmt.Println(updatedReadmeWithIndex)
+
 }
 
-func getGithubAPIResult(repoUrl string, token string) (*http.Response, error) {
+func buildChallengeIndex() (result []string) {
+	baseDir := "../"
+	monthFolders, _ := ioutil.ReadDir(baseDir)
+
+	for _, mFolder := range monthFolders {
+		if strings.Contains(mFolder.Name(), "Month-") {
+			//fmt.Println(mFolder.Name())
+			monthDir := baseDir + mFolder.Name() + "/"
+			weekFolders, _ := ioutil.ReadDir(monthDir)
+			for _, wFolder := range weekFolders {
+				if strings.Contains(wFolder.Name(), "Week-") {
+					weekLinkToAppend := fmt.Sprintf("[%v](https://github.com/IAPOLINARIO/100-days-of-code/tree/main/%v/%v) \n", wFolder.Name(), mFolder.Name(), wFolder.Name())
+
+					result = append(result, weekLinkToAppend)
+					weekDir := monthDir + wFolder.Name() + "/"
+					dayFolders, _ := ioutil.ReadDir(weekDir)
+					for _, dFolder := range dayFolders {
+						if strings.Contains(dFolder.Name(), "day-") {
+							solvedWith := ""
+							languagesDir := weekDir + dFolder.Name() + "/"
+							languagesFolders, _ := ioutil.ReadDir(languagesDir)
+
+							for i, lFolder := range languagesFolders {
+								if lFolder.Name() != "README.md" {
+									techToAppend := fmt.Sprintf("[%v](https://github.com/IAPOLINARIO/100-days-of-code/tree/main/%v/%v/%v/%v)", lFolder.Name(), mFolder.Name(), wFolder.Name(), dFolder.Name(), lFolder.Name())
+									solvedWith += techToAppend
+
+									if i < len(languagesFolders)-1 {
+										solvedWith += ", "
+									}
+								}
+							}
+							//fmt.Println("---" + dFolder.Name())
+							filePath := weekDir + dFolder.Name() + "/README.md"
+							//fmt.Println("filepath: " + filePath)
+							f, err := os.Open(filePath)
+							if err != nil {
+								log.Fatalln(err)
+							}
+							defer f.Close()
+							scanner := bufio.NewScanner(f)
+							var line int
+							for scanner.Scan() {
+								if line == 0 {
+									challengeTitle := strings.Replace(scanner.Text(), "#", "", 2)
+									challengeToAppend := fmt.Sprintf("[%v -%v](https://github.com/IAPOLINARIO/100-days-of-code/blob/main/%v/%v/%v/README.md)", dFolder.Name(), challengeTitle, mFolder.Name(), wFolder.Name(), dFolder.Name())
+									if solvedWith != "" {
+										result = append(result, fmt.Sprintf("&nbsp;&nbsp;&nbsp;&nbsp;%v - [Already solved with %v] \n", challengeToAppend, solvedWith))
+									} else {
+										result = append(result, fmt.Sprintf("&nbsp;&nbsp;&nbsp;&nbsp;%v - Not Solved yet \n", challengeToAppend))
+									}
+								}
+								line++
+								break
+							}
+
+							if err := scanner.Err(); err != nil {
+								log.Fatalln(err)
+							}
+
+						}
+					}
+
+				}
+			}
+
+		}
+	}
+	return
+}
+
+//getGithubAPIResult get results from github
+func getGithubAPIResult(repoURL string, token string) (*http.Response, error) {
 	// Create a token string by appending string access token
 	var bearer = "token  " + token
 
 	client := &http.Client{}
-	req, _ := http.NewRequest("GET", repoUrl, nil)
+	req, _ := http.NewRequest("GET", repoURL, nil)
 	req.Header.Add("Authorization", bearer)
 
 	resp, err := client.Do(req)
@@ -120,7 +201,7 @@ func getEvents(token string) {
 
 }
 
-func buildOutputResult(PRs []structs.PullRequest) {
+func buildOutputResult(PRs []structs.PullRequest) string {
 	req := make(map[string][]string)
 	for i := 0; i < len(PRs); i++ {
 		challengesDone := ""
@@ -163,9 +244,7 @@ func buildOutputResult(PRs []structs.PullRequest) {
 	updatedReadme := strings.Replace(filecontent, rankingToken, rankingTable, 1)
 	updatedReadme = strings.Replace(updatedReadme, updateToken, time.Now().String(), 1)
 
-	writeReadme(updatedReadme)
-	fmt.Println(updatedReadme)
-
+	return updatedReadme
 }
 
 func buildRankingTable(sortedMap map[string][]string) string {
@@ -218,6 +297,7 @@ func buildRankingTable(sortedMap map[string][]string) string {
 	return tableString.String()
 }
 
+//SortMapByValue sort values by mapping
 func SortMapByValue(Map *map[string][]string) map[string][]string {
 
 	resultMap := make(map[string][]string)

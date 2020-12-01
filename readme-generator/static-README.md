@@ -17,6 +17,10 @@ Most of the challenges can be solved in three hours or less.
 
 ---
 
+## Index
+
+##INDEX_TOKEN##
+
 ## Ranking
 
 If you want to be part of the **challenge ranking**, you need to submit a pull request to be validated by the project contributors. The PR **must** have the label `done` and the title of the PR **must** include the challenge you are submitting (e.g. **day-10**), otherwise no points will not be added to the ranking.
