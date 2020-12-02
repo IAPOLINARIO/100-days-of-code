@@ -33,7 +33,7 @@ func carryOperations(num1, num2 int) (carryOperations int) {
 
 		if currentSum >= 10 {
 			carryOperations++
-			exceeded = currentSum - 10
+			exceeded = currentSum - 9
 		} else {
 			exceeded = 0
 		}
