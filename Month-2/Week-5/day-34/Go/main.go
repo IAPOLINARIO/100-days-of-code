@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	result := carryOperations(1, 20000)
+	result := carryOperations(545, 555)
 
 	fmt.Println(result)
 }
