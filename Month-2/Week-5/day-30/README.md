@@ -1,4 +1,4 @@
-# Introduction
+# The Maximum Value
 
 Write a function that returns the maximum possible value obtained by inserting any single digit inside the decimal representation of integer N.
 
