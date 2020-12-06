@@ -8,12 +8,16 @@ But they all have in common that they are taking data that is repeating and only
 Design your own data **compress** and **uncompress** techniques. Create these two functions.
 
 **compress** function signature:
-- input parameter _data_ as a string
-- return de _compressed_ data as a string
+- input parameter _sourceFilename_ with the source filename to compress
+- input parameter _targetFilename_ with the target filename compressed
+
+The **compress** function should generate a _targetFilename_ file, compressed.
 
 **uncompress** function signature:
-- input parameter _compressed_ as a string
-- return de _uncompressed_ data as a string
+- input parameter _sourceFilename_ with the compressed source filename
+- input parameter _targetFilename_ with the target filename uncompressed
+
+The **compress** function should generate a _targetFilename_ file, uncompressed.
 
 ## Notes
-- It is OK if not every type of input data is capable of compression, but on the tests, it is important to put some examples that prove the reduction of size of the compressed data, and the ability to uncompress back to the original content.
+- It is OK if not every type of input data is capable of compression, but on the tests, it is important to garantee the generated compressed file is smaller than the original and also garantee the uncompress process, from a compressed file to its uncompressed, original version.
