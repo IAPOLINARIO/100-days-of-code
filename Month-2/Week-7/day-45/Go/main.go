@@ -11,6 +11,7 @@ func main() {
 func XOR(x, y int) int {
 	x = x ^ y
 	y = x ^ y
+	x = x ^ y
 
-	return (x - y) - y
+	return x - y
 }
