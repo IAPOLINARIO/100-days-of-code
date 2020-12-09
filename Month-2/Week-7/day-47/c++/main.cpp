@@ -56,6 +56,8 @@ std::streampos fileSize(std::string fileName) {
  * return 0 if OK
  */ 
 int compress(std::string sourceFileName, std::string targetFileName) {
+    const int REPETITION_LEVEL = 5; //repetition level to be worth it, can be tweaked
+
     //try to open the source (uncompressed file)
     std::ifstream file = openBinaryFile(sourceFileName);
     if (!file) {
@@ -80,7 +82,7 @@ int compress(std::string sourceFileName, std::string targetFileName) {
             }
         }
         int repetitions = count - i - 1;
-        if (repetitions > 0) {
+        if (repetitions > REPETITION_LEVEL) {
             repeatMap[i] = std::make_pair(bytes[i], repetitions); //store a repeated sequence into this map
             i += repetitions - 1;
         } else {
@@ -131,7 +133,7 @@ int uncompress(std::string sourceFileName, std::string targetFileName) {
     int repetitions;
     int sizeOfRepetitions = 0;
     
-    //Read the rest of the file until EOF. 
+    //Read the rest of the file until EOF
     //Starting from now, the compressed file holds information of repeating bytes    
     while (file.read((char *) &index, sizeof(index))) { //index in the original file?
         file.read((char *) &byte, sizeof(byte)); //which byte?
@@ -145,63 +147,58 @@ int uncompress(std::string sourceFileName, std::string targetFileName) {
 
     //write de ucompressed target file, it will have totalSize bytes
     std::ofstream targetFile(targetFileName, std::ios::out | std::ios::binary);
-    for (int i = 0; i < totalSize; i++) {
-        if (rMap.find(i) != rMap.end()) {            
-            for (int j = 0; j <= rMap[i].second; j++) {                
-                targetFile.write((char *) &rMap[i].first, sizeof(rMap[i].first)); //write the repeating bytes 'n' times
-            }
-            i += rMap[i].second;
-        } else {                        
-            targetFile.write((char *) &raw[0], sizeof(raw[0])); //write the normal raw sequence of bytes (not repeated)
+    int bytesWritten = 0;
+    for (auto &rm : rMap) {
+        int sizeToWriteUntilRepeatedBytes = rm.first - bytesWritten;
+        if (sizeToWriteUntilRepeatedBytes >= 0) {            
+            targetFile.write((char *) &raw[0], sizeof(raw[0]) * sizeToWriteUntilRepeatedBytes); //write the normal raw sequence of bytes (not repeated)
+            raw.erase(raw.begin(), raw.begin() + sizeToWriteUntilRepeatedBytes + 1);//+1 because the raw structure still has the beginning byte that repeats (possible improvement to remove it)
         }
-        raw.erase(raw.begin()); //remove first byte from raw vector
+        for (int j = 0; j <= rm.second.second; j++) {                
+            targetFile.write((char *) &rm.second.first, sizeof(rm.second.first)); //write the repeating bytes 'n' times            
+        }         
+        bytesWritten += sizeToWriteUntilRepeatedBytes + rm.second.second * sizeof(rm.second.first) + 1;
+    }
+    if (raw.size() > 0) {
+        targetFile.write((char *) &raw[0], sizeof(raw[0]) * raw.size()); //write the remaining normal raw sequence of bytes (not repeated)
     }
 
     return 0;
 }
 
 /**
+ * Helper function to test files
+ * @param sourceFilename The filename to compress, uncompress and compare sizes
+ */ 
+void runChecks(std::string sourceFilename) {
+    std::string target = sourceFilename;
+    const size_t last_slash_idx = target.find_last_of("\\/");
+    if (std::string::npos != last_slash_idx) {
+        target.erase(0, last_slash_idx + 1); //get only the name of the file
+    }
+
+    //check successful compress
+    CHECK(compress(sourceFilename, "bin/" + target + ".bkp") == 0);    
+    //check successful uncompress
+    CHECK(uncompress("bin/" + target + ".bkp", "bin/RECOVERED_" + target) == 0);
+    //check if compressed file is smaller than original file
+    CHECK(fileSize(sourceFilename) > fileSize("bin/" + target + ".bkp"));
+    //check if the recovered file is equal to the original
+    CHECK(fileSize(sourceFilename) == fileSize("bin/RECOVERED_" + target));
+
+    //show results
+    std::cout << "\nFILE RESULTS:\n-------------" << std::endl;
+    std::cout << sourceFilename << " (ORIGINAL) => " << fileSize(sourceFilename) << " bytes" << std::endl;
+    std::cout << "bin/" + target + ".bkp" << " (COMPRESSED) => " << fileSize("bin/" + target + ".bkp") << " bytes" << std::endl;
+    std::cout << "bin/RECOVERED_" + target << " (RECOVERED) => " << fileSize("bin/RECOVERED_" + target) << " bytes\n" << std::endl;
+}
+
+/**
  * Tests
  */
 TEST_CASE("Tests")
-{
-    //----------------------------------------------------------------------------------------------------
-    //5kB file tests
-    //----------------------------------------------------------------------------------------------------
-    //check successful compress
-    CHECK(compress("../../../../assets/5kB_sample_text.txt", "bin/5kB_sample_text.txt.bkp") == 0);    
-    //check successful uncompress
-    CHECK(uncompress("bin/5kB_sample_text.txt.bkp", "bin/5kB_sample_text_RECOVERED.txt") == 0);
-    //check if compressed file is smaller than original file
-    CHECK(fileSize("../../../../assets/5kB_sample_text.txt") > fileSize("bin/5kB_sample_text.txt.bkp"));
-    //check if the recovered file is equal to the original
-    CHECK(fileSize("../../../../assets/5kB_sample_text.txt") == fileSize("bin/5kB_sample_text_RECOVERED.txt"));
-
-    //show results
-    std::cout << "\n\nFILE RESULTS (5kB):\n-------------------" << std::endl;
-    std::cout << "../../../../assets/5kB_sample_text.txt (ORIGINAL) => " << fileSize("../../../../assets/5kB_sample_text.txt") << " bytes" << std::endl;
-    std::cout << "bin/5kB_sample_text.txt.bkp (COMPRESSED) => " << fileSize("bin/5kB_sample_text.txt.bkp") << " bytes" << std::endl;
-    std::cout << "bin/5kB_sample_text_RECOVERED.txt (RECOVERED) => " << fileSize("bin/5kB_sample_text_RECOVERED.txt") << " bytes" << std::endl;
-
-
-    //----------------------------------------------------------------------------------------------------
-    //10MB file tests
-    //----------------------------------------------------------------------------------------------------
-    //check successful compress
-    CHECK(compress("../../../../assets/10MB_sample_text.txt", "bin/10MB_sample_text.txt.bkp") == 0);
-    //check successful uncompress
-    CHECK(uncompress("bin/10MB_sample_text.txt.bkp", "bin/10MB_sample_text_RECOVERED.txt") == 0);
-    //check if compressed file is smaller than original file
-    CHECK(fileSize("../../../../assets/10MB_sample_text.txt") > fileSize("bin/10MB_sample_text_RECOVERED.txt.bkp"));
-    //check if the recovered file is equal to the original
-    CHECK(fileSize("../../../../assets/10MB_sample_text.txt") == fileSize("bin/10MB_sample_text_RECOVERED.txt"));
-
-    //show results
-    std::cout << "\n\nFILE RESULTS (10MB):\n--------------------" << std::endl;
-    std::cout << "../../../../assets/10MB_sample_text.txt (ORIGINAL) => " << fileSize("../../../../assets/10MB_sample_text.txt") << " bytes" << std::endl;
-    std::cout << "bin/10MB_sample_text.txt.bkp (COMPRESSED) => " << fileSize("bin/10MB_sample_text.txt.bkp") << " bytes" << std::endl;
-    std::cout << "bin/10MB_sample_text_RECOVERED.txt (RECOVERED) => " << fileSize("bin/10MB_sample_text_RECOVERED.txt") << " bytes\n\n" << std::endl;
-
-
-    
+{  
+    runChecks("../../../../assets/5kB_sample_text.txt");
+    runChecks("../../../../assets/10MB_sample_text.txt");    
+    runChecks("../../../../assets/MARBLES.BMP");
 }
