@@ -116,7 +116,6 @@ func parseByteArrayToIntArray(byteArray []byte) []int {
 		result[i], _ = strconv.Atoi(currentValue)
 	}
 
-	fmt.Println(result)
 	return result
 }
 
