@@ -16,9 +16,13 @@ The first recurring character from the input. From the above example:
 B
 ```
 
-**Challenge input(s)**
+## Note
+
+What is exactly the definition of 'first recurring character'? 
+- It is the character that recurs first (B in the series ABBA)
+
+## Examples
 ```text
-IKEUNFUVFV
-PXLJOUDJVZGQHLBHGXIW
-*l1J?)yn%R[}9~1"=k7]9;0[$
+ABCDEBC ➞ B
+ABBA ➞ B
 ```
