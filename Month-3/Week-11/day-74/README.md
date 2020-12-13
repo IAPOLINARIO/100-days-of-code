@@ -95,10 +95,10 @@ No doubt automation has its place in Twitter when used responsibly. However, a s
 
 For each of the above items that an account triggers, add 10 to the score. The output should consider the following scale:
 
-0 - 20 - Not a cattle
-21 - 80 - Sounds like a cattle (muhhhh)
-81 - 100 - It's definetely a cattle ! Avoid it !
-100+ - Too much cattle! 🐮
+- 0 - 20 - Not a cattle
+- 21 - 80 - Sounds like a cattle (muhhhh)
+- 81 - 100 - It's definetely a cattle ! Avoid it !
+- 100+ - Too much cattle! 🐮
 
 ## Input example
 
