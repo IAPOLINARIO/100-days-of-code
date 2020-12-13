@@ -1,4 +1,4 @@
-##CATTLEMETER
+## CATTLEMETER
 
 Researchers say bot networks exist that number in the hundreds of thousands, with accounts that share similar characteristics, suggesting someone is using them for a specific purpose. The Russian troll factory known as the Internet Research Agency reportedly used large networks of fake accounts to distribute misinformation in an attempt to destabilize the US election.
 
