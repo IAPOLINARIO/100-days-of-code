@@ -22,19 +22,12 @@ hjklo
 
 Your program should emit the longest valid English language word you can make for each keyboard configuration.
 
-
-## Example
-
-```text
-longestWord("abcd") ➞ bacaba
-longestWord("qwer") ➞ ewerer
-longestWord("hjklo") ➞ kolokolo
-```
-
 ## Challenge Output
 ```text
-edcf ➞ deedeed
-bnik ➞  bikini
-poil ➞ pililloo
-vybu ➞ bubby
+longestWord("abcd") ➞ "abaca"
+longestWord("edcf") ➞ "deeded"
+longestWord("bnik") ➞ "bikini"
+longestWord("poil") ➞ "lollipop"
+longestWord("vybu") ➞ "bubby"
+longestWord("subtoxymerhlac") ➞ "carboxymethylcelluloses"   
 ```
