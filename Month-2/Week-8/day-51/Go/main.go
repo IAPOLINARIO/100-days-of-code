@@ -22,7 +22,7 @@ func NewAsteroid(size int) *Asteroid {
 }
 
 func main() {
-	input := []int{5, 10, -5}
+	input := []int{8, -8}
 	exploded := checkExplodedAsteroids(input)
 	fmt.Println(getBiggestAsteroid(input, exploded))
 
@@ -52,7 +52,12 @@ func checkExplodedAsteroids(asteroids []int) (explodedAsteroids []int) {
 		nextAsteroid := NewAsteroid(asteroids[i])
 		if currentAsteroid.Direction != nextAsteroid.Direction { //asteroids will collide
 			smallesAsteroid := getSmallestAsteroid(currentAsteroid, nextAsteroid)
-			explodedAsteroids = append(explodedAsteroids, smallesAsteroid.Size)
+			if smallesAsteroid != nil {
+				explodedAsteroids = append(explodedAsteroids, smallesAsteroid.Size)
+			} else {
+				explodedAsteroids = append(explodedAsteroids, currentAsteroid.Size)
+				explodedAsteroids = append(explodedAsteroids, nextAsteroid.Size)
+			}
 		}
 	}
 
@@ -65,7 +70,7 @@ func getSmallestAsteroid(currentAsteroid, nextAsteroid *Asteroid) *Asteroid {
 
 	if currentAsteroidSize > nextAsteroidSize {
 		return nextAsteroid
-	} else {
+	} else if currentAsteroidSize < nextAsteroidSize {
 		return currentAsteroid
 	}
 
