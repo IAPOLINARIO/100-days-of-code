@@ -29,14 +29,12 @@ int harvest(std::vector<int> &plantWeek, int week) {
 int funnyPlant(int people, int fruits) {    
     if (fruits >= people) {
         return 0;
-    }
-    
+    }    
     int week = 1;
     std::vector<int> plantWeek;    
 
     while (fruits < people) {                
-        //if there is some fruits avaialable, 
-        //plant them except if ammount is already enough for the people next week
+        //if there is some fruits avaialable, plant them except if ammount is already enough for the people next week        
         if ((harvest(plantWeek, week + 1) + fruits) < people && fruits > 0) { 
             fruits--; //consume a fruit to plant
             plantWeek.push_back(week); //plant in this week
