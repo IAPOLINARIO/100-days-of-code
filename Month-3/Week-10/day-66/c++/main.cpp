@@ -31,11 +31,9 @@ bool ISBNvalidator(std::string code) {
             countDown--;
         }
     }
-
     if (count != 10) {
         return false;
     }
-
     return sum % 11 == 0;
 }
 
