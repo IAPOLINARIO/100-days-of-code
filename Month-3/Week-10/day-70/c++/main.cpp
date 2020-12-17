@@ -46,7 +46,6 @@ std::string longestWord(std::string wkeys) {
             selectedWord = word;
         }
     }
-
     return selectedWord;
 }
 
