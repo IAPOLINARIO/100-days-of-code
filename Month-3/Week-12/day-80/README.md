@@ -1,4 +1,4 @@
-## Make it look like I'm working
+## Make it look like you are working
 
 Often, we find ourselves running a script or query that will take a significant amount of time to run. usually, you can leave that script open and enjoy some guilt-free procrastination.
 
