@@ -25,4 +25,4 @@ Take at least two parameters:
 
 ## Output Description
 
-Array/vector of visited URLs.
+Array/vector of DISCOVERED URLs.
