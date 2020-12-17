@@ -162,7 +162,6 @@ Result go(const int &noWayLimit,
     return result;
 }
 
-
 /**
  * Print condititions and solution.
  * @param colorSequence Color sequence to follow
@@ -356,5 +355,3 @@ TEST_CASE("Tests")
                                     std::make_pair(8, 0)
                                 });
 }
-
-
