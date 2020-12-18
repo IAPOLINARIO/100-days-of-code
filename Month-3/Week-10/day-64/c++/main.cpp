@@ -5,7 +5,6 @@
  */
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "../../../../dependencies/c++/doctest.h" //https://github.com/onqtam/doctest
-#include <algorithm>
 
 /**
  * Outputs the first recurring character in a string.
