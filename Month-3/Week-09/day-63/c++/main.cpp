@@ -7,8 +7,7 @@
 #include "../../../../dependencies/c++/doctest.h" //https://github.com/onqtam/doctest
 
 /**
- * The rabbit problem
- * How long it will take for them to outnumber humans (target)?
+ * The rabbit problem. How long it will take for them to outnumber humans (target)?
  * 
  * Every month a fertile female will have 14 offspring (5 males and 9 females).
  * A female rabbit is fertile when it has reached the age of 4 months, they never stop being fertile.
