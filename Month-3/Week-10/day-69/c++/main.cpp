@@ -4,7 +4,7 @@
  * Just run 'make' to compile and run all the tests
  * 
  * ATTENTION:
- * It needs at least a C++17 compiler because of the usage of magic_enum.
+ * It needs at least a C++17 compiler because of the usage of magic_enum
  */
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "../../../../dependencies/c++/doctest.h" //https://github.com/onqtam/doctest
