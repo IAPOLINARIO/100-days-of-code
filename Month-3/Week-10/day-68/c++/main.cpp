@@ -153,5 +153,3 @@ TEST_CASE("Tests")
     CHECK(typingDistance("(123654789)") == "8.00 cm");
     CHECK(typingDistance("-(123654-789") == "8.00 cm");
 }
-
-
