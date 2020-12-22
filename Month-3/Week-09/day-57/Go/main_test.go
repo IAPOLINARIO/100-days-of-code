@@ -5,33 +5,33 @@ import (
 	"testing"
 )
 
-func Test_Repeated_String_1(t *testing.T) {
-	input := []string{"aaaaaa", "bc", "d", "eeee", "xyz"}
-	expectedResult := []string{"aaaaaa", "d", "eeee"}
+func Test_Sigilize_1(t *testing.T) {
+	input := "i am healthy"
+	expectedResult := "MLTHY"
 
-	result := identicalFilter(input)
-
-	if !reflect.DeepEqual(result, expectedResult) {
-		t.Errorf("Your evaluation was incorrect, got: %v, want: %v", result, expectedResult)
-	}
-}
-
-func Test_Repeated_String_2(t *testing.T) {
-	input := []string{"88", "999", "22", "545", "133"}
-	expectedResult := []string{"88", "999", "22"}
-
-	result := identicalFilter(input)
+	result := sigilize(input)
 
 	if !reflect.DeepEqual(result, expectedResult) {
 		t.Errorf("Your evaluation was incorrect, got: %v, want: %v", result, expectedResult)
 	}
 }
 
-func Test_Repeated_String_3(t *testing.T) {
-	input := []string{"xxxxo", "oxo", "xox", "ooxxoo", "oxo"}
-	expectedResult := 0
+func Test_Sigilize_2(t *testing.T) {
+	input := "I FOUND MY SOULMATE"
+	expectedResult := "FNDYSLMT"
 
-	result := len(identicalFilter(input))
+	result := sigilize(input)
+
+	if !reflect.DeepEqual(result, expectedResult) {
+		t.Errorf("Your evaluation was incorrect, got: %v, want: %v", result, expectedResult)
+	}
+}
+
+func Test_Sigilize_3(t *testing.T) {
+	input := "I have a job I enjoy and it pays well"
+	expectedResult := "HVBJNDTPYSWL"
+
+	result := sigilize(input)
 
 	if !reflect.DeepEqual(result, expectedResult) {
 		t.Errorf("Your evaluation was incorrect, got: %v, want: %v", result, expectedResult)
