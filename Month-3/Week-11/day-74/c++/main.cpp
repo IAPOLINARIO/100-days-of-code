@@ -11,8 +11,8 @@
 
 #include "../../../../dependencies/c++/json.hpp" //https://github.com/nlohmann/json
 
-//The Twitter Bearen Token for API v2
-const char *TWITTER_BEARER_TOKEN = ""; //put the Twitter Bearen Token for API v2
+//The Twitter Bearer Token for API v2
+const char *TWITTER_BEARER_TOKEN = ""; //put the Twitter Bearer Token for API v2
 //The Programmable Search Engine ID from Google (For Google Image Search)
 const std::string GOOGLE_PROGRAMMABLE_SEARCH_ENGINE_FOR_IMAGES_ON_TWITTER_ID = ""; //put The Programmable Search Engine ID from Google (For Google Image Search)
 //The Programmable Search Engine API KEY from Google (For Google Image Search)
@@ -235,7 +235,7 @@ int gadoDetect(std::string twitterUsername, int lasTweetsToAnalyze = 30, double 
     if (score < 20)  {
         resultDescription = "Not a cattle";
     } else {
-        if (score > 20 && score <= 80) {
+        if (score >= 20 && score <= 80) {
             resultDescription = "Sounds like a cattle (muhhhh)";
         } else {
             if (score > 80 && score <= 100 ) {
@@ -256,16 +256,16 @@ int gadoDetect(std::string twitterUsername, int lasTweetsToAnalyze = 30, double 
  */
 TEST_CASE("Tests")
 {    
-    gadoDetect("teste18427839");
-    gadoDetect("realDonaldTrump");
-    gadoDetect("LucianoHuck");
-    gadoDetect("jairbolsonaro");
-    gadoDetect("CarlosBolsonaro");
-    gadoDetect("Haddad_Fernando");
-    gadoDetect("GuilhermeBoulos");
-    gadoDetect("BrazilFight");
-    gadoDetect("augustosnunes");    
-    gadoDetect("MarceloSCCP4_5");
+    CHECK(gadoDetect("teste18427839") >= 20);
+    CHECK(gadoDetect("realDonaldTrump") != -1);
+    CHECK(gadoDetect("LucianoHuck") != -1);
+    CHECK(gadoDetect("jairbolsonaro") != -1);
+    CHECK(gadoDetect("CarlosBolsonaro") != -1);
+    CHECK(gadoDetect("Haddad_Fernando") != -1);
+    CHECK(gadoDetect("GuilhermeBoulos") != -1);
+    CHECK(gadoDetect("BrazilFight") >= 20);
+    CHECK(gadoDetect("augustosnunes") != -1);
+    CHECK(gadoDetect("MarceloSCCP4_5") >= 20);
 }
 
 
