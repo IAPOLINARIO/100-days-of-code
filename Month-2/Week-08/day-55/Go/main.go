@@ -5,27 +5,27 @@ import (
 	"strings"
 )
 
-const (
-	vowels = "AEIOU"
-)
-
 func main() {
-	input := "i am healthy"
 
-	result := sigilize(input)
+	input := []string{"xxxxo", "oxo", "xox", "ooxxoo", "oxo"}
 
-	fmt.Println(result)
+	fmt.Println(identicalFilter(input))
 }
 
-func sigilize(word string) (result string) {
-	for _, char := range word {
-		upperChar := strings.ToUpper(string(char))
-		if !strings.Contains(vowels, upperChar) && upperChar != " " {
-			if strings.Contains(result, upperChar) {
-				result = strings.ReplaceAll(result, upperChar, "")
+func identicalFilter(input []string) (result []string) {
+
+	for _, word := range input {
+		if len(word) == 1 {
+			result = append(result, word)
+		} else {
+			for _, char := range word {
+				if strings.Count(word, string(char)) == len(word) {
+					result = append(result, word)
+					break
+				}
 			}
-			result += upperChar
 		}
 	}
+
 	return
 }
