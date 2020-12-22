@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConvertAgeToDays", "ConvertAgeToDays\ConvertAgeToDays.csproj", "{1E546C65-62EC-441E-A2F2-42C56995E8C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConvertAgeToDays.Test", "ConvertAgeToDays.Test\ConvertAgeToDays.Test.csproj", "{485B55D3-3901-4F3B-A4F7-09700CC3F0D3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1E546C65-62EC-441E-A2F2-42C56995E8C2} = {1E546C65-62EC-441E-A2F2-42C56995E8C2}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1E546C65-62EC-441E-A2F2-42C56995E8C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E546C65-62EC-441E-A2F2-42C56995E8C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E546C65-62EC-441E-A2F2-42C56995E8C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E546C65-62EC-441E-A2F2-42C56995E8C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{485B55D3-3901-4F3B-A4F7-09700CC3F0D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{485B55D3-3901-4F3B-A4F7-09700CC3F0D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{485B55D3-3901-4F3B-A4F7-09700CC3F0D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{485B55D3-3901-4F3B-A4F7-09700CC3F0D3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C1837909-A5CD-4E6C-865E-C455068F49FE}
+	EndGlobalSection
+EndGlobal
