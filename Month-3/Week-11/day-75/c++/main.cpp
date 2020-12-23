@@ -23,19 +23,14 @@ std::vector<int> buildMinesweeper(int size, int mines, int seed = 0) {
 
     //prepare the random number generator
     std::random_device rd;
-    const unsigned long seedFinal = seed == 0 ? rd() : seed; //check seed
-    std::cout << "\n🔀 " << seedFinal << ", 🧱 " << size << " x " << size << ", 💣 " << mines << "\n\n"; //print summary
+    const unsigned long seedFinal = seed == 0 ? rd() : seed; //check seed    
     std::mt19937 engine(seedFinal); //start the engine
-
+    
     //prepare the field to receive bombs in random positions
-    std::vector<int> field;    
-    for (int i = 0; i < FIELD_SIZE; i++) {
-        field.push_back(1); //same 'weight' for each position
-    }    
+    std::vector<int> field(FIELD_SIZE, 1); //start with same 'weight chance' for each position
     for (int mine = 0 ; mine < mines; mine++) {           
         std::discrete_distribution<> dd(field.begin(), field.end());
-        auto minePosition = dd(engine);        
-        field[minePosition] = 0; //zero the chance for this position again
+        field[dd(engine)] = 0; //zero the chance for this position again
     }
     for (int i = 0; i < FIELD_SIZE; i++) {
         field[i] = (field[i] == 0) ? 9 : field[i]; //turn zeros into bombs
@@ -47,19 +42,19 @@ std::vector<int> buildMinesweeper(int size, int mines, int seed = 0) {
     const auto calcPos = [&](const int &x, const int &y) { return y * size + x; };     
     const auto nearbyBombs = [&](const int &x, const int &y) {
         int b = 0;
-        for (auto &nOffset : neighborsOffset) {
+        for (const auto &nOffset : neighborsOffset) {
             const auto absX = x + nOffset[0];
             const auto absY = y + nOffset[1];
-            if (absX >= 0 && absX < size && absY >= 0 && absY < size) {
-                const auto content = field[calcPos(absX, absY)];
-                if (content == -1 || content == 9) {
-                    b++;
-                }
+            if (absX >= 0 && absX < size && absY >= 0 && absY < size && field[calcPos(absX, absY)] == 9) {
+                b++;                
             }
         }
         return b;
     };    
     
+    //print summary
+    std::cout << "\n🔀 " << seedFinal << ", 🧱 " << size << " x " << size << ", 💣 " << mines << "\n\n"; 
+
     //Populate the Minesweeper and output at the same time
     for (int y = 0; y < size; y++) {
         for (int x = 0; x < size; x++) {                        
@@ -67,14 +62,10 @@ std::vector<int> buildMinesweeper(int size, int mines, int seed = 0) {
             if (field[pos] != 9) {
                 const int count = nearbyBombs(x, y);
                 field[pos] = count;    
-            }
-            
-            //print the field
-            if (field[pos] == 9) {
-                std::cout << "💣 ";
-            } else {
                 std::cout << " " << field[pos] << " ";
-            }
+            } else {
+                std::cout << "💣 ";
+            }            
             std::cout << "🧱 ";            
         }
         std::cout << '\n';
