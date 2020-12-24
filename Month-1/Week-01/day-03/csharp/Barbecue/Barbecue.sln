@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Barbecue", "Barbecue\Barbecue.csproj", "{497B96D6-99CA-44E1-B2AD-4D6D78822C98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Barbecue.Test", "Barbecue.Test\Barbecue.Test.csproj", "{31D7A9CD-53BA-4AB9-B891-AEC45B916378}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{497B96D6-99CA-44E1-B2AD-4D6D78822C98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{497B96D6-99CA-44E1-B2AD-4D6D78822C98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{497B96D6-99CA-44E1-B2AD-4D6D78822C98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{497B96D6-99CA-44E1-B2AD-4D6D78822C98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31D7A9CD-53BA-4AB9-B891-AEC45B916378}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31D7A9CD-53BA-4AB9-B891-AEC45B916378}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31D7A9CD-53BA-4AB9-B891-AEC45B916378}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31D7A9CD-53BA-4AB9-B891-AEC45B916378}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E569C01F-86EA-4195-AFE5-E250D6F7B246}
+	EndGlobalSection
+EndGlobal
