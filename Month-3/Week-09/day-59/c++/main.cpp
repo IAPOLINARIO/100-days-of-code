@@ -33,7 +33,6 @@ bool balanced_bonus(std::string w) {
     return true;
 }
 
-
 /**
  * Perfectly balanced (second version)
  * Given a string containing only lowercase letters, find whether every letter that appears in the string appears the same number of times. Don't forget to handle the empty string ("") correctly!
@@ -49,7 +48,6 @@ bool balanced_bonus_second_version(const std::string w) {
     }
     return true;
 }
-
 
 /**
  * Tests
