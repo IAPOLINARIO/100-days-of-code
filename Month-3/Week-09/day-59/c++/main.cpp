@@ -5,6 +5,7 @@
  */
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "../../../../dependencies/c++/doctest.h" //https://github.com/onqtam/doctest
+#include <algorithm>
 
 /**
  * Perfectly balanced
@@ -32,6 +33,21 @@ bool balanced_bonus(std::string w) {
     return true;
 }
 
+/**
+ * Perfectly balanced (second version)
+ * Given a string containing only lowercase letters, find whether every letter that appears in the string appears the same number of times. Don't forget to handle the empty string ("") correctly!
+ * 
+ * @param w content
+ * @return true if Perfectly balanced
+ */ 
+bool balanced_bonus_second_version(const std::string w) {    
+    for (size_t i = 1; i < w.size(); i++) {
+        if (std::count(w.begin(), w.end(), w[i]) != std::count(w.begin(), w.end(), w[0])) {
+            return false;
+        }
+    }
+    return true;
+}
 
 /**
  * Tests
@@ -47,6 +63,16 @@ TEST_CASE("Tests")
     CHECK(balanced_bonus("www") == true);
     CHECK(balanced_bonus("x") == true);
     CHECK(balanced_bonus("") == true);    
+
+    CHECK(balanced_bonus_second_version("xxxyyyzzz") == true);
+    CHECK(balanced_bonus_second_version("abccbaabccba") == true);
+    CHECK(balanced_bonus_second_version("xxxyyyzzzz") == false);
+    CHECK(balanced_bonus_second_version("abcdefghijklmnopqrstuvwxyz") == true);
+    CHECK(balanced_bonus_second_version("pqq") == false);
+    CHECK(balanced_bonus_second_version("fdedfdeffeddefeeeefddf") == false);
+    CHECK(balanced_bonus_second_version("www") == true);
+    CHECK(balanced_bonus_second_version("x") == true);
+    CHECK(balanced_bonus_second_version("") == true);    
 }
 
 
