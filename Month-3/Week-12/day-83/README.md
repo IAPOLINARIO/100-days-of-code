@@ -32,12 +32,12 @@ Memory limit: 1GB.
 ```
 Input               Output
 
-5                   Case #1: 1 0
-4 2                 Case #2: 1 0
-5 2                 Case #3: 1 1
-6 2                 Case #4: 0 0
-1000 1000           Case #5: 500 499
-
+5                   
+4 2                Case #1: 1 0
+5 2                Case #2: 1 0
+6 2                Case #3: 1 1
+1000 1000          Case #4: 0 0
+1000 1             Case #5: 500 499
 ```
 
 In Sample Case #1, the first person occupies the leftmost of the middle two stalls, leaving the following configuration (O stands for an occupied stall and . for an empty one): O.O..O. Then, the second and last person occupies the stall immediately to the right, leaving 1 empty stall on one side and none on the other.
