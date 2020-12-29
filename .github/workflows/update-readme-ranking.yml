@@ -2,7 +2,7 @@ name: update-readme-ranking
 
 on:
   schedule:
-    - cron: "0 10-23 * * *"
+    - cron: "0 22 * * *"
 
 jobs:
   build:
