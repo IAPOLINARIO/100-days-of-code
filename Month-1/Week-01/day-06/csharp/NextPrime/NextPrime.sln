@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NextPrime", "NextPrime\NextPrime.csproj", "{DA00C5A0-7943-4B32-A3AE-B16B2A0A9F77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NextPrime.Test", "NextPrime.Test\NextPrime.Test.csproj", "{B978B5AD-5624-4AFC-BE96-0CC7B59D11A9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DA00C5A0-7943-4B32-A3AE-B16B2A0A9F77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA00C5A0-7943-4B32-A3AE-B16B2A0A9F77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA00C5A0-7943-4B32-A3AE-B16B2A0A9F77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA00C5A0-7943-4B32-A3AE-B16B2A0A9F77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B978B5AD-5624-4AFC-BE96-0CC7B59D11A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B978B5AD-5624-4AFC-BE96-0CC7B59D11A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B978B5AD-5624-4AFC-BE96-0CC7B59D11A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B978B5AD-5624-4AFC-BE96-0CC7B59D11A9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {815DB085-E1DF-41C7-853A-B8656897D748}
+	EndGlobalSection
+EndGlobal
