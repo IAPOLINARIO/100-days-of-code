@@ -21,7 +21,7 @@ The output is the number of municipalities in the state informed.
 ```
 
 
-### Estados brasileiros e siglas 
+### Brazilian states and acronyms
 |||
 |--- |--- |
 |State|Acronym|
