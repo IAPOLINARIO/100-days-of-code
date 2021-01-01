@@ -1,9 +1,0 @@
-{
-  "extends": [
-    "oclif",
-    "oclif-typescript"
-  ],
-  "rules": {
-    "lines-between-class-members": 0
-  }
-}
