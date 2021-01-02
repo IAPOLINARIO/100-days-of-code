@@ -1,7 +1,6 @@
 CCX = g++
 CXXFLAGS = -g
 LDFLAGS = -lpthread
-
 BIN_DIR = bin
 
 main: main.o
