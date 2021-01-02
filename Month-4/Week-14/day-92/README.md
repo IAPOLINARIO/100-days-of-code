@@ -27,3 +27,7 @@ Print a single integer — the number of hours Vasily can light up the room for.
 ```
 8
 ```
+
+### Note
+
+Consider the first sample. For the first four hours Vasily lights up new candles, then he uses four burned out candles to make two new ones and lights them up. When these candles go out (stop burning), Vasily can make another candle. Overall, Vasily can light up the room for 7 hours.
