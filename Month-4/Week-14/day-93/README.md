@@ -25,3 +25,20 @@ Print a single integer — the minimal number of moves being a multiple of **m**
 ```
 -1
 ```
+
+### Note
+For the first sample, Dreamoon could climb in 6 moves with following sequence of steps: {2, 2, 2, 2, 1, 1}.
+
+For the second sample, there are only three valid sequence of steps {2, 1}, {1, 2}, {1, 1, 1} with 2, 2, and 3 steps respectively. All these numbers are not multiples of 5.
+
+### More examples of Input & Output
+```    
+    climbMoves(13, 2) == 8 //2 2 2 2 2 1 1 1    
+    climbMoves(6, 4) == 4 //2 2 1 1
+    climbMoves(7, 4) == 4 //2 2 2 1 
+    climbMoves(8, 4) == 4 //2 2 2 2 
+    climbMoves(9, 4) == 8 //2 1 1 1 1 1 1 1
+    climbMoves(5, 3) == 3 //2 2 1
+    climbMoves(6, 3) == 3 //2 2 2
+    climbMoves(7, 3) == 6 //2 1 1 1 1 1
+```
