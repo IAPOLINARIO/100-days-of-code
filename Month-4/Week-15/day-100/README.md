@@ -12,3 +12,4 @@ The required behavior of the program is to just output a single line "Hello worl
     - generally accepted good programming practices ("Everyone knows that you should separate model and view")
     - maintainability ("If we do it this way, we can more easily do XXX later")
     - and of course any other justification you can imagine using (in other situations) for real code.
+
