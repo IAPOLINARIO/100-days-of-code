@@ -27,6 +27,10 @@ func solveMaze(colorSequence []string, maze [][]string) string {
 				sb.WriteString(fmt.Sprintf("(%v,%v)\n", x, y))
 				currentColorIndex = getNextColorIndex(colorSequence, currentColorIndex)
 				colorFound = true
+
+				if (y+1) < len(maze) && maze[y+1][x] == colorSequence[currentColorIndex] { //looking up
+					break
+				}
 			} else if x == len(maze[y])-1 && !colorFound {
 				return fmt.Sprintln("NO SOLUTION!")
 			}
