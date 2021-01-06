@@ -1,9 +1,8 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"io"
+	"io/ioutil"
 	"os"
 	"strings"
 	"sync"
@@ -78,48 +77,21 @@ func read(offset int64, limit int64, fileName string, channel chan (string)) {
 		panic(err)
 	}
 
-	// Move the pointer of the file to the start of designated chunk.
-	file.Seek(offset, 0)
-	reader := bufio.NewReader(file)
+	rawBytes, err := ioutil.ReadAll(file)
+	if err != nil {
+		panic(err)
+	}
 
-	// This block of code ensures that the start of chunk is a new word. If
-	// a character is encountered at the given position it moves a few bytes till
-	// the end of the word.
-	if offset != 0 {
-		_, err = reader.ReadBytes(' ')
-		if err == io.EOF {
-			fmt.Println("EOF")
-			return
-		}
+	lines := strings.Split(string(rawBytes), "\n")
+	for i, line := range lines {
+		if i == offset {
+			fmt.Println(line)
 
-		if err != nil {
-			panic(err)
+			if line != "" {
+				// Send the read word in the channel to enter into dictionary.
+				channel <- string(line)
+			}
 		}
 	}
 
-	var cummulativeSize int64
-	for {
-		// Break if read size has exceed the chunk size.
-		if cummulativeSize > limit {
-			break
-		}
-
-		b, err := reader.ReadBytes(' ')
-
-		// Break if end of file is encountered.
-		if err == io.EOF {
-			break
-		}
-
-		if err != nil {
-			panic(err)
-		}
-
-		cummulativeSize += int64(len(b))
-		s := strings.TrimSpace(string(b))
-		if s != "" {
-			// Send the read word in the channel to enter into dictionary.
-			channel <- s
-		}
-	}
 }
