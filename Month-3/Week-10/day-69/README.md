@@ -52,4 +52,5 @@ Door: CLOSED
 ```
 
 ## Notes
+
 - This is an example of a simple [Finite State Machine](https://en.wikipedia.org/wiki/Finite-state_machine) with 6 States and 2 inputs.
