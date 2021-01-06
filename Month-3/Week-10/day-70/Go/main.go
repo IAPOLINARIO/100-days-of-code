@@ -3,17 +3,25 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
-	"os"
 	"strings"
 	"sync"
+	"time"
 )
 
-const kb = 1024
-const mb = 1024 * kb
-const gb = 1024 * mb
+const totalLines = 172820
+const threads = 2
 
 func main() {
+	start := time.Now()
 
+	brokenKeyboard := "poil"
+
+	fmt.Printf("Result: %v\n", longestWord(brokenKeyboard))
+
+	fmt.Printf("Execution time: %v\n", time.Since(start))
+}
+
+func longestWord(brokenKeyboard string) string {
 	// A waitgroup to wait for all go-routines to finish.
 	wg := sync.WaitGroup{}
 
@@ -32,7 +40,6 @@ func main() {
 		for s := range channel {
 			dict[s]++
 		}
-
 		// Signal the main thread that all the words have entered the dictionary.
 		done <- true
 	}()
@@ -41,22 +48,26 @@ func main() {
 	var current int64
 
 	// Limit signifies the chunk size of file to be proccessed by every thread.
-	var limit int64 = 100 * kb
+	var chunk int64 = totalLines / threads
+	var limit int64 = current + chunk
 
-	for i := 0; i < 10; i++ {
+	for i := 0; i < threads; i++ {
 		wg.Add(1)
 
-		go func() {
-			read(current, limit, "../../../../assets/dictionary1.txt", channel)
-			fmt.Printf("%d thread has been completed\n", i)
+		//fmt.Printf("Current: %d - Chunk: %d - Limit: %d \n", current, chunk, limit)
+
+		go func(offset, pageLimit int64) {
+			read(brokenKeyboard, offset, pageLimit, "../../../../assets/dictionary1.txt", channel)
+			//	fmt.Printf("%d thread has been completed\n", i)
 			wg.Done()
-		}()
+		}(current, limit)
 
 		// Increment the current by 1+(last byte read by previous thread).
-		current += limit + 1
+		current += chunk + 1
+		limit = current + chunk
 	}
 
-	// Wait for all go routines to complete.
+	// Wait for all go routines to complete.ew
 	wg.Wait()
 	close(channel)
 
@@ -64,32 +75,39 @@ func main() {
 	<-done
 	close(done)
 
+	longestWord := ""
 	for w := range dict {
-		fmt.Printf("Word: %v\n", w)
+		if len(w) > len(longestWord) {
+			longestWord = string(w)
+		}
 	}
+
+	return longestWord
+
 }
 
-func read(offset int64, limit int64, fileName string, channel chan (string)) {
-	file, err := os.Open(fileName)
-	defer file.Close()
-
-	if err != nil {
-		panic(err)
-	}
-
-	rawBytes, err := ioutil.ReadAll(file)
+func read(brokenKeyboard string, offset int64, limit int64, fileName string, channel chan (string)) {
+	rawBytes, err := ioutil.ReadFile(fileName)
 	if err != nil {
 		panic(err)
 	}
 
 	lines := strings.Split(string(rawBytes), "\n")
 	for i, line := range lines {
-		if i == offset {
-			fmt.Println(line)
-
-			if line != "" {
-				// Send the read word in the channel to enter into dictionary.
-				channel <- string(line)
+		currentLine := strings.TrimSpace(string(line))
+		validWord := true
+		if int64(i) > offset && int64(i) <= limit {
+			if currentLine != "" {
+				for _, v := range currentLine {
+					if !strings.ContainsRune(brokenKeyboard, v) {
+						validWord = false
+						break
+					}
+				}
+				if validWord {
+					// If the word matches the conditions, send it into the channel to enter the dictionary.
+					channel <- currentLine
+				}
 			}
 		}
 	}
