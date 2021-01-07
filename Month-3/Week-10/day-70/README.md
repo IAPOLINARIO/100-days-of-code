@@ -11,9 +11,11 @@ A string of letters representing the keys that work on the keyboard, example:
 ```text
 abcd
 ```
+
 ```text
 qwer
 ```
+
 ```text
 hjklo
 ```
@@ -23,11 +25,12 @@ hjklo
 Your program should emit the longest valid English language word you can make for each keyboard configuration.
 
 ## Challenge Output
+
 ```text
 longestWord("abcd") ➞ "abaca"
 longestWord("edcf") ➞ "deeded"
 longestWord("bnik") ➞ "bikini"
 longestWord("poil") ➞ "lollipop"
 longestWord("vybu") ➞ "bubby"
-longestWord("subtoxymerhlac") ➞ "carboxymethylcelluloses"   
+longestWord("subtoxymerhlac") ➞ "carboxymethylcelluloses"
 ```
