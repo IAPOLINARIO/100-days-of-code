@@ -10,7 +10,7 @@ In **L33Tspeak** you substitute letters for their rough outlines in ASCII charac
 
 ```text
 BASIC => 6451C
-ELEET => 31337 (pronounced elite)
+ELEET => 3L337 (pronounced elite)
 WOW => `//0`//
 MOM => (V)0(V)
 ```
@@ -36,6 +36,7 @@ W -> `//
 Your **challenge**, should you choose to accept it, is to **translate to L33T**.
 
 ## Example
+
 ```text
 storm -> 570R(V)
 ```
