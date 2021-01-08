@@ -14,23 +14,32 @@ func NewTranslator() *NetTranslator {
 func (nt *NetTranslator) ToL33t(originalWord string) string {
 
 	nt.originalWord = originalWord
+	nt.translatedWord = ""
+	dict := nt.GetDictionary()
+
+	for _, c := range originalWord {
+
+		if dict[string(c)] != "" {
+			nt.translatedWord += dict[string(c)]
+		} else {
+			nt.translatedWord += string(c)
+		}
+
+	}
 
 	return nt.translatedWord
 }
 
 func (nt *NetTranslator) GetDictionary() map[string]string {
 
-	leetDictionary := map[string]string{"0": "A", "1": "B"}
+	leetDictionary := map[string]string{"A": "4", "B": "6", "E": "3", "I": "1", "M": "(V)", "N": "(\\)", "O": "0", "S": "5", "T": "7", "V": "\\/", "W": "`//"}
 
 	return leetDictionary
 }
 
 func main() {
-	//nt := NewTranslator()
+	nt := NewTranslator()
 
-	for k, v := range leetDictionary {
-
-		fmt.Printf("k: %v, v:%v\n", k, v)
-	}
+	fmt.Println(nt.ToL33t("ELEET"))
 
 }
