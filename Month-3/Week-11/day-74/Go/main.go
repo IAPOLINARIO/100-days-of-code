@@ -95,7 +95,9 @@ func main() {
 
 	flag.Parse()
 
-	_ = checkCattleLevel(clientId, clientSecret, twitterHandle)
+	result := checkCattleLevel(clientId, clientSecret, twitterHandle)
+
+	fmt.Printf("Result: %v \n", result)
 
 }
 
@@ -142,10 +144,16 @@ func ScoreBuild(clientId *string, clientSecret *string, twitterHandle *string) i
 	return cattle.score * 10
 }
 
-func checkCattleLevel(clientId *string, clientSecret *string, twitterHandle *string) {
+func checkCattleLevel(clientId *string, clientSecret *string, twitterHandle *string) string {
 
 	switch score := ScoreBuild(clientId, clientSecret, twitterHandle); {
 	case score <= 20:
-
+		return "Not a cattle"
+	case score >= 21 && score <= 80:
+		return "Sounds like a cattle (muhhhh)"
+	case score >= 81:
+		return "Too much cattle! 🐮"
 	}
+
+	return ""
 }
