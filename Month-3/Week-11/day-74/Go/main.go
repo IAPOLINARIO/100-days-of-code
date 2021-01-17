@@ -95,7 +95,7 @@ func main() {
 
 	flag.Parse()
 
-	fmt.Printf("User Score: %v \n", ScoreBuild(clientId, clientSecret, twitterHandle))
+	_ = checkCattleLevel(clientId, clientSecret, twitterHandle)
 
 }
 
@@ -140,4 +140,12 @@ func ScoreBuild(clientId *string, clientSecret *string, twitterHandle *string) i
 	fmt.Printf("Number of tweets: %v \n", len(cattle.Tweets))
 
 	return cattle.score * 10
+}
+
+func checkCattleLevel(clientId *string, clientSecret *string, twitterHandle *string) {
+
+	switch score := ScoreBuild(clientId, clientSecret, twitterHandle); {
+	case score <= 20:
+
+	}
 }
