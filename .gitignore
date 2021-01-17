@@ -4,5 +4,5 @@
 .vscode
 **/c++/bin/
 __pycache__
-
-
+*.key
+*.env
