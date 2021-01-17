@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"strconv"
 	"strings"
 	"time"
 
@@ -69,11 +70,15 @@ func NewCattle(tw *twitter.User, tm []twitter.Tweet) *Cattle {
 	}
 
 	//Has Not Tweeted in Years
-	t, _ := time.Parse(time.RFC3339, c.Tweets[0].CreatedAt)
+	tweetYear, _ := strconv.Atoi(strings.Split(c.Tweets[0].CreatedAt, " ")[5]) //format: Sun Jan 17 17:17:49 +0000 2021
+	if tweetYear < time.Now().Year() {
+		c.score++
+	}
 
-	fmt.Printf("Created at: %v\n", t)
-
-	fmt.Println("RTs: " + fmt.Sprint(c.TwitterUser.Email))
+	//An Unrealistic Amount of Tweets
+	if len(c.Tweets) >= 200 {
+		c.score++
+	}
 
 	return c
 }
@@ -113,8 +118,9 @@ func main() {
 	}
 
 	tweets, _, err := client.Timelines.UserTimeline(&twitter.UserTimelineParams{
-		ScreenName: *twitterHandle,
-		Count:      100,
+		ScreenName:      *twitterHandle,
+		IncludeRetweets: twitter.Bool(true),
+		Count:           200,
 	})
 
 	if err != nil {
@@ -126,7 +132,7 @@ func main() {
 
 	fmt.Printf("Twitter: %v - %v \n", cattle.TwitterUser.Name, cattle.TwitterUser.Description)
 	fmt.Printf("Account created at: %v \n", cattle.TwitterUser.CreatedAt)
-
+	fmt.Printf("Number of tweets: %v \n", len(cattle.Tweets))
 	fmt.Printf("User Score: %v \n", cattle.score)
 
 }
