@@ -95,6 +95,11 @@ func main() {
 
 	flag.Parse()
 
+	fmt.Printf("User Score: %v \n", ScoreBuild(clientId, clientSecret, twitterHandle))
+
+}
+
+func ScoreBuild(clientId *string, clientSecret *string, twitterHandle *string) int {
 	// oauth2 configures a client that uses app credentials to keep a fresh token
 	config := &clientcredentials.Config{
 		ClientID:     *clientId,
@@ -133,10 +138,6 @@ func main() {
 	fmt.Printf("Twitter: %v - %v \n", cattle.TwitterUser.Name, cattle.TwitterUser.Description)
 	fmt.Printf("Account created at: %v \n", cattle.TwitterUser.CreatedAt)
 	fmt.Printf("Number of tweets: %v \n", len(cattle.Tweets))
-	fmt.Printf("User Score: %v \n", cattle.score)
 
-}
-
-func ScoreBuild(c Cattle) {
-
+	return cattle.score
 }
