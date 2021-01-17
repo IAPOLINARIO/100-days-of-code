@@ -139,5 +139,5 @@ func ScoreBuild(clientId *string, clientSecret *string, twitterHandle *string) i
 	fmt.Printf("Account created at: %v \n", cattle.TwitterUser.CreatedAt)
 	fmt.Printf("Number of tweets: %v \n", len(cattle.Tweets))
 
-	return cattle.score
+	return cattle.score * 10
 }
