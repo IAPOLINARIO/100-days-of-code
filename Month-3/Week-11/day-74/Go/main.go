@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"strings"
+	"time"
 
 	"github.com/dghubble/go-twitter/twitter"
 	"golang.org/x/oauth2"
@@ -66,6 +67,11 @@ func NewCattle(tw *twitter.User, tm []twitter.Tweet) *Cattle {
 	if c.Tweets[0].Text == c.Tweets[1].Text {
 		c.score++
 	}
+
+	//Has Not Tweeted in Years
+	t, _ := time.Parse(time.RFC3339, c.Tweets[0].CreatedAt)
+
+	fmt.Printf("Created at: %v\n", t)
 
 	fmt.Println("RTs: " + fmt.Sprint(c.TwitterUser.Email))
 
