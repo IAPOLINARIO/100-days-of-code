@@ -1,21 +1,125 @@
 package main
 
 import (
+	"flag"
+	"fmt"
+	"os"
+	"strings"
+
 	"github.com/dghubble/go-twitter/twitter"
-	"github.com/dghubble/oauth1"
+	"golang.org/x/oauth2"
+	"golang.org/x/oauth2/clientcredentials"
+)
+
+type Cattle struct {
+	TwitterUser *twitter.User
+	Tweets      []twitter.Tweet
+	score       int
+}
+
+func NewCattle(tw *twitter.User, tm []twitter.Tweet) *Cattle {
+	var c = new(Cattle)
+	c.TwitterUser = tw
+	c.Tweets = tm
+
+	//Offical Account (verified by twitter)
+	if c.TwitterUser.Verified {
+		c.score--
+	}
+
+	//No Bio
+	if c.TwitterUser.DefaultProfile {
+		c.score++
+	}
+
+	//An Egghead
+	if c.TwitterUser.DefaultProfileImage {
+		c.score++
+	}
+
+	//No Bio
+	if c.TwitterUser.Description == "" {
+		c.score++
+	}
+
+	// Keywords for bots
+	if strings.ContainsAny(strings.Join(keyCattleWords, ""), c.TwitterUser.Name) {
+		c.score++
+	}
+
+	//Follows 2,001 People
+	if c.TwitterUser.FriendsCount == 2001 {
+		c.score++
+	}
+
+	// To little followers
+	if c.TwitterUser.FollowersCount <= 50 || c.TwitterUser.FriendsCount <= 50 {
+		c.score++
+	}
+
+	//No interaction
+	if c.TwitterUser.FavouritesCount < 100 {
+		c.score++
+	}
+
+	fmt.Println("RTs: " + fmt.Sprint(c.TwitterUser.Email))
+
+	return c
+}
+
+var (
+	keyCattleWords = []string{"patriota", "bolsonaro", "direita", "familia", "usa", "bolsonarista", "17"}
 )
 
 func main() {
-	config := oauth1.NewConfig("consumerKey", "consumerSecret")
-	token := oauth1.NewToken("accessToken", "accessSecret")
-	httpClient := config.Client(oauth1.NoContext, token)
+
+	clientId := flag.String("client-id", "", "Twitter client id")
+	clientSecret := flag.String("client-secret", "", "Twitter client secret")
+	twitterHandle := flag.String("twitter-handle", "", "Twitter account to perform the checks")
+
+	flag.Parse()
+
+	// oauth2 configures a client that uses app credentials to keep a fresh token
+	config := &clientcredentials.Config{
+		ClientID:     *clientId,
+		ClientSecret: *clientSecret,
+		TokenURL:     "https://api.twitter.com/oauth2/token",
+	}
+	// http.Client will automatically authorize Requests
+	httpClient := config.Client(oauth2.NoContext)
 
 	// Twitter client
 	client := twitter.NewClient(httpClient)
 
-	// Home Timeline
-	tweets, resp, err := client.Timelines.HomeTimeline(&twitter.HomeTimelineParams{
-		Count: 20,
+	// User Show
+	user, _, err := client.Users.Show(&twitter.UserShowParams{
+		ScreenName: *twitterHandle,
 	})
+
+	if err != nil {
+		fmt.Println("Error")
+		os.Exit(1)
+	}
+
+	tweets, _, err := client.Timelines.UserTimeline(&twitter.UserTimelineParams{
+		ScreenName: *twitterHandle,
+		Count:      100,
+	})
+
+	if err != nil {
+		fmt.Println("Error")
+		os.Exit(1)
+	}
+
+	cattle := NewCattle(user, tweets)
+
+	fmt.Printf("Twitter: %v - %v \n", cattle.TwitterUser.Name, cattle.TwitterUser.Description)
+	fmt.Printf("Account created at: %v \n", cattle.TwitterUser.CreatedAt)
+
+	fmt.Printf("User Score: %v \n", cattle.score)
+
+}
+
+func ScoreBuild(c Cattle) {
 
 }
