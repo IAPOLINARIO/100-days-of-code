@@ -84,7 +84,7 @@ func NewCattle(tw *twitter.User, tm []twitter.Tweet) *Cattle {
 }
 
 var (
-	keyCattleWords = []string{"patriota", "bolsonaro", "direita", "familia", "usa", "bolsonarista", "17"}
+	keyCattleWords = []string{"patriota", "bolsonaro", "direita", "familia", "usa", "bolsonarista", "17", "mito"}
 )
 
 func main() {
