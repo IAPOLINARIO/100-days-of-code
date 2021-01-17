@@ -62,6 +62,11 @@ func NewCattle(tw *twitter.User, tm []twitter.Tweet) *Cattle {
 		c.score++
 	}
 
+	//Excessive Duplicate Tweets
+	if c.Tweets[0].Text == c.Tweets[1].Text {
+		c.score++
+	}
+
 	fmt.Println("RTs: " + fmt.Sprint(c.TwitterUser.Email))
 
 	return c
