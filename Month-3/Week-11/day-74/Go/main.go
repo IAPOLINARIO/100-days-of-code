@@ -140,12 +140,12 @@ func ScoreBuild(clientId *string, clientSecret *string, twitterHandle *string) i
 	fmt.Printf("Twitter: %v - %v \n", cattle.TwitterUser.Name, cattle.TwitterUser.Description)
 	fmt.Printf("Account created at: %v \n", cattle.TwitterUser.CreatedAt)
 	fmt.Printf("Number of tweets: %v \n", len(cattle.Tweets))
+	fmt.Printf("Email: %v \n", len(cattle.TwitterUser.Email))
 
 	return cattle.score * 10
 }
 
 func checkCattleLevel(clientId *string, clientSecret *string, twitterHandle *string) string {
-
 	switch score := ScoreBuild(clientId, clientSecret, twitterHandle); {
 	case score <= 20:
 		return "Not a cattle"
@@ -154,6 +154,5 @@ func checkCattleLevel(clientId *string, clientSecret *string, twitterHandle *str
 	case score >= 81:
 		return "Too much cattle! 🐮"
 	}
-
 	return ""
 }
