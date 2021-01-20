@@ -4,133 +4,245 @@ import (
 	"fmt"
 	"math"
 	"math/rand"
+	"strings"
 	"time"
 )
 
-// Grid is playground.
-type Grid [][]Cell
-
-// CellsStat contains info about cells.
-type CellsStat struct {
-	Bombs, Free int
+type cell struct {
+	isMine  bool
+	display byte // display character for cell
 }
 
-// Cell constants
-const (
-	Bomb     = Cell(9)
-	Unfolded = Cell(1 << 4)
-	Flagged  = Cell(1 << 5)
+const lMargin = 4
+
+var (
+	grid        [][]cell
+	mineCount   int
+	minesMarked int
+	isGameOver  bool
 )
 
-// Cell contains cell's state.
-type Cell byte
+//var scanner = bufio.NewScanner(os.Stdin)
 
-// IsBomb checks does a cell contain a bomb
-func (c Cell) IsBomb() bool {
-	return c.same(Bomb)
-}
-
-// Bombs returns bombs suggestions.
-func (c Cell) Bombs() byte {
-	return byte(c &^ (Flagged | Unfolded))
-}
-
-// Unfolded checks that a cell is open.
-func (c Cell) Unfolded() bool {
-	return c.same(Unfolded)
-}
-
-func (c Cell) any(t Cell) bool {
-	return c&t > 0
-}
-
-func (c Cell) same(t Cell) bool {
-	return c&t == t
-}
-
-func (c *Cell) unfold() {
-	c.Flag(false)
-	*c |= Unfolded
-}
-
-func (c *Cell) suggest(bombs byte) {
-	*c |= Cell(bombs)
-}
-
-// Flagged checks that a cell has a flag.
-func (c Cell) Flagged() bool {
-	return c.same(Flagged)
-}
-
-// Flag sets or unsets a flag on the cell.
-func (c *Cell) Flag(enable bool) {
-	if c.Unfolded() {
-		return
+func makeGrid(n, m int) {
+	if n <= 0 || m <= 0 {
+		panic("Grid dimensions must be positive.")
 	}
-	if enable {
-		*c |= Flagged
-	} else {
-		*c &^= Flagged
+	grid = make([][]cell, n)
+	for i := 0; i < n; i++ {
+		grid[i] = make([]cell, m)
+		for j := 0; j < m; j++ {
+			grid[i][j].display = '.'
+		}
+	}
+	min := int(math.Round(float64(n*m) * 0.1)) // 10% of tiles
+	max := int(math.Round(float64(n*m) * 0.2)) // 20% of tiles
+	mineCount = min + rand.Intn(max-min+1)
+	rm := mineCount
+	for rm > 0 {
+		x, y := rand.Intn(n), rand.Intn(m)
+		if !grid[x][y].isMine {
+			rm--
+			grid[x][y].isMine = true
+		}
+	}
+	minesMarked = 0
+	isGameOver = false
+}
+
+func displayGrid() {
+	fmt.Println("Grid has", mineCount, "mine(s)")
+	//margin := strings.Repeat(" ", lMargin)
+	//fmt.Print(margin, " ")
+	// for i := 1; i <= len(grid); i++ {
+	// 	fmt.Print(i)
+	// }
+	fmt.Println()
+	fmt.Println(strings.Repeat("-", len(grid)))
+	for y := 0; y < len(grid[0]); y++ {
+		// fmt.Printf("%*d:", lMargin, y+1)
+		for x := 0; x < len(grid); x++ {
+			fmt.Printf("%c", grid[x][y].display)
+		}
+		fmt.Println()
 	}
 }
+
+// func endGame(msg string) {
+// 	isGameOver = true
+// 	fmt.Println(msg)
+// 	ans := ""
+// 	for ans != "y" && ans != "n" {
+// 		fmt.Print("Another game (y/n)? : ")
+// 		scanner.Scan()
+// 		ans = strings.ToLower(scanner.Text())
+// 	}
+// 	if scanner.Err() != nil || ans == "n" {
+// 		return
+// 	}
+// 	makeGrid(6, 4)
+// 	displayGrid(false)
+// }
+
+// func resign() {
+// 	found := 0
+// 	for y := 0; y < len(grid[0]); y++ {
+// 		for x := 0; x < len(grid); x++ {
+// 			if grid[x][y].isMine {
+// 				if grid[x][y].display == '?' {
+// 					grid[x][y].display = 'Y'
+// 					found++
+// 				} else if grid[x][y].display != 'x' {
+// 					grid[x][y].display = 'N'
+// 				}
+// 			}
+// 		}
+// 	}
+// 	displayGrid(true)
+// 	msg := fmt.Sprint("You found ", found, " out of ", mineCount, " mine(s).")
+// 	endGame(msg)
+// }
+
+// func usage() {
+// 	fmt.Println("h or ? - this help,")
+// 	fmt.Println("c x y  - clear cell (x,y),")
+// 	fmt.Println("m x y  - marks (toggles) cell (x,y),")
+// 	fmt.Println("n      - start a new game,")
+// 	fmt.Println("q      - quit/resign the game,")
+// 	fmt.Println("where x is the (horizontal) column number and y is the (vertical) row number.\n")
+// }
+
+// func markCell(x, y int) {
+// 	if grid[x][y].display == '?' {
+// 		minesMarked--
+// 		grid[x][y].display = '.'
+// 	} else if grid[x][y].display == '.' {
+// 		minesMarked++
+// 		grid[x][y].display = '?'
+// 	}
+// }
+
+func countAdjMines(x, y int) int {
+	count := 0
+	for j := y - 1; j <= y+1; j++ {
+		if j >= 0 && j < len(grid[0]) {
+			for i := x - 1; i <= x+1; i++ {
+				if i >= 0 && i < len(grid) {
+					if grid[i][j].isMine {
+						count++
+					}
+				}
+			}
+		}
+	}
+	return count
+}
+
+func clearCell(x, y int) bool {
+	if x >= 0 && x < len(grid) && y >= 0 && y < len(grid[0]) {
+		if grid[x][y].display == '.' {
+			if !grid[x][y].isMine {
+				count := countAdjMines(x, y)
+				if count > 0 {
+					grid[x][y].display = string(48 + count)[0]
+				} else {
+					grid[x][y].display = ' '
+					clearCell(x+1, y)
+					clearCell(x+1, y+1)
+					clearCell(x, y+1)
+					clearCell(x-1, y+1)
+					clearCell(x-1, y)
+					clearCell(x-1, y-1)
+					clearCell(x, y-1)
+					clearCell(x+1, y-1)
+				}
+			} else {
+				grid[x][y].display = 'x'
+				//	fmt.Println("Kaboom! You lost!")
+				//	return false
+			}
+		}
+	}
+	return true
+}
+
+// func testForWin() bool {
+// 	isCleared := false
+// 	if minesMarked == mineCount {
+// 		isCleared = true
+// 		for x := 0; x < len(grid); x++ {
+// 			for y := 0; y < len(grid[0]); y++ {
+// 				if grid[x][y].display == '.' {
+// 					isCleared = false
+// 				}
+// 			}
+// 		}
+// 	}
+// 	if isCleared {
+// 		fmt.Println("You won!")
+// 	}
+// 	return isCleared
+// }
+
+// func splitAction(action string) (int, int, bool) {
+// 	fields := strings.Fields(action)
+// 	if len(fields) != 3 {
+// 		return 0, 0, false
+// 	}
+// 	x, err := strconv.Atoi(fields[1])
+// 	if err != nil || x < 1 || x > len(grid) {
+// 		return 0, 0, false
+// 	}
+// 	y, err := strconv.Atoi(fields[2])
+// 	if err != nil || y < 1 || y > len(grid[0]) {
+// 		return 0, 0, false
+// 	}
+// 	return x, y, true
+// }
 
 func main() {
-	rows := 10
-	cols := 10
-	// fmt.Print("Enter [rows cols]: ")
-	// if _, err := fmt.Fscan(os.Stdin, &rows, &cols); err != nil {
-	// 	fmt.Println("failed to read rows & cols:", err)
-	// 	return
-	// }
 	rand.Seed(time.Now().UnixNano())
-	m := GenerateGrid(rows, cols, 0.3)
-	//g := minesweeper.New(m)
-	printGrid(m)
-
-}
-
-func printGrid(m Grid) {
-	for _, r := range m {
-		for _, c := range r {
-			//if c.Unfolded() {
-			if c.IsBomb() {
-				fmt.Print("x")
-			} else {
-				fmt.Print(c.Bombs())
-			}
-			//} else if c.Flagged() {
-			//	fmt.Print("F")
-			//} else {
-			//	fmt.Print("#")
-			//}
-			fmt.Print(" ")
-		}
-		fmt.Printf("\n")
-	}
-}
-
-func newGrid(rows, cols int) Grid {
-	m := make(Grid, rows)
-	for i := range m {
-		m[i] = make([]Cell, cols)
-	}
-	return m
-}
-
-// GenerateGrid creates a matrix with randomly distributed bombs.
-// rand.Seed should be run manually before GenerateGrid call.
-func GenerateGrid(rows, cols int, diffc float64) Grid {
-	cells := rows * cols
-	bombs := int(math.Ceil(float64(cells) * diffc))
-	m := newGrid(rows, cols)
-	var offset int
-	for bombs > 0 {
-		offset += rand.Intn(rand.Intn(cells-offset-bombs) + 1)
-		i := offset / cols
-		j := offset % cols
-		m[i][j] = Bomb
-		bombs--
-		offset++
-	}
-	return m
+	//usage()
+	makeGrid(10, 10)
+	displayGrid()
+	// for !isGameOver {
+	// 	fmt.Print("\n>")
+	// 	scanner.Scan()
+	// 	action := strings.ToLower(scanner.Text())
+	// 	if scanner.Err() != nil || len(action) == 0 {
+	// 		continue
+	// 	}
+	// 	switch action[0] {
+	// 	case 'h', '?':
+	// 		usage()
+	// 	case 'n':
+	// 		makeGrid(6, 4)
+	// 		displayGrid(false)
+	// 	case 'c':
+	// 		x, y, ok := splitAction(action)
+	// 		if !ok {
+	// 			continue
+	// 		}
+	// 		if clearCell(x-1, y-1) {
+	// 			displayGrid(false)
+	// 			if testForWin() {
+	// 				resign()
+	// 			}
+	// 		} else {
+	// 			resign()
+	// 		}
+	// 	case 'm':
+	// 		x, y, ok := splitAction(action)
+	// 		if !ok {
+	// 			continue
+	// 		}
+	// 		markCell(x-1, y-1)
+	// 		displayGrid(false)
+	// 		if testForWin() {
+	// 			resign()
+	// 		}
+	// 	case 'q':
+	// 		resign()
+	// 	}
+	// }
 }
