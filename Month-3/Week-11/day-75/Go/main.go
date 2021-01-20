@@ -52,8 +52,7 @@ func displayGrid() {
 	fmt.Println()
 	for y := 0; y < len(grid[0]); y++ {
 		for x := 0; x < len(grid); x++ {
-			//fmt.Printf("%c", grid[x][y].display)
-			clearCell(x, y)
+			fmt.Printf("%c", grid[x][y].display)
 		}
 		fmt.Println()
 	}
@@ -83,7 +82,7 @@ func clearCell(x, y int) bool {
 				if count > 0 {
 					grid[x][y].display = string(48 + count)[0]
 				} else {
-					grid[x][y].display = ' '
+					grid[x][y].display = '0'
 					clearCell(x+1, y)
 					clearCell(x+1, y+1)
 					clearCell(x, y+1)
@@ -101,9 +100,19 @@ func clearCell(x, y int) bool {
 	return true
 }
 
+func revealCells() {
+	for x := 0; x < len(grid); x++ {
+		for y := 0; y < len(grid[x]); y++ {
+			clearCell(x, y)
+		}
+
+	}
+}
+
 func main() {
 	rand.Seed(time.Now().UnixNano())
-	makeGrid(10, 10)
+	makeGrid(7, 5)
+	revealCells()
 	displayGrid()
 
 }
