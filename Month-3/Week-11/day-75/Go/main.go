@@ -92,17 +92,17 @@ func main() {
 func printGrid(m Grid) {
 	for _, r := range m {
 		for _, c := range r {
-			if c.Unfolded() {
-				if c.IsBomb() {
-					fmt.Print("x")
-				} else {
-					fmt.Print(c.Bombs())
-				}
-			} else if c.Flagged() {
-				fmt.Print("F")
+			//if c.Unfolded() {
+			if c.IsBomb() {
+				fmt.Print("x")
 			} else {
-				fmt.Print("#")
+				fmt.Print(c.Bombs())
 			}
+			//} else if c.Flagged() {
+			//	fmt.Print("F")
+			//} else {
+			//	fmt.Print("#")
+			//}
 			fmt.Print(" ")
 		}
 		fmt.Printf("\n")
