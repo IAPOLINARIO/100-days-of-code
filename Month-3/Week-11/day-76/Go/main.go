@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"sort"
 )
 
 type Cake struct {
@@ -25,7 +26,7 @@ func (c ByCostBenefit) Len() int {
 }
 
 func (c ByCostBenefit) Less(i, j int) bool {
-	return c[i].costBenefit < c[j].costBenefit
+	return c[j].costBenefit < c[i].costBenefit
 }
 
 func (c ByCostBenefit) Swap(i, j int) {
@@ -44,19 +45,26 @@ func main() {
 func maxDuffelBagValue(cakes []Cake, capacity int) int {
 
 	calcCostBenefit(cakes)
+	sort.Sort(ByCostBenefit(cakes))
 
+	currentLoad := 0
+	currentValue := 0
 	for _, c := range cakes {
-		fmt.Printf("Value Cake cost benefit 2: %v \n", c.costBenefit)
+		for currentLoad+c.weight <= capacity {
+			currentLoad += c.weight
+			currentValue += c.value
+		}
 	}
 
-	return 0
+	fmt.Printf("Total Load: %v \n", currentLoad)
+
+	return currentValue
 }
 
 func calcCostBenefit(cakes []Cake) {
 	for i, _ := range cakes {
 		c := &cakes[i]
 		c.SetCostBenefit()
-
-		fmt.Printf("Value Cake cost benefit 1: %v \n", c.costBenefit)
+		//fmt.Printf("Value Cake cost benefit 1: %v \n", c.costBenefit)
 	}
 }
