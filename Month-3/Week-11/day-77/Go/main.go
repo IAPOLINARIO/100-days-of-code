@@ -1,8 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
-func nextMove(n, r, c int, grid [][]string) {
+func nextMove(n, r, c int, grid [][]string) (result string) {
 	var up, left int
 	princess := [2]int{0, 0}
 
@@ -19,21 +22,21 @@ func nextMove(n, r, c int, grid [][]string) {
 
 	up = princess[0] - r
 	if up < 0 {
-		fmt.Printf("UP\n")
-		return
+		result = fmt.Sprintf(strings.Repeat("DOWN,", up*-1))
 	} else if up > 0 {
-		fmt.Printf("DOWN\n")
-		return
+		result = fmt.Sprintf(strings.Repeat("UP,", up))
 	}
 
 	left = princess[1] - c
 	if left < 0 {
-		fmt.Printf("LEFT\n")
-		return
+		result = fmt.Sprintf(strings.Repeat("LEFT,", up*-1))
+
 	} else if left > 0 {
 		fmt.Printf("RIGHT\n")
 		return
 	}
+
+	return result
 }
 
 /* Tail starts here */
@@ -47,10 +50,3 @@ func main() {
 
 	nextMove(n, r, c, grid)
 }
-
-/*
------
------
-p--m-
------
-*/
