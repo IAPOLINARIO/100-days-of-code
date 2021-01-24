@@ -26,6 +26,7 @@ Output the shortest path you take to rescue the princess. Valid moves are LEFT, 
 -----
 p--m-
 -----
+-----
 ```
 
 #### Sample Output
