@@ -29,11 +29,10 @@ func nextMove(n, r, c int, grid [][]string) (result string) {
 
 	left = princess[1] - c
 	if left < 0 {
-		result = fmt.Sprintf(strings.Repeat("LEFT,", up*-1))
+		result = fmt.Sprintf(strings.Repeat("LEFT,", left*-1))
 
 	} else if left > 0 {
-		fmt.Printf("RIGHT\n")
-		return
+		result = fmt.Sprintf(strings.Repeat("RIGHT,", left))
 	}
 
 	return result
@@ -48,5 +47,5 @@ func main() {
 
 	grid := [][]string{{"-", "-", "-", "-", "-"}, {"-", "-", "-", "-", "-"}, {"p", "-", "-", "m", "-"}, {"-", "-", "-", "-", "-"}, {"-", "-", "-", "-", "-"}}
 
-	nextMove(n, r, c, grid)
+	fmt.Println(nextMove(n, r, c, grid))
 }
