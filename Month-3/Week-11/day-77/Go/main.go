@@ -1,45 +1,57 @@
 package main
 
-func main() {
-	
-	n := 0
-	x := 0
-	y := 0
-	grid := [][]string{}
+import "fmt"
 
-  
-	nextMove(n, x, y, grid);
-	
+func main() {
+
+	var N int
+	fmt.Scan(&N)
+
+	var buf string
+	var startX, startY int
+	var finishX, finishY int
+	for i := 0; i < N; i++ {
+		fmt.Scan(&buf)
+		for j := 0; j < N; j++ {
+			switch string(buf[j]) {
+			case "m":
+				startX, startY = j, i
+			case "p":
+				finishX, finishY = j, i
+			default:
+			}
+		}
+	}
+
+	switch MinMax(startY, finishY) {
+	case 1:
+		for i := startY; i > finishY; i-- {
+			fmt.Println("UP")
+		}
+	case -1:
+		for i := startY; i < finishY; i++ {
+			fmt.Println("DOWN")
+		}
+	}
+
+	switch MinMax(startX, finishX) {
+	case 1:
+		for i := startX; i > finishX; i-- {
+			fmt.Println("LEFT")
+		}
+	case -1:
+		for i := startX; i < finishX; i++ {
+			fmt.Println("RIGHT")
+		}
+	}
+
 }
 
-func nextMove(n, c, r, int, grid [][]string){
-	var i, j, up, left int
-	short princess[2];
-  
-	/* find the princess */
-	for (i = 0; i < n; ++i) {
-	  for (j = 0; j < n; ++j) {
-		if (grid[i][j] == 'p') {
-		  princess[0] = i;
-		  princess[1] = j;
-		}
-	  }
+func MinMax(a, b int) int {
+	if a > b {
+		return 1
+	} else if a < b {
+		return -1
 	}
-  
-	if ((up = princess[0] - r) < 0) {
-	  printf("UP\n");
-	  return;
-	} else if (up > 0) {
-	  printf("DOWN\n");
-	  return;
-	}
-  
-  
-	if ((left = princess[1] - c) < 0) {
-	  printf("LEFT\n");
-	  return;
-	} else if (left > 0) {
-	  printf("RIGHT\n");
-	  return;
-	}
-  }
+	return 0
+}
