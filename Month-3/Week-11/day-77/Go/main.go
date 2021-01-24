@@ -2,9 +2,9 @@ package main
 
 import "fmt"
 
-func nextMove(n, c, r int, grid [][]string) {
+func nextMove(n, r, c int, grid [][]string) {
 	var up, left int
-	princess := [2]int{}
+	princess := [2]int{0, 0}
 
 	/* find the princess */
 
@@ -40,12 +40,12 @@ func nextMove(n, c, r int, grid [][]string) {
 func main() {
 
 	n := 5
-	x := 2
-	y := 3
+	r := 2
+	c := 3
 
 	grid := [][]string{{"-", "-", "-", "-", "-"}, {"-", "-", "-", "-", "-"}, {"p", "-", "-", "m", "-"}, {"-", "-", "-", "-", "-"}, {"-", "-", "-", "-", "-"}}
 
-	nextMove(n, x, y, grid)
+	nextMove(n, r, c, grid)
 }
 
 /*
