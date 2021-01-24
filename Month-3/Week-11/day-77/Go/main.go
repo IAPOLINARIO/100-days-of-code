@@ -45,7 +45,7 @@ func main() {
 
 	grid := [][]string{{"-", "-", "-", "-", "-"}, {"-", "-", "-", "-", "-"}, {"p", "-", "-", "m", "-"}, {"-", "-", "-", "-", "-"}, {"-", "-", "-", "-", "-"}}
 
-	result := strings.Split(nextMove(n, r, c, grid), " ")
+	result := strings.Split(findPrincess(n, r, c, grid), " ")
 
 	fmt.Println(result, " ")
 }
