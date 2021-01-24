@@ -38,7 +38,6 @@ func nextMove(n, r, c int, grid [][]string) (result string) {
 	return result
 }
 
-/* Tail starts here */
 func main() {
 	n := 5
 	r := 2
