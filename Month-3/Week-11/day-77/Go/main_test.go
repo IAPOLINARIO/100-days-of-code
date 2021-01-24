@@ -12,7 +12,7 @@ func Test_Grid_One(t *testing.T) {
 
 	grid := [][]string{{"-", "-", "-", "-", "-"}, {"-", "-", "-", "-", "-"}, {"p", "-", "-", "m", "-"}, {"-", "-", "-", "-", "-"}, {"-", "-", "-", "-", "-"}}
 
-	result := nextMove(n, r, c, grid)
+	result := findPrincess(n, r, c, grid)
 	expectedResult := "LEFT LEFT LEFT "
 
 	if !reflect.DeepEqual(result, expectedResult) {
