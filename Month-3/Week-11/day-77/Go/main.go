@@ -40,18 +40,17 @@ func nextMove(n, c, r int, grid [][]string) {
 func main() {
 
 	n := 5
-	x := 3
-	y := 2
+	x := 2
+	y := 3
 
-	//fmt.Scanf("%d", &n)
-	//fmt.Scanf("%d", &x)
-	//fmt.Scanf("%d", &y)
-
-	grid := [][]string{}
-
-	for i := 0; i < n; i++ {
-		fmt.Scanf("%s[^\n]%*c", grid[i])
-	}
+	grid := [][]string{{"-", "-", "-", "-", "-"}, {"-", "-", "-", "-", "-"}, {"p", "-", "-", "m", "-"}, {"-", "-", "-", "-", "-"}}
 
 	nextMove(n, x, y, grid)
 }
+
+/*
+-----
+-----
+p--m-
+-----
+*/
