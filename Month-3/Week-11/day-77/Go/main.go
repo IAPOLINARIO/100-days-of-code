@@ -40,7 +40,6 @@ func nextMove(n, r, c int, grid [][]string) (result string) {
 
 /* Tail starts here */
 func main() {
-
 	n := 5
 	r := 2
 	c := 3
@@ -49,5 +48,5 @@ func main() {
 
 	result := strings.Split(nextMove(n, r, c, grid), " ")
 
-	fmt.Println(strings.Join(result, ","))
+	fmt.Println(result, " ")
 }
