@@ -39,11 +39,13 @@ func nextMove(n, c, r int, grid [][]string) {
 /* Tail starts here */
 func main() {
 
-	var n, x, y int
+	n := 5
+	x := 3
+	y := 2
 
-	fmt.Scanf("Inform N: %d", &n)
-	fmt.Scanf("Inform X: %d", &x)
-	fmt.Scanf("Inform Y: %d", &y)
+	//fmt.Scanf("%d", &n)
+	//fmt.Scanf("%d", &x)
+	//fmt.Scanf("%d", &y)
 
 	grid := [][]string{}
 
