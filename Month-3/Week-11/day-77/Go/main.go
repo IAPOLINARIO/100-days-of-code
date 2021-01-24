@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-func nextMove(n, r, c int, grid [][]string) (result string) {
+func findPrincess(n, r, c int, grid [][]string) (result string) {
 	var up, left int
 	princess := [2]int{0, 0}
 
