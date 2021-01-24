@@ -26,16 +26,15 @@ func Test_Grid_One(t *testing.T) {
 }
 
 func Test_Grid_Two(t *testing.T) {
-	n := 5
+	n := 4
 	r := 2
 	c := 3
 
 	grid := [][]string{
-		{"-", "-", "-", "-", "-"},
-		{"-", "-", "-", "-", "-"},
-		{"p", "-", "-", "m", "-"},
-		{"-", "-", "-", "-", "-"},
-		{"-", "-", "-", "-", "-"}}
+		{"-", "-", "-", "-"},
+		{"p", "-", "-", "-"},
+		{"-", "-", "-", "m"},
+		{"-", "-", "-", "-"}}
 
 	result := findPrincess(n, r, c, grid)
 	expectedResult := "LEFT LEFT LEFT "
