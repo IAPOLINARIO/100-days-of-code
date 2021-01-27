@@ -56,6 +56,7 @@ var alphaNumerics = []rune{
 var allTheCharacters = append(halfWidthKana, alphaNumerics...)
 
 // characters to be used, can be set to alphaNumerics or halfWidthKana depending on flags
+
 // defaults to allTheCharacters
 var characters []rune
 
