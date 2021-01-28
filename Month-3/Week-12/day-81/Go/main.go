@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 
@@ -8,7 +9,7 @@ import (
 )
 
 func main() {
-
+	fmt.Println("Listening at port 8080")
 	http.Handle("/", http.HandlerFunc(googleLogo))
 	err := http.ListenAndServe(":8080", nil)
 	if err != nil {
