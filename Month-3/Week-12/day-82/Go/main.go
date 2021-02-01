@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func isNonDecreasing(number int64) bool {
 	remainder := int64(10)
@@ -30,13 +32,12 @@ func lastTidyNumber(number int64) int64 {
 	return number
 }
 
-func checkTidyNumber(input []int64) (result []string) {
-
+func CheckTidyNumber(input []int64) (result []string) {
 	for i := int64(1); i <= input[0]; i++ {
 		if isNonDecreasing(input[i]) {
-			result = append(result, fmt.Sprintf("Case #%d: %d \n", i, input[i]))
+			result = append(result, fmt.Sprintf("Case #%d: %d", i, input[i]))
 		} else {
-			result = append(result, fmt.Sprintf("Case #%d: %d \n", i, lastTidyNumber(input[i])))
+			result = append(result, fmt.Sprintf("Case #%d: %d", i, lastTidyNumber(input[i])))
 		}
 	}
 
@@ -46,6 +47,6 @@ func checkTidyNumber(input []int64) (result []string) {
 func main() {
 	input := []int64{4, 132, 1000, 7, 111111111111111110}
 
-	fmt.Println(checkTidyNumber(input))
+	fmt.Println(CheckTidyNumber(input))
 
 }
