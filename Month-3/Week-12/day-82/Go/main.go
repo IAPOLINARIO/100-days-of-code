@@ -17,6 +17,19 @@ func isNonDecreasing(number int64) bool {
 	return true
 }
 
+func lastTidyNumber(number int64) int64 {
+	subtrahend := int64((number % 10) + 1)
+	number -= subtrahend
+	subtrahend = 10
+	for !isNonDecreasing(number) {
+		if number%(subtrahend*10) == (subtrahend*10)-1 {
+			subtrahend *= 10
+		}
+		number -= subtrahend
+	}
+	return number
+}
+
 func main() {
 	input := []int64{4, 132, 1000, 7, 111111111111111110}
 
