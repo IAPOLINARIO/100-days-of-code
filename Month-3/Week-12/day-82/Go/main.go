@@ -30,15 +30,22 @@ func lastTidyNumber(number int64) int64 {
 	return number
 }
 
-func main() {
-	input := []int64{4, 132, 1000, 7, 111111111111111110}
+func checkTidyNumber(input []int64) (result []string) {
 
 	for i := int64(1); i <= input[0]; i++ {
 		if isNonDecreasing(input[i]) {
-			fmt.Printf("Case #%d: %d \n", i, input[i])
+			result = append(result, fmt.Sprintf("Case #%d: %d \n", i, input[i]))
 		} else {
-			fmt.Printf("Case #%d: %d \n", i, lastTidyNumber(input[i]))
+			result = append(result, fmt.Sprintf("Case #%d: %d \n", i, lastTidyNumber(input[i])))
 		}
 	}
+
+	return result
+}
+
+func main() {
+	input := []int64{4, 132, 1000, 7, 111111111111111110}
+
+	fmt.Println(checkTidyNumber(input))
 
 }
