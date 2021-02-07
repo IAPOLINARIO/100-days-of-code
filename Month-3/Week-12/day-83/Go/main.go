@@ -1,39 +1,54 @@
 package main
 
+import "fmt"
+
 type Stall struct {
-	n int
-	k int
+	left  int64
+	right int64
 }
 
 func main() {
 
+	input := [][]int64{{4, 2}, {5, 2}, {6, 2}, {1000, 1000}, {1000, 1}}
+
+	checkStalls(input)
 }
 
-func checkStalls(input int, stalls []Stall){
+func checkStalls(input [][]int64) {
 
- for i := 1; i < input; i ++ {
-
- }
-
- 	spaces := make(map[int]int)
-	//for(int tc = 1; i <= t; tc++) {
-		//ll n, k; scanf("%lld %lld\n", &n, &k);
-		spaces.clear();
-		spaces[n]++;
-	
-		//ll ls = -1, rs = -1;
-		while(k > 0) {
-		  auto it = prev(spaces.end());
-		  ll size = it->first, count = it->second;
-		  spaces.erase(it);
-	
-		  ls = (size - 1) / 2;
-		  rs = size / 2;
-		  spaces[ls] += count;
-		  spaces[rs] += count;
-		  k -= count;
+	for k, v := range input {
+		s := solve(v[0], v[1])
+		if s.right < s.left {
+			fmt.Printf("CASE #%d: %d %d\n", k, s.left, s.right)
+		} else {
+			fmt.Printf("CASE #%d: %d %d\n", k, s.right, s.left)
 		}
-		printf("Case #%d: %lld %lld\n", tc, max(ls, rs), min(ls, rs));
-	  }
-	  return 0;
+	}
+}
+
+func solve(N int64, K int64) (result Stall) {
+
+	result = placeOne(N)
+	for K > 1 {
+		if K%2 == 0 {
+			result = placeOne(result.right)
+			K /= 2
+		} else {
+			result = placeOne(result.left)
+			K = (K - 1) / 2
+		}
+	}
+	return result
+}
+
+func placeOne(N int64) (result Stall) {
+
+	if N%2 == 0 {
+		result.left = N/2 - 1
+		result.right = N / 2
+	} else {
+		result.left = (N - 1) / 2
+		result.right = (N - 1) / 2
+	}
+	return result
 }
